@@ -6,13 +6,13 @@ including conversation management, prompt handling, and various interface option
 This is Phase 7: Build Your AI Assistant Application.
 """
 
-import os
 import sys
 import json
-import time
 from pathlib import Path
-from typing import Dict, List, Optional, Any
+from typing import List
 import logging
+import gradio as gr
+import streamlit as st
 
 # Add parent directory to path
 sys.path.append(str(Path(__file__).parent.parent))
@@ -20,9 +20,6 @@ sys.path.append(str(Path(__file__).parent.parent))
 try:
     import torch
     import torch.nn.functional as F
-    import gradio as gr
-    import streamlit as st
-    from transformers import AutoTokenizer, AutoModelForCausalLM
     
     # Import our custom modules
     from shared.utils import setup_logging, get_device
@@ -56,12 +53,12 @@ class AIAssistant:
     def load_model(self, model_path: str, tokenizer_path: str):
         """Load the trained model and tokenizer."""
         try:
-            logger.info(f"Loading model from {model_path}")
+            logger.info("Loading model from %s", model_path)
             
             # Load model configuration
             config_path = Path(model_path) / "model_config.json"
             if config_path.exists():
-                with open(config_path, 'r') as f:
+                with open(config_path, 'r', encoding='utf-8') as f:
                     model_config = json.load(f)
                 
                 # Create model
@@ -88,7 +85,7 @@ class AIAssistant:
             self.model.eval()
             
         except Exception as e:
-            logger.error(f"Failed to load model: {e}")
+            logger.error("Failed to load model: %s", e)
             self.model = None
             self.tokenizer = None
     
@@ -136,7 +133,7 @@ class AIAssistant:
             return response
             
         except Exception as e:
-            logger.error(f"Generation failed: {e}")
+            logger.error("Generation failed: %s", e)
             return "I apologize, but I encountered an error while generating a response."
     
     def _prepare_context(self, user_input: str) -> str:
@@ -272,11 +269,11 @@ def create_gradio_interface(assistant: AIAssistant) -> gr.Interface:
                 
                 gr.Markdown("### 📊 Model Info")
                 if assistant.model:
-                    gr.Markdown(f"**Status:** ✅ Model Loaded")
+                    gr.Markdown("**Status:** ✅ Model Loaded")
                     gr.Markdown(f"**Parameters:** {assistant.model.count_parameters():,}")
                 else:
-                    gr.Markdown(f"**Status:** ⚠️ Demo Mode")
-                    gr.Markdown(f"**Parameters:** N/A")
+                    gr.Markdown("**Status:** ⚠️ Demo Mode")
+                    gr.Markdown("**Parameters:** N/A")
         
         # Event handlers
         def enhanced_chat_function(message, history, temp, top_p_val, max_len):
