@@ -24,11 +24,302 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Helvetica Neue', sans-serif;
-            background: #0a0a0a;
+            background: #343541;
             color: #ffffff;
             height: 100vh;
             overflow: hidden;
             line-height: 1.5;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Light Mode */
+        body.light-mode {
+            background: #ffffff !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .sidebar {
+            background: #f7f7f8 !important;
+            border-right-color: #e5e5e5 !important;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.light-mode .sidebar-title {
+            color: #212529 !important;
+        }
+        
+        body.light-mode .new-chat-btn {
+            background: #ffffff !important;
+            border-color: #e5e5e5 !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .new-chat-btn:hover {
+            background: #f7f7f8 !important;
+            border-color: #d0d0d0 !important;
+        }
+        
+        body.light-mode .chat-item {
+            color: #495057 !important;
+        }
+        
+        body.light-mode .chat-item:hover {
+            background: #f0f0f0 !important;
+        }
+        
+        body.light-mode .chat-item.active {
+            background: #e5e5e5 !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .user-info {
+            background: #f8f9fa !important;
+            border-color: #dee2e6 !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .main-content {
+            background: #ffffff !important;
+        }
+        
+        body.light-mode .message.assistant {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        
+        body.light-mode .message.user {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+        }
+        
+        body.light-mode .message-text {
+            color: #212529;
+        }
+        
+        body.light-mode .message-time {
+            color: #6c757d;
+        }
+        
+        body.light-mode .settings-panel {
+            background: #ffffff;
+            border-color: #dee2e6;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-mode .settings-title {
+            color: #212529;
+            border-bottom-color: #dee2e6;
+        }
+        
+        body.light-mode .setting-label {
+            color: #212529;
+        }
+        
+        body.light-mode .setting-select {
+            background: #ffffff;
+            border-color: #dee2e6;
+            color: #212529;
+        }
+        
+        body.light-mode .setting-select:hover {
+            border-color: #adb5bd;
+            background: #f8f9fa;
+        }
+        
+        body.light-mode .input-container {
+            background: #ffffff;
+            border-top-color: #dee2e6;
+        }
+        
+        body.light-mode .input-area {
+            background: #ffffff;
+            border-top-color: #e5e5e5;
+        }
+        
+        body.light-mode .input-box {
+            background: #f7f7f8;
+            border-color: #e5e5e5;
+            color: #212529;
+        }
+        
+        body.light-mode .input-box:focus {
+            border-color: #4285f4;
+            background: #ffffff;
+        }
+        
+        body.light-mode .input-box::placeholder {
+            color: #8e8ea0;
+        }
+        
+        body.light-mode .send-btn {
+            background: #4285f4;
+        }
+        
+        body.light-mode .send-btn:hover {
+            background: #3367d6;
+        }
+        
+        body.light-mode .settings-gear {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #dee2e6;
+            color: #495057;
+        }
+        
+        body.light-mode .settings-gear:hover {
+            background: rgba(248, 249, 250, 0.95);
+            border-color: #adb5bd;
+        }
+        
+        body.light-mode .signin-modal {
+            background: #ffffff;
+            border-color: #dee2e6;
+        }
+        
+        body.light-mode .modal-title {
+            color: #212529;
+        }
+        
+        body.light-mode .modal-subtitle {
+            color: #6c757d;
+        }
+        
+        body.light-mode .switch-slider {
+            background-color: #dee2e6;
+        }
+        
+        body.light-mode .main-header {
+            background: #ffffff;
+            border-bottom-color: #e5e5e5;
+        }
+        
+        body.light-mode .welcome-title {
+            color: #212529;
+        }
+        
+        body.light-mode .welcome-subtitle {
+            color: #6c757d;
+        }
+        
+        body.light-mode .quick-action {
+            background: #f8f9fa;
+            border-color: #dee2e6;
+            color: #212529;
+        }
+        
+        body.light-mode .quick-action:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-mode .settings-modal {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        body.light-mode .settings-modal-content {
+            background: #ffffff;
+            border-color: #dee2e6;
+        }
+        
+        body.light-mode .settings-sidebar {
+            background: #f8f9fa;
+            border-right-color: #dee2e6;
+        }
+        
+        body.light-mode .settings-nav-item {
+            color: #495057;
+        }
+        
+        body.light-mode .settings-nav-item:hover {
+            background: #e9ecef;
+        }
+        
+        body.light-mode .settings-nav-item.active {
+            background: #007bff;
+            color: #ffffff;
+        }
+        
+        body.light-mode .settings-main {
+            background: #ffffff;
+        }
+        
+        body.light-mode .settings-header {
+            background: #ffffff;
+            border-bottom-color: #dee2e6;
+        }
+        
+        body.light-mode .settings-header h2 {
+            color: #212529;
+        }
+        
+        body.light-mode .close-settings {
+            color: #6c757d;
+        }
+        
+        body.light-mode .close-settings:hover {
+            background: #f8f9fa;
+            color: #212529;
+        }
+        
+        body.light-mode .settings-section h3 {
+            color: #212529;
+        }
+        
+        body.light-mode .settings-footer {
+            background: #f8f9fa;
+            border-top-color: #dee2e6;
+        }
+
+        body.light-mode .setting-item {
+            background: #ffffff;
+            border-color: #dee2e6;
+        }
+
+        body.light-mode .setting-label {
+            color: #212529;
+        }
+
+        body.light-mode .setting-description {
+            color: #6c757d;
+        }
+
+        body.light-mode .storage-bar {
+            background: #e9ecef;
+        }
+
+        body.light-mode .storage-text {
+            color: #6c757d;
+        }
+
+        body.light-mode .setting-btn {
+            background: #ffffff;
+            border-color: #dee2e6;
+            color: #495057;
+        }
+
+        body.light-mode .setting-btn:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+        }
+            background: #f8f9fa;
+            border-top-color: #dee2e6;
+        }
+        
+        body.light-mode .modal-close {
+            color: #6c757d;
+        }
+        
+        body.light-mode .modal-close:hover {
+            color: #495057;
+        }
+        
+        /* Compact Mode */
+        body.compact-mode .message {
+            padding: 8px 16px;
+        }
+        
+        body.compact-mode .sidebar {
+            width: 220px;
         }
         
         /* App Container */
@@ -42,8 +333,8 @@
         /* Sidebar */
         .sidebar {
             width: 260px;
-            background: #1a1a1a;
-            border-right: 1px solid #2a2a2a;
+            background: #202123;
+            border-right: 1px solid #3e3e40;
             display: flex;
             flex-direction: column;
             padding: 20px 16px;
@@ -71,7 +362,7 @@
         .new-chat-btn {
             width: 100%;
             background: transparent;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #444654;
             border-radius: 8px;
             padding: 12px 16px;
             color: #ffffff;
@@ -85,8 +376,8 @@
         }
         
         .new-chat-btn:hover {
-            background: #2a2a2a;
-            border-color: #4a4a4a;
+            background: #2a2b32;
+            border-color: #565869;
         }
         
         .chat-list {
@@ -108,12 +399,12 @@
         }
         
         .chat-item:hover {
-            background: #2a2a2a;
+            background: #2a2b32;
             color: #ffffff;
         }
         
         .chat-item.active {
-            background: #3a3a3a;
+            background: #444654;
             color: #ffffff;
         }
         
@@ -122,7 +413,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            background: #0a0a0a;
+            background: #343541;
             position: relative;
         }
         
@@ -132,8 +423,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid #2a2a2a;
-            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid #444654;
+            background: #343541;
             backdrop-filter: blur(10px);
             position: relative;
             z-index: 5;
@@ -246,9 +537,9 @@
         }
         
         .message.assistant .message-avatar {
-            background: #2a2a2a;
+            background: #444654;
             color: #ffffff;
-            border: 1px solid #3a3a3a;
+            border: 1px solid #565869;
         }
         
         .message-content {
@@ -263,8 +554,8 @@
         }
         
         .message.assistant .message-content {
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
+            background: #444654;
+            border: 1px solid #565869;
             border-radius: 18px 18px 18px 4px;
         }
         
@@ -279,8 +570,8 @@
         /* Input Area */
         .input-area {
             padding: 20px;
-            border-top: 1px solid #2a2a2a;
-            background: rgba(26, 26, 26, 0.95);
+            border-top: 1px solid #444654;
+            background: #343541;
             backdrop-filter: blur(10px);
         }
         
@@ -292,8 +583,8 @@
         
         .input-box {
             width: 100%;
-            background: #1a1a1a;
-            border: 1px solid #3a3a3a;
+            background: #40414f;
+            border: 1px solid #565869;
             border-radius: 24px;
             padding: 16px 60px 16px 20px;
             color: #ffffff;
@@ -313,7 +604,7 @@
         }
         
         .input-box::placeholder {
-            color: #666666;
+            color: #8e8ea0;
         }
         
         .send-button {
@@ -350,44 +641,162 @@
             cursor: not-allowed;
         }
         
-        /* Settings Panel */
-        .settings-panel {
+        /* Settings Modal */
+        .settings-modal {
             position: fixed;
-            right: 20px;
-            top: 20px;
-            width: 320px;
-            background: rgba(26, 26, 26, 0.95);
-            border: 1px solid #2a2a2a;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-            backdrop-filter: blur(20px);
-            z-index: 1000;
-            transform: translateX(340px);
-            transition: transform 0.3s ease;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
             opacity: 0;
-            visibility: hidden;
-            display: none; /* Completely hide until ready */
+            transition: opacity 0.3s ease;
         }
         
-        .settings-panel.open {
-            transform: translateX(0);
+        .settings-modal.open {
+            display: flex;
             opacity: 1;
-            visibility: visible;
         }
         
-        .settings-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #ffffff;
-            margin-bottom: 16px;
+        .settings-modal-content {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            height: 80%;
+            max-height: 700px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .settings-header {
             display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid #2a2a2a;
+            background: #1a1a1a;
+        }
+        
+        .settings-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+        }
+        
+        .close-settings {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .close-settings:hover {
+            background: #2a2a2a;
+            color: #ffffff;
+        }
+        
+        .settings-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .settings-sidebar {
+            width: 240px;
+            background: #141414;
+            border-right: 1px solid #2a2a2a;
+            padding: 16px 0;
+        }
+        
+        .settings-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .settings-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .settings-nav-item i {
+            margin-right: 12px;
+            width: 16px;
+            text-align: center;
+        }
+        
+        .settings-nav-item:hover {
+            background: #2a2a2a;
+            color: #ffffff;
+        }
+        
+        .settings-nav-item.active {
+            background: #4285f4;
+            color: #ffffff;
+        }
+        
+        .settings-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+        
+        .settings-category {
+            display: none;
+        }
+        
+        .settings-category.active {
+            display: block;
+        }
+        
+        .settings-category h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+        }
+        
+        .settings-category h3 i {
+            margin-right: 10px;
+        }
+        
+        .category-description {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+            line-height: 1.5;
         }
         
         .setting-item {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            padding: 16px;
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
         }
         
         .setting-label {
@@ -396,54 +805,176 @@
             justify-content: space-between;
             margin-bottom: 8px;
             font-size: 14px;
-            color: #b0b0b0;
+            color: #ffffff;
+            font-weight: 500;
         }
         
-        .setting-value {
+        .setting-label span i {
+            margin-right: 8px;
+        }
+        
+        .setting-description {
+            color: #888;
             font-size: 12px;
-            color: #666666;
-            background: #333;
-            padding: 2px 6px;
-            border-radius: 4px;
-            min-width: 30px;
-            text-align: center;
+            line-height: 1.4;
+            margin-top: 4px;
         }
         
-        .slider {
+        /* Storage Info */
+        .storage-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .storage-bar {
             width: 100%;
             height: 6px;
-            background: #3a3a3a;
+            background: #2a2a2a;
             border-radius: 3px;
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-            cursor: pointer;
+            overflow: hidden;
         }
         
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
-            border-radius: 50%;
+        .storage-used {
+            height: 100%;
+            background: linear-gradient(90deg, #4285f4, #9c27b0);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .storage-text {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* Settings Footer */
+        .settings-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-top: 1px solid #2a2a2a;
+            background: #1a1a1a;
+        }
+        
+        .settings-version {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        /* Switch Toggle Styles */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .switch-slider {
+            position: absolute;
             cursor: pointer;
-            box-shadow: 0 2px 6px rgba(66, 133, 244, 0.3);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #3a3a3a;
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+        
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #ffffff;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        .switch input:checked + .switch-slider {
+            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
+        }
+        
+        .switch input:checked + .switch-slider:before {
+            transform: translateX(20px);
+        }
+        
+        /* Setting Select Dropdown */
+        .setting-select {
+            width: 100%;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            color: #ffffff;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
             transition: all 0.2s ease;
         }
         
-        .slider::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-            box-shadow: 0 3px 8px rgba(66, 133, 244, 0.4);
+        .setting-select:hover {
+            border-color: #4a4a4a;
+            background: #333333;
         }
         
-        .slider::-moz-range-thumb {
-            width: 18px;
-            height: 18px;
-            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
-            border-radius: 50%;
-            cursor: pointer;
+        .setting-select:focus {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+        }
+        
+        .setting-select option {
+            background: #2a2a2a;
+            color: #ffffff;
+            padding: 8px;
+        }
+        
+        /* Setting Buttons */
+        .setting-btn {
+            width: 100%;
+            background: #4285f4;
             border: none;
-            box-shadow: 0 2px 6px rgba(66, 133, 244, 0.3);
+            border-radius: 6px;
+            color: #ffffff;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .setting-btn i {
+            margin-right: 6px;
+        }
+        
+        .setting-btn:hover {
+            background: #3367d6;
+            transform: translateY(-1px);
+        }
+        
+        .setting-btn.danger {
+            background: #dc3545;
+        }
+        
+        .setting-btn.danger:hover {
+            background: #c82333;
+        }
+        
+        .setting-btn.warning {
+            background: #ff9800;
+        }
+        
+        .setting-btn.warning:hover {
+            background: #f57c00;
         }
         
         /* Typing Indicator */
@@ -562,36 +1093,33 @@
             right: 20px;
             width: 44px;
             height: 44px;
-            background: rgba(26, 26, 26, 0.5);
-            border: 1px solid #2a2a2a;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid #3a3a3a;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: not-allowed;
+            cursor: pointer;
             transition: all 0.3s ease;
             z-index: 1001;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
             font-size: 18px;
-            color: #666666;
-            opacity: 0.5;
-            pointer-events: none; /* Completely disable interaction */
+            color: #ffffff;
+            opacity: 1;
         }
         
         .settings-gear:hover {
-            /* Disabled hover effects */
-            background: rgba(26, 26, 26, 0.5);
-            border-color: #2a2a2a;
-            transform: none;
-            box-shadow: none;
+            background: rgba(42, 42, 42, 0.9);
+            border-color: #4a4a4a;
+            transform: rotate(45deg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
         .settings-gear.active {
-            /* Disabled active effects */
-            background: rgba(26, 26, 26, 0.5);
-            border-color: #2a2a2a;
-            transform: none;
-            box-shadow: none;
+            background: rgba(60, 60, 60, 0.9);
+            border-color: #5a5a5a;
+            transform: rotate(90deg);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
         }
         
         .mobile-menu-btn {
@@ -675,6 +1203,10 @@
             display: flex;
         }
         
+        .modal-overlay.active .signin-modal {
+            pointer-events: auto;
+        }
+        
         .signin-modal {
             background: #1a1a1a;
             border: 1px solid #2a2a2a;
@@ -684,6 +1216,7 @@
             max-width: 420px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
             animation: modalSlideIn 0.3s ease-out;
+            pointer-events: auto;
         }
         
         @keyframes modalSlideIn {
@@ -833,6 +1366,9 @@
             color: #ffffff;
             font-size: 14px;
             transition: all 0.3s ease;
+            pointer-events: auto;
+            user-select: text;
+            -webkit-user-select: text;
         }
         
         .form-input:focus {
@@ -944,7 +1480,7 @@
             <div class="chat-list" id="chatList">
                 <!-- Your conversations will appear here -->
                 <div class="empty-state" style="text-align: center; padding: 40px 20px; color: #666; font-size: 14px;">
-                    <div style="font-size: 24px; margin-bottom: 8px;">💬</div>
+                    <div style="font-size: 24px; margin-bottom: 8px;"><i class="fas fa-comments"></i></div>
                     <div>Your conversations will appear here</div>
                 </div>
             </div>
@@ -965,23 +1501,23 @@
                     
                     <div class="quick-actions">
                         <div class="quick-action" onclick="quickAction('code')">
-                            <span>💻</span>
+                            <span><i class="fas fa-code"></i></span>
                             <span>Code</span>
                         </div>
                         <div class="quick-action" onclick="quickAction('create')">
-                            <span>🎨</span>
+                            <span><i class="fas fa-palette"></i></span>
                             <span>Create</span>
                         </div>
                         <div class="quick-action" onclick="quickAction('write')">
-                            <span>📝</span>
+                            <span><i class="fas fa-pen"></i></span>
                             <span>Write</span>
                         </div>
                         <div class="quick-action" onclick="quickAction('learn')">
-                            <span>🎓</span>
+                            <span><i class="fas fa-graduation-cap"></i></span>
                             <span>Learn</span>
                         </div>
                         <div class="quick-action" onclick="quickAction('life stuff')">
-                            <span>🌟</span>
+                            <span><i class="fas fa-star"></i></span>
                             <span>Life stuff</span>
                         </div>
                     </div>
@@ -1003,50 +1539,401 @@
             </div>
         </div>
         
-        <!-- Settings Gear Button (Disabled) -->
-        <div class="settings-gear" id="settingsGear" title="Settings (Coming Soon)">
-            ⚙️
+        <!-- Settings Gear Button -->
+        <div class="settings-gear" id="settingsGear" title="Settings">
+            <i class="fas fa-cog"></i>
         </div>
         
         <!-- Settings Panel -->
-        <div class="settings-panel" id="settingsPanel">
-            <div class="settings-title">
-                <span>⚙️</span>
-                Settings
-            </div>
-            
-            <div class="setting-item">
-                <div class="setting-label">
-                    <span>🔥 Temperature</span>
-                    <span class="setting-value" id="tempValue">0.8</span>
+        <div class="settings-modal" id="settingsModal">
+            <div class="settings-modal-content">
+                <div class="settings-header">
+                    <h2><i class="fas fa-cog"></i> Settings</h2>
+                    <button class="close-settings" onclick="closeSettings()">&times;</button>
                 </div>
-                <input type="range" class="slider" id="tempSlider" min="0.1" max="2" step="0.1" value="0.8" oninput="updateSetting('temp', this.value)">
-                <div style="font-size: 11px; color: #666; margin-top: 4px;">Higher = more creative</div>
-            </div>
-            
-            <div class="setting-item">
-                <div class="setting-label">
-                    <span>🔄 Top-p</span>
-                    <span class="setting-value" id="toppValue">0.9</span>
+                
+                <div class="settings-body">
+                    <div class="settings-sidebar">
+                        <div class="settings-nav">
+                            <button class="settings-nav-item active" onclick="showSettingsCategory('appearance')" data-category="appearance">
+                                <i class="fas fa-palette"></i> Appearance
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('behavior')" data-category="behavior">
+                                <i class="fas fa-bolt"></i> Behavior
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('ai')" data-category="ai">
+                                <i class="fas fa-robot"></i> AI Settings
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('privacy')" data-category="privacy">
+                                <i class="fas fa-shield-alt"></i> Privacy & Security
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('language')" data-category="language">
+                                <i class="fas fa-globe"></i> Language & Region
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('data')" data-category="data">
+                                <i class="fas fa-database"></i> Data Management
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('developer')" data-category="developer">
+                                <i class="fas fa-code"></i> Developer
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <!-- Appearance Settings -->
+                        <div class="settings-category active" id="appearance-settings">
+                            <h3><i class="fas fa-palette"></i> Appearance</h3>
+                            <p class="category-description">Customize how Glitch Bot looks and feels</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-moon"></i> Theme</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="darkModeToggle" checked onchange="toggleDarkMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Switch between dark and light themes</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-mobile-alt"></i> Compact Mode</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="compactToggle" onchange="toggleCompactMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Reduce spacing for better mobile experience</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-magic"></i> Show Typing Indicator</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="typingToggle" checked onchange="toggleTypingIndicator()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Show animation when AI is thinking</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Behavior Settings -->
+                        <div class="settings-category" id="behavior-settings">
+                            <h3><i class="fas fa-bolt"></i> Behavior</h3>
+                            <p class="category-description">Control how the app behaves and responds</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-rocket"></i> Send on Enter</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="enterSendToggle" checked onchange="toggleEnterSend()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Send messages by pressing Enter (Shift+Enter for new line)</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-keyboard"></i> Auto-focus Input</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="autoFocusToggle" checked onchange="toggleAutoFocus()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Automatically focus the input field for quick typing</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-volume-up"></i> Sound Effects</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="soundToggle" checked onchange="toggleSounds()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Play notification sounds for new messages</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-save"></i> Auto-save Chats</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="autoSaveToggle" checked onchange="toggleAutoSave()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Automatically save your conversations</div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI Settings -->
+                        <div class="settings-category" id="ai-settings">
+                            <h3><i class="fas fa-robot"></i> AI Settings</h3>
+                            <p class="category-description">Customize your AI assistant's personality and behavior</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-user-cog"></i> AI Personality</span>
+                                    <select class="setting-select" id="personalitySelect" onchange="changePersonality(this.value)">
+                                        <option value="balanced">Balanced</option>
+                                        <option value="creative">Creative</option>
+                                        <option value="professional">Professional</option>
+                                        <option value="friendly">Friendly</option>
+                                        <option value="technical">Technical</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose how your AI assistant responds and communicates</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-comment-dots"></i> Response Style</span>
+                                    <select class="setting-select" id="responseStyleSelect" onchange="changeResponseStyle(this.value)">
+                                        <option value="detailed">Detailed</option>
+                                        <option value="concise">Concise</option>
+                                        <option value="conversational">Conversational</option>
+                                        <option value="educational">Educational</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Control the length and style of AI responses</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Privacy Settings -->
+                        <div class="settings-category" id="privacy-settings">
+                            <h3><i class="fas fa-shield-alt"></i> Privacy & Security</h3>
+                            <p class="category-description">Manage your privacy and data security settings</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-lock"></i> Privacy Mode</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="privacyToggle" onchange="togglePrivacyMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Don't save sensitive conversations to history</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-user-secret"></i> Incognito Mode</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="incognitoToggle" onchange="toggleIncognito()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Temporary mode - conversations won't be saved</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-key"></i> Auto-lock</span>
+                                    <select class="setting-select" id="autoLockSelect" onchange="changeAutoLock(this.value)">
+                                        <option value="never">Never</option>
+                                        <option value="5min">5 minutes</option>
+                                        <option value="15min">15 minutes</option>
+                                        <option value="30min">30 minutes</option>
+                                        <option value="1hour">1 hour</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Automatically sign out after inactivity</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Language Settings -->
+                        <div class="settings-category" id="language-settings">
+                            <h3><i class="fas fa-globe"></i> Language & Region</h3>
+                            <p class="category-description">Customize language and regional preferences</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-language"></i> Interface Language</span>
+                                    <select class="setting-select" id="languageSelect" onchange="changeLanguage(this.value)">
+                                        <option value="en">🇺🇸 English</option>
+                                        <option value="es">🇪🇸 Español</option>
+                                        <option value="fr">🇫🇷 Français</option>
+                                        <option value="de">🇩🇪 Deutsch</option>
+                                        <option value="ja">🇯🇵 日本語</option>
+                                        <option value="zh">🇨🇳 中文</option>
+                                        <option value="ko">🇰🇷 한국어</option>
+                                        <option value="pt">🇧🇷 Português</option>
+                                        <option value="ru">🇷🇺 Русский</option>
+                                        <option value="ar">🇸🇦 العربية</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose your preferred interface language</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-calendar-alt"></i> Date Format</span>
+                                    <select class="setting-select" id="dateFormatSelect" onchange="changeDateFormat(this.value)">
+                                        <option value="mdy">MM/DD/YYYY (US)</option>
+                                        <option value="dmy">DD/MM/YYYY (EU)</option>
+                                        <option value="ymd">YYYY-MM-DD (ISO)</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose how dates are displayed</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-clock"></i> Time Format</span>
+                                    <select class="setting-select" id="timeFormatSelect" onchange="changeTimeFormat(this.value)">
+                                        <option value="12">12-hour (AM/PM)</option>
+                                        <option value="24">24-hour</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose between 12-hour or 24-hour time format</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Management -->
+                        <div class="settings-category" id="data-settings">
+                            <h3><i class="fas fa-database"></i> Data Management</h3>
+                            <p class="category-description">Manage your data, backups, and storage</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-download"></i> Export Data</span>
+                                    <button class="setting-btn" onclick="exportUserData()">
+                                        <i class="fas fa-download"></i> Export All Data
+                                    </button>
+                                </div>
+                                <div class="setting-description">Download all your chat history and settings</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-upload"></i> Import Data</span>
+                                    <button class="setting-btn" onclick="importUserData()">
+                                        <i class="fas fa-upload"></i> Import Data
+                                    </button>
+                                </div>
+                                <div class="setting-description">Restore your data from a backup file</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-trash-alt"></i> Clear Chat History</span>
+                                    <button class="setting-btn warning" onclick="clearChatHistory()">
+                                        <i class="fas fa-trash-alt"></i> Clear Chats
+                                    </button>
+                                </div>
+                                <div class="setting-description">Delete all conversation history</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-undo-alt"></i> Reset All Settings</span>
+                                    <button class="setting-btn danger" onclick="clearAllData()">
+                                        <i class="fas fa-undo-alt"></i> Factory Reset
+                                    </button>
+                                </div>
+                                <div class="setting-description">Reset everything to default settings</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-chart-bar"></i> Storage Usage</span>
+                                    <div class="storage-info">
+                                        <div class="storage-bar">
+                                            <div class="storage-used" style="width: 35%"></div>
+                                        </div>
+                                        <div class="storage-text">2.1 MB of 10 MB used</div>
+                                    </div>
+                                </div>
+                                <div class="setting-description">Local storage usage for chats and settings</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Developer Settings -->
+                        <div class="settings-category" id="developer-settings">
+                            <h3><i class="fas fa-code"></i> Developer</h3>
+                            <p class="category-description">Development and debugging tools for advanced users</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-bug"></i> Debug Mode <i class="fas fa-lock" style="color: #ff6b6b; font-size: 10px; margin-left: 5px;"></i></span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="debugToggle" onchange="toggleDebugMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Enable console logging and debugging information<br><small style="color: #ff6b6b;">🔒 Requires developer access</small></div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-terminal"></i> Console Logging <i class="fas fa-lock" style="color: #ff6b6b; font-size: 10px; margin-left: 5px;"></i></span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="consoleLoggingToggle" onchange="toggleConsoleLogging()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Log API calls and user interactions to browser console<br><small style="color: #ff6b6b;">🔒 Requires developer access</small></div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-flask"></i> Experimental Features</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="experimentalToggle" onchange="toggleExperimentalFeatures()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Enable beta features and experimental functionality</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-stopwatch"></i> Performance Monitoring</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="performanceToggle" onchange="togglePerformanceMonitoring()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Track and display performance metrics</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-database"></i> Local Storage Info</span>
+                                    <button class="setting-btn" onclick="showLocalStorageInfo()">
+                                        <i class="fas fa-info-circle"></i> View Storage Data
+                                    </button>
+                                </div>
+                                <div class="setting-description">View detailed local storage information and structure</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-trash-alt"></i> Clear Cache</span>
+                                    <button class="setting-btn warning" onclick="clearCache()">
+                                        <i class="fas fa-broom"></i> Clear Cache
+                                    </button>
+                                </div>
+                                <div class="setting-description">Clear browser cache and temporary data</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <input type="range" class="slider" id="toppSlider" min="0.1" max="1" step="0.1" value="0.9" oninput="updateSetting('topp', this.value)">
-                <div style="font-size: 11px; color: #666; margin-top: 4px;">Higher = more diverse</div>
-            </div>
-            
-            <div class="setting-item">
-                <div class="setting-label">
-                    <span>📏 Max Length</span>
-                    <span class="setting-value" id="lengthValue">150</span>
+                
+                <div class="settings-footer">
+                    <div class="settings-version">Glitch Bot v2.5.0</div>
+                    <button class="setting-btn" onclick="closeSettings()">Done</button>
                 </div>
-                <input type="range" class="slider" id="lengthSlider" min="20" max="300" step="10" value="150" oninput="updateSetting('length', this.value)">
-                <div style="font-size: 11px; color: #666; margin-top: 4px;">Response length limit</div>
             </div>
         </div>
     </div>
     
     <!-- Sign-in Modal -->
-    <div class="modal-overlay" id="signinModal">
-        <div class="signin-modal">
+    <div class="modal-overlay" id="signinModal" onclick="closeSigninModal()">
+        <div class="signin-modal" onclick="event.stopPropagation()">
             <button class="modal-close" onclick="closeSigninModal()">&times;</button>
             
             <div class="modal-header">
@@ -1072,13 +1959,13 @@
             
             <form class="email-form" id="emailForm" onsubmit="handleEmailAuth(event)">
                 <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="form-input" id="emailInput" placeholder="Enter your email" required>
+                    <label class="form-label" for="emailInput">Email Address</label>
+                    <input type="email" class="form-input" id="emailInput" name="email" placeholder="Enter your email" required autocomplete="email">
                 </div>
                 
                 <div class="form-group">
-                    <label class="form-label">Password</label>
-                    <input type="password" class="form-input" id="passwordInput" placeholder="Enter your password" required>
+                    <label class="form-label" for="passwordInput">Password</label>
+                    <input type="password" class="form-input" id="passwordInput" name="password" placeholder="Enter your password" required autocomplete="current-password">
                 </div>
                 
                 <button type="submit" class="submit-btn" id="submitBtn">
@@ -1849,16 +2736,47 @@
             return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
         }
         
-        // Toggle settings panel (DISABLED - Not ready yet)
+        // Toggle settings modal
         function toggleSettings() {
-            // Settings functionality is not ready yet
-            console.log('Settings feature is not ready yet');
-            return false;
+            const settingsModal = document.getElementById('settingsModal');
+            const settingsGear = document.getElementById('settingsGear');
+            
+            settingsModal.classList.toggle('open');
+            settingsGear.classList.toggle('active');
+        }
+        
+        // Close settings modal
+        function closeSettings() {
+            const settingsModal = document.getElementById('settingsModal');
+            const settingsGear = document.getElementById('settingsGear');
+            
+            settingsModal.classList.remove('open');
+            settingsGear.classList.remove('active');
+        }
+        
+        // Show settings category
+        function showSettingsCategory(category) {
+            // Hide all categories
+            document.querySelectorAll('.settings-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+            
+            // Remove active from all nav items
+            document.querySelectorAll('.settings-nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(category + '-settings').classList.add('active');
+            
+            // Set active nav item
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
         }
         
         // Initialize the app
         function initializeApp() {
             initializeAuth();
+            loadSettings();
             updateGreeting();
             setupEventListeners();
             messageInput.focus();
@@ -1867,6 +2785,10 @@
         // Setup event listeners
         function setupEventListeners() {
             const messageInput = document.getElementById('messageInput');
+            const settingsGear = document.getElementById('settingsGear');
+            
+            // Settings gear click event
+            settingsGear.addEventListener('click', toggleSettings);
             
             // Auto-resize textarea
             messageInput.addEventListener('input', function() {
@@ -1884,10 +2806,16 @@
             
             // Focus input when clicking anywhere in chat area
             document.addEventListener('click', function(e) {
-                // Settings is disabled, so no need to check for settings panel/gear
+                // Close settings modal if clicking outside of it
+                const settingsModal = document.getElementById('settingsModal');
+                const settingsGear = document.getElementById('settingsGear');
                 
-                // Focus input if not clicking on sidebar
-                if (!e.target.closest('.sidebar')) {
+                if (e.target === settingsModal) {
+                    closeSettings();
+                }
+                
+                // Focus input if not clicking on sidebar or settings
+                if (!e.target.closest('.sidebar') && !e.target.closest('.settings-modal') && !e.target.closest('.settings-gear')) {
                     messageInput.focus();
                 }
             });
@@ -1898,31 +2826,64 @@
             const messageInput = document.getElementById('messageInput');
             const message = messageInput.value.trim();
             if (!message || isTyping) return;
+            
+            // Debug logging
+            if (userSettings.debugMode || userSettings.consoleLogging) {
+                console.log('📤 Sending message:', message);
+                console.log('Current message history length:', messageHistory.length);
+            }
+            
+            // Performance monitoring
+            if (userSettings.performanceMonitoring && window.glitchBotPerf) {
+                window.glitchBotPerf.start('message-processing');
+            }
+            
             // If this is the first message, create a new chat item
             if (messageHistory.length === 0) {
                 createNewChatItem(message);
             }
+            
             // Hide welcome screen and show messages
             document.getElementById('welcomeScreen').style.display = 'none';
             document.getElementById('messagesContainer').style.display = 'block';
+            
             // Add user message
             addMessage(message, 'user');
+            
             // Clear input
             messageInput.value = '';
             messageInput.style.height = 'auto';
+            
             // Show typing indicator
             showTypingIndicator();
             isTyping = true;
+            
             // Simulate AI processing time
             const processingTime = Math.random() * 2000 + 1000; // 1-3 seconds
+            
+            if (userSettings.debugMode) {
+                console.log(`⏱️ Simulated processing time: ${processingTime.toFixed(0)}ms`);
+            }
+            
             setTimeout(() => {
                 hideTypingIndicator();
+                
                 // Generate response and personalize it
                 let response = generateAIResponse(message);
                 response = personalizeResponse(response);
+                
+                if (userSettings.debugMode || userSettings.consoleLogging) {
+                    console.log('📥 Generated response:', response);
+                }
+                
                 addMessage(response, 'assistant');
                 isTyping = false;
                 messageInput.focus();
+                
+                // Performance monitoring
+                if (userSettings.performanceMonitoring && window.glitchBotPerf) {
+                    window.glitchBotPerf.end('message-processing');
+                }
             }, processingTime);
         }
         
@@ -2069,9 +3030,415 @@
             document.getElementById('messageInput').focus();
         }
         
-        // Update setting values
-        function updateSetting(setting, value) {
-            document.getElementById(setting + 'Value').textContent = value;
+        // New Settings Functions
+        let userSettings = {
+            darkMode: true,
+            soundEffects: true,
+            autoFocus: true,
+            autoSave: true,
+            enterSend: true,
+            typingIndicator: true,
+            personality: 'balanced',
+            language: 'en',
+            privacyMode: false,
+            compactMode: false,
+            debugMode: false,
+            consoleLogging: false,
+            experimentalFeatures: false,
+            performanceMonitoring: false
+        };
+        
+        function toggleDarkMode() {
+            userSettings.darkMode = document.getElementById('darkModeToggle').checked;
+            document.body.classList.toggle('light-mode', !userSettings.darkMode);
+            saveSettings();
+        }
+        
+        function toggleSounds() {
+            userSettings.soundEffects = document.getElementById('soundToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleAutoFocus() {
+            userSettings.autoFocus = document.getElementById('autoFocusToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleAutoSave() {
+            userSettings.autoSave = document.getElementById('autoSaveToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleEnterSend() {
+            userSettings.enterSend = document.getElementById('enterSendToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleTypingIndicator() {
+            userSettings.typingIndicator = document.getElementById('typingToggle').checked;
+            saveSettings();
+        }
+        
+        function changePersonality(personality) {
+            userSettings.personality = personality;
+            saveSettings();
+            console.log('AI Personality changed to:', personality);
+        }
+        
+        function changeLanguage(language) {
+            userSettings.language = language;
+            saveSettings();
+            console.log('Language changed to:', language);
+        }
+        
+        function togglePrivacyMode() {
+            userSettings.privacyMode = document.getElementById('privacyToggle').checked;
+            saveSettings();
+            if (userSettings.privacyMode) {
+                console.log('Privacy mode enabled - conversations will not be saved');
+            }
+        }
+        
+        function toggleCompactMode() {
+            userSettings.compactMode = document.getElementById('compactToggle').checked;
+            document.body.classList.toggle('compact-mode', userSettings.compactMode);
+            saveSettings();
+        }
+        
+        function exportUserData() {
+            const data = {
+                settings: userSettings,
+                chatHistory: messageHistory,
+                exportDate: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `glitchbot-data-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            console.log('User data exported successfully');
+        }
+        
+        function clearAllData() {
+            if (confirm('Are you sure you want to delete ALL chat history? This cannot be undone.')) {
+                // Clear local storage
+                localStorage.removeItem('glitchbot-settings');
+                localStorage.removeItem('glitchbot-chats');
+                
+                // Clear current session
+                messageHistory = [];
+                chatHistory = [];
+                
+                // Clear UI
+                document.getElementById('messagesContainer').innerHTML = '';
+                document.getElementById('chatList').innerHTML = '';
+                
+                // Reset settings to defaults
+                userSettings = {
+                    darkMode: true,
+                    soundEffects: true,
+                    autoFocus: true,
+                    autoSave: true,
+                    enterSend: true,
+                    typingIndicator: true,
+                    personality: 'balanced',
+                    language: 'en',
+                    privacyMode: false,
+                    compactMode: false,
+                    debugMode: false,
+                    consoleLogging: false,
+                    experimentalFeatures: false,
+                    performanceMonitoring: false
+                };
+                
+                loadSettings();
+                console.log('All data cleared successfully');
+                alert('All data has been cleared successfully!');
+            }
+        }
+        
+        // Developer Functions
+        const DEVELOPER_PASSWORD = 'InfinityDev25!';
+        const TRUSTED_DEVELOPER_EMAIL = 'infinitybyte.dev@gmail.com';
+        const TRUSTED_DEVELOPER_UIDS = ['4oGjihtDjRPYI0LsTDhpXaQAJjk1', '6iZDTXC78aVwX22qrY43BOxDRLt1'];
+        
+        function hasDeveloperAccess() {
+            // Debug logging to see what's happening
+            console.log('Checking developer access...');
+            console.log('Current user:', currentUser);
+            console.log('Current user email:', currentUser?.email);
+            console.log('Current user UID:', currentUser?.uid);
+            console.log('Current user providerData:', currentUser?.providerData);
+            console.log('Trusted email:', TRUSTED_DEVELOPER_EMAIL);
+            console.log('Trusted UIDs:', TRUSTED_DEVELOPER_UIDS);
+            console.log('Session storage access:', sessionStorage.getItem('glitchbot-dev-access'));
+            
+            // Check if user is the trusted developer by UID (works for all sign-in methods)
+            if (currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid)) {
+                console.log('✅ Trusted developer detected by UID:', currentUser.uid);
+                sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                return true;
+            }
+            
+            // Check if user is the trusted developer by email (backup check)
+            let userEmail = null;
+            if (currentUser) {
+                userEmail = currentUser.email || 
+                           currentUser.providerData?.[0]?.email ||
+                           currentUser.multiFactor?.user?.email;
+                
+                console.log('Extracted user email:', userEmail);
+                
+                if (userEmail === TRUSTED_DEVELOPER_EMAIL) {
+                    console.log('✅ Trusted developer detected by email');
+                    sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                    return true;
+                }
+            }
+            
+            // Check if developer access was granted this session
+            const sessionAccess = sessionStorage.getItem('glitchbot-dev-access') === 'granted';
+            if (sessionAccess) {
+                console.log('✅ Session access granted');
+            }
+            return sessionAccess;
+        }
+        
+        function requestDeveloperAccess() {
+            const password = prompt('🔐 Developer Access Required\n\nEnter the developer password to enable debug features:');
+            
+            if (password === DEVELOPER_PASSWORD) {
+                sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                console.log('✅ Developer access granted for this session');
+                return true;
+            } else if (password !== null) { // User didn't cancel
+                alert('❌ Incorrect password. Developer access denied.');
+            }
+            return false;
+        }
+        
+        function toggleDebugMode() {
+            const checkbox = document.getElementById('debugToggle');
+            
+            // If trying to enable debug mode, check access
+            if (checkbox.checked) {
+                if (!hasDeveloperAccess()) {
+                    // Request password for non-trusted users
+                    if (!requestDeveloperAccess()) {
+                        checkbox.checked = false; // Reset checkbox if access denied
+                        return;
+                    }
+                }
+            }
+            
+            userSettings.debugMode = checkbox.checked;
+            saveSettings();
+            
+            if (userSettings.debugMode) {
+                console.log('🐛 Debug mode enabled');
+                const accessMethod = currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid) ? 'Trusted Developer (UID)' : 
+                                   currentUser?.email === TRUSTED_DEVELOPER_EMAIL ? 'Trusted Developer (Email)' : 
+                                   'Password Authentication';
+                console.log('Access method:', accessMethod);
+                console.log('Current settings:', userSettings);
+                console.log('Message history length:', messageHistory.length);
+                console.log('Chat history length:', chatHistory.length);
+                // Add debug info to page
+                if (!document.getElementById('debug-info')) {
+                    const debugDiv = document.createElement('div');
+                    debugDiv.id = 'debug-info';
+                    debugDiv.style.cssText = 'position: fixed; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: #00ff00; font-family: monospace; font-size: 12px; padding: 10px; border-radius: 5px; z-index: 10000; max-width: 300px;';
+                    debugDiv.innerHTML = `
+                        <strong>🐛 DEBUG MODE</strong><br>
+                        Access: ${currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid) ? 'UID' : currentUser?.email === TRUSTED_DEVELOPER_EMAIL ? 'Email' : 'Pass'}<br>
+                        Messages: ${messageHistory.length}<br>
+                        Chats: ${chatHistory.length}<br>
+                        User: ${currentUser ? (currentUser.email || currentUser.uid) : 'Guest'}<br>
+                        <small>Check console for detailed logs</small>
+                    `;
+                    document.body.appendChild(debugDiv);
+                }
+            } else {
+                console.log('Debug mode disabled');
+                const debugDiv = document.getElementById('debug-info');
+                if (debugDiv) debugDiv.remove();
+            }
+        }
+        
+        function toggleConsoleLogging() {
+            const checkbox = document.getElementById('consoleLoggingToggle');
+            
+            // If trying to enable console logging, check access
+            if (checkbox.checked) {
+                if (!hasDeveloperAccess()) {
+                    // Request password for non-trusted users
+                    if (!requestDeveloperAccess()) {
+                        checkbox.checked = false; // Reset checkbox if access denied
+                        return;
+                    }
+                }
+            }
+            
+            userSettings.consoleLogging = checkbox.checked;
+            saveSettings();
+            
+            if (userSettings.consoleLogging) {
+                console.log('📝 Console logging enabled - all interactions will be logged');
+                const accessMethod = currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid) ? 'Trusted Developer (UID)' : 
+                                   currentUser?.email === TRUSTED_DEVELOPER_EMAIL ? 'Trusted Developer (Email)' : 
+                                   'Password Authentication';
+                console.log('Access method:', accessMethod);
+                window.glitchBotLogger = {
+                    log: (action, data) => {
+                        console.log(`[GlitchBot] ${action}:`, data);
+                    }
+                };
+            } else {
+                console.log('Console logging disabled');
+                window.glitchBotLogger = null;
+            }
+        }
+        
+        function toggleExperimentalFeatures() {
+            userSettings.experimentalFeatures = document.getElementById('experimentalToggle').checked;
+            saveSettings();
+            
+            if (userSettings.experimentalFeatures) {
+                console.log('🧪 Experimental features enabled');
+                alert('⚠️ Experimental features enabled! Some features may be unstable.');
+            } else {
+                console.log('Experimental features disabled');
+            }
+        }
+        
+        function togglePerformanceMonitoring() {
+            userSettings.performanceMonitoring = document.getElementById('performanceToggle').checked;
+            saveSettings();
+            
+            if (userSettings.performanceMonitoring) {
+                console.log('⏱️ Performance monitoring enabled');
+                window.glitchBotPerf = {
+                    start: (label) => {
+                        performance.mark(`glitchbot-${label}-start`);
+                    },
+                    end: (label) => {
+                        performance.mark(`glitchbot-${label}-end`);
+                        performance.measure(`glitchbot-${label}`, `glitchbot-${label}-start`, `glitchbot-${label}-end`);
+                        const measure = performance.getEntriesByName(`glitchbot-${label}`)[0];
+                        console.log(`⏱️ ${label}: ${measure.duration.toFixed(2)}ms`);
+                    }
+                };
+            } else {
+                console.log('Performance monitoring disabled');
+                window.glitchBotPerf = null;
+            }
+        }
+        
+        function showLocalStorageInfo() {
+            const storageInfo = {
+                settings: localStorage.getItem('glitchbot-settings'),
+                chats: localStorage.getItem('glitchbot-chats'),
+                totalItems: localStorage.length,
+                storageSize: new Blob(Object.values(localStorage)).size
+            };
+            
+            console.log('📦 Local Storage Information:', storageInfo);
+            
+            const infoText = `
+Local Storage Information:
+- Settings: ${storageInfo.settings ? 'Present' : 'Not found'}
+- Chats: ${storageInfo.chats ? 'Present' : 'Not found'}
+- Total Items: ${storageInfo.totalItems}
+- Approximate Size: ${(storageInfo.storageSize / 1024).toFixed(2)} KB
+
+Check console for detailed data.
+            `;
+            
+            alert(infoText.trim());
+        }
+        
+        function clearCache() {
+            if (confirm('Clear browser cache and temporary data? This will not affect your saved chats and settings.')) {
+                // Clear various caches
+                if ('caches' in window) {
+                    caches.keys().then(cacheNames => {
+                        cacheNames.forEach(cacheName => {
+                            caches.delete(cacheName);
+                        });
+                    });
+                }
+                
+                // Clear session storage
+                sessionStorage.clear();
+                
+                console.log('🧹 Cache cleared successfully');
+                alert('Cache cleared successfully!');
+            }
+        }
+        
+        function saveSettings() {
+            localStorage.setItem('glitchbot-settings', JSON.stringify(userSettings));
+        }
+        
+        function loadSettings() {
+            const saved = localStorage.getItem('glitchbot-settings');
+            if (saved) {
+                userSettings = { ...userSettings, ...JSON.parse(saved) };
+            }
+            
+            // Apply settings to UI
+            document.getElementById('darkModeToggle').checked = userSettings.darkMode;
+            document.getElementById('soundToggle').checked = userSettings.soundEffects;
+            document.getElementById('autoFocusToggle').checked = userSettings.autoFocus;
+            document.getElementById('autoSaveToggle').checked = userSettings.autoSave;
+            document.getElementById('enterSendToggle').checked = userSettings.enterSend;
+            document.getElementById('typingToggle').checked = userSettings.typingIndicator;
+            document.getElementById('personalitySelect').value = userSettings.personality;
+            document.getElementById('languageSelect').value = userSettings.language;
+            document.getElementById('privacyToggle').checked = userSettings.privacyMode;
+            document.getElementById('compactToggle').checked = userSettings.compactMode;
+            
+            // Apply developer settings
+            if (document.getElementById('debugToggle')) {
+                document.getElementById('debugToggle').checked = userSettings.debugMode;
+                document.getElementById('consoleLoggingToggle').checked = userSettings.consoleLogging;
+                document.getElementById('experimentalToggle').checked = userSettings.experimentalFeatures;
+                document.getElementById('performanceToggle').checked = userSettings.performanceMonitoring;
+                
+                // Only initialize protected features if user has access
+                if (userSettings.debugMode && hasDeveloperAccess()) {
+                    toggleDebugMode();
+                } else if (userSettings.debugMode) {
+                    // Reset if access was lost
+                    userSettings.debugMode = false;
+                    document.getElementById('debugToggle').checked = false;
+                    saveSettings();
+                }
+                
+                if (userSettings.consoleLogging && hasDeveloperAccess()) {
+                    toggleConsoleLogging();
+                } else if (userSettings.consoleLogging) {
+                    // Reset if access was lost
+                    userSettings.consoleLogging = false;
+                    document.getElementById('consoleLoggingToggle').checked = false;
+                    saveSettings();
+                }
+                
+                if (userSettings.experimentalFeatures) {
+                    toggleExperimentalFeatures();
+                }
+                if (userSettings.performanceMonitoring) {
+                    togglePerformanceMonitoring();
+                }
+            }
+            
+            // Apply theme
+            document.body.classList.toggle('light-mode', !userSettings.darkMode);
+            document.body.classList.toggle('compact-mode', userSettings.compactMode);
         }
         
         // Firebase Authentication Functions
@@ -2086,6 +3453,25 @@
                     hideSignInPrompt();
                     showUserProfile();
                     
+                    // Check if this is the trusted developer - first by UID (most reliable)
+                    if (user.uid && TRUSTED_DEVELOPER_UIDS.includes(user.uid)) {
+                        console.log('✅ Trusted developer signed in (by UID) - Debug access automatically granted');
+                        console.log('Matched UID:', user.uid);
+                        sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                    } else {
+                        // Fallback: check by email for backwards compatibility
+                        const userEmail = user.email || 
+                                        user.providerData?.[0]?.email ||
+                                        user.multiFactor?.user?.email;
+                        
+                        console.log('Auth state changed - user email:', userEmail);
+                        
+                        if (userEmail === TRUSTED_DEVELOPER_EMAIL) {
+                            console.log('✅ Trusted developer signed in (by email) - Debug access automatically granted');
+                            sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                        }
+                    }
+                    
                     // Load user's chat history from Firestore
                     console.log('User signed in, loading chat history...');
                     await chatManager.refreshChatList();
@@ -2096,6 +3482,9 @@
                     updateGreeting();
                     showSignInPrompt();
                     hideUserProfile();
+                    
+                    // Clear developer access when signing out
+                    sessionStorage.removeItem('glitchbot-dev-access');
                     
                     // Clear chat data since user is signed out
                     chatManager.startNewChat();
@@ -2239,9 +3628,19 @@
         }
         
         function openSigninModal() {
-            document.getElementById('signinModal').classList.add('active');
+            const modal = document.getElementById('signinModal');
+            modal.classList.add('active');
             clearError();
             hideLoadingState();
+            
+            // Focus the email input after modal opens
+            setTimeout(() => {
+                const emailInput = document.getElementById('emailInput');
+                if (emailInput) {
+                    emailInput.focus();
+                    console.log('Email input focused');
+                }
+            }, 100);
         }
         
         function closeSigninModal() {
@@ -2259,6 +3658,24 @@
             auth.signOut()
                 .then(() => {
                     console.log('Successfully signed out');
+                    // Clear developer access when signing out
+                    sessionStorage.removeItem('glitchbot-dev-access');
+                    
+                    // Disable debug features if they were enabled
+                    if (userSettings.debugMode || userSettings.consoleLogging) {
+                        userSettings.debugMode = false;
+                        userSettings.consoleLogging = false;
+                        saveSettings();
+                        
+                        // Remove debug panel if present
+                        const debugDiv = document.getElementById('debug-info');
+                        if (debugDiv) debugDiv.remove();
+                        
+                        // Clear logging
+                        window.glitchBotLogger = null;
+                        
+                        console.log('🔒 Developer access cleared - debug features disabled');
+                    }
                 })
                 .catch((error) => {
                     console.error('Sign-out error:', error);

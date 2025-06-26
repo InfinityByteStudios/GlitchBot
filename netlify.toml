@@ -1,0 +1,31 @@
+[build]
+  # This is a static HTML/CSS/JS project, no build step needed
+  publish = "."
+  command = "echo 'No build step required for static site'"
+
+[build.environment]
+  # Disable any automatic Node.js detection
+  NODE_VERSION = "18"
+
+# Redirect rules for single-page application
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  conditions = {Role = ["404"]}
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self' https:; script-src 'self' 'unsafe-inline' https://www.gstatic.com https://apis.google.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://*.firebaseapp.com https://*.googleapis.com wss://*.firebaseio.com"
+
+# Static file caching
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"

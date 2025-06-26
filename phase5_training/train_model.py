@@ -6,12 +6,14 @@ including data loading, model training, evaluation, and checkpointing.
 This is Phase 5: Train a Small Language Model (Proof of Concept).
 """
 
+import os
 import json
 import math
 import time
-from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict
+from typing import Dict, List, Optional, Tuple, Any
+from dataclasses import dataclass, field
+import logging
 
 import torch
 import torch.nn as nn
@@ -20,6 +22,7 @@ from torch.utils.data import DataLoader
 from torch.cuda.amp import autocast, GradScaler
 import numpy as np
 from tqdm import tqdm
+import matplotlib.pyplot as plt
 
 # Import our custom modules
 import sys
@@ -27,7 +30,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from shared.utils import (
     setup_logging, set_seed, get_device, count_parameters, 
-    CosineWarmupScheduler, TrainingMetrics, ModelCheckpoint
+    CosineWarmupScheduler, TrainingMetrics, ModelCheckpoint, TimerContext
 )
 from phase4_model.transformer_model import create_gpt_model
 from phase3_data.data_pipeline import create_data_pipeline, TextDataset
@@ -107,7 +110,7 @@ class LanguageModelTrainer:
         else:
             self.device = torch.device(config.device)
         
-        logger.info("Using device: %s", self.device)
+        logger.info(f"Using device: {self.device}")
         
         # Create output directories
         self.setup_directories()
@@ -168,11 +171,11 @@ class LanguageModelTrainer:
         
         # Count parameters
         num_params = count_parameters(self.model)
-        logger.info("Model created with %s parameters", f"{num_params:,}")
+        logger.info(f"Model created with {num_params:,} parameters")
         
         # Save model config
         config_path = Path(self.config.output_dir) / "model_config.json"
-        with open(config_path, 'w', encoding='utf-8') as f:
+        with open(config_path, 'w') as f:
             json.dump(model_config, f, indent=2)
     
     def setup_data(self):
@@ -224,11 +227,11 @@ class LanguageModelTrainer:
                 pin_memory=True if self.device.type == 'cuda' else False
             )
             
-            logger.info("Train dataset size: %d", len(self.train_dataset))
-            logger.info("Validation dataset size: %d", len(self.val_dataset))
+            logger.info(f"Train dataset size: {len(self.train_dataset)}")
+            logger.info(f"Validation dataset size: {len(self.val_dataset)}")
             
         except Exception as e:
-            logger.error("Failed to setup data: %s", str(e))
+            logger.error(f"Failed to setup data: {e}")
             # Create dummy data for testing
             self.create_dummy_data()
     
