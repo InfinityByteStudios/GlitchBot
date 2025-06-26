@@ -1,0 +1,12 @@
+2025-06-25 09:58:45,603 - __main__ - WARNING - Could not import modules: cannot import name 'TransformerModel' from 'phase4_model.transformer_model' (C:\Users\Hanan\Desktop\InfinityByte Studios\Games I'm Making\Tests\AI Test Chatbot\phase4_model\transformer_model.py)
+2025-06-25 09:58:45,603 - __main__ - INFO - Running in demo mode without model
+2025-06-25 09:58:45,604 - __main__ - INFO - Starting Ultimate AI Assistant...
+2025-06-25 09:58:45,604 - __main__ - INFO - Ultimate AI Assistant initialized
+2025-06-25 09:58:46,257 - __main__ - ERROR - Failed to start Ultimate AI Assistant: Cannot find empty port in range: 7860-7860. You can specify a different port by setting the GRADIO_SERVER_PORT environment variable or passing the `server_port` parameter to `launch()`.
+2025-06-25 09:58:46,605 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-06-25 10:05:06,092 - __main__ - WARNING - Could not import modules: cannot import name 'TransformerModel' from 'phase4_model.transformer_model' (C:\Users\Hanan\Desktop\InfinityByte Studios\Games I'm Making\Tests\AI Test Chatbot\phase4_model\transformer_model.py)
+2025-06-25 10:05:06,093 - __main__ - INFO - Running in demo mode without model
+2025-06-25 10:05:06,093 - __main__ - INFO - Starting Ultimate AI Assistant...
+2025-06-25 10:05:06,093 - __main__ - INFO - Ultimate AI Assistant initialized
+2025-06-25 10:05:06,475 - __main__ - ERROR - Failed to start Ultimate AI Assistant: Cannot find empty port in range: 7860-7860. You can specify a different port by setting the GRADIO_SERVER_PORT environment variable or passing the `server_port` parameter to `launch()`.
+2025-06-25 10:05:06,725 - httpx - INFO - HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"

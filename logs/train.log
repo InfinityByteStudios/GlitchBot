@@ -1,0 +1,6 @@
+2025-06-25 20:07:43,987 - __main__ - INFO - Using device: cpu
+2025-06-25 20:07:44,022 - __main__ - INFO - Creating GlitchBot model...
+2025-06-25 20:07:44,099 - __main__ - INFO - Model parameters: 3,246,848 total, 3,246,848 trainable
+2025-06-25 20:08:42,690 - __main__ - INFO - Using device: cpu
+2025-06-25 20:08:42,690 - __main__ - INFO - Creating GlitchBot model...
+2025-06-25 20:08:42,756 - __main__ - INFO - Model parameters: 3,246,848 total, 3,246,848 trainable

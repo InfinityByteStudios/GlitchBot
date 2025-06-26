@@ -1,0 +1,99 @@
+{
+  "model": {
+    "name": "GPT-Assistant-v1",
+    "architecture": "decoder-only-transformer",
+    "vocab_size": 50000,
+    "d_model": 512,
+    "num_heads": 8,
+    "num_layers": 6,
+    "d_ff": 2048,
+    "max_seq_length": 1024,
+    "dropout": 0.1,
+    "pad_token_id": 0,
+    "eos_token_id": 1,
+    "bos_token_id": 2,
+    "unk_token_id": 3
+  },
+  "training": {
+    "batch_size": 16,
+    "gradient_accumulation_steps": 2,
+    "learning_rate": 5e-4,
+    "min_learning_rate": 1e-6,
+    "weight_decay": 0.1,
+    "beta1": 0.9,
+    "beta2": 0.95,
+    "epsilon": 1e-8,
+    "max_grad_norm": 1.0,
+    "warmup_steps": 1000,
+    "max_steps": 100000,
+    "eval_steps": 1000,
+    "save_steps": 5000,
+    "logging_steps": 100,
+    "scheduler_type": "cosine",
+    "use_mixed_precision": true,
+    "gradient_checkpointing": true
+  },
+  "data": {
+    "dataset_name": "custom_training_data",
+    "train_file": "data/processed/train.jsonl",
+    "validation_file": "data/processed/validation.jsonl",
+    "test_file": "data/processed/test.jsonl",
+    "tokenizer_path": "tokenizer/",
+    "max_length": 1024,
+    "num_workers": 4,
+    "pin_memory": true,
+    "streaming": false
+  },
+  "hardware": {
+    "device": "auto",
+    "use_cuda": true,
+    "mixed_precision": true,
+    "compile_model": false,
+    "dataloader_num_workers": 4
+  },
+  "distributed": {
+    "backend": "nccl",
+    "world_size": 1,
+    "rank": 0,
+    "local_rank": 0,
+    "master_addr": "localhost",
+    "master_port": "12355"
+  },
+  "checkpointing": {
+    "save_dir": "checkpoints/",
+    "resume_from_checkpoint": null,
+    "save_total_limit": 5,
+    "load_best_model_at_end": true,
+    "metric_for_best_model": "eval_loss",
+    "greater_is_better": false
+  },
+  "logging": {
+    "output_dir": "logs/",
+    "run_name": "gpt-assistant-training",
+    "logging_strategy": "steps",
+    "logging_steps": 100,
+    "save_strategy": "steps",
+    "evaluation_strategy": "steps",
+    "use_wandb": false,
+    "wandb_project": "ai-assistant-from-scratch",
+    "wandb_run_name": null,
+    "report_to": ["tensorboard"]
+  },
+  "generation": {
+    "do_sample": true,
+    "temperature": 0.8,
+    "top_k": 50,
+    "top_p": 0.9,
+    "max_new_tokens": 512,
+    "repetition_penalty": 1.1,
+    "length_penalty": 1.0,
+    "num_return_sequences": 1
+  },
+  "evaluation": {
+    "eval_batch_size": 8,
+    "eval_steps": 1000,
+    "eval_accumulation_steps": null,
+    "prediction_loss_only": false,
+    "per_device_eval_batch_size": 8
+  }
+}

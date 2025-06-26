@@ -1,0 +1,926 @@
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: 14 / 20 = ?\nAssistant: 14 / 20 = 0.7\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What does 68 * 21 equal?\nAssistant: 68 * 21 = 1428\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What is 32 + 9?\nAssistant: 32 + 9 = 41\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: What is 49 / 22?\nAssistant: 49 / 22 = 2.23\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What is 62 times 35?\nAssistant: 62 * 35 = 2170\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Calculate 60 + 52\nAssistant: 60 + 52 = 112\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: Can you solve 35 - 93?\nAssistant: 35 - 93 = -58\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What's 24 * 68?\nAssistant: 24 * 68 = 1632\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: What's 57 / 100?\nAssistant: 57 / 100 = 0.57\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: What's 12 * 47?\nAssistant: 12 * 47 = 564\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: What is 60 plus 45?\nAssistant: 60 + 45 = 105\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: Calculate 47 * 30\nAssistant: 47 * 30 = 1410\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What is 92 - 53?\nAssistant: 92 - 53 = 39\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: 50 * 66 = ?\nAssistant: 50 * 66 = 3300\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Can you solve 33 / 41?\nAssistant: 33 / 41 = 0.8\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: Can you solve 46 / 32?\nAssistant: 46 / 32 = 1.44\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Calculate 1 + 5\nAssistant: 1 + 5 = 6\n"}
+{"text": "Human: What is 92 * 4?\nAssistant: 92 * 4 = 368\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What does 60 / 66 equal?\nAssistant: 60 / 66 = 0.91\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What's 97 * 42?\nAssistant: 97 * 42 = 4074\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What does 12 / 95 equal?\nAssistant: 12 / 95 = 0.13\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: Calculate 50 - 4\nAssistant: 50 - 4 = 46\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: What is 42 / 86?\nAssistant: 42 / 86 = 0.49\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What's 93 / 96?\nAssistant: 93 / 96 = 0.97\n"}
+{"text": "Human: Calculate 93 + 94\nAssistant: 93 + 94 = 187\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: What's 64 + 22?\nAssistant: 64 + 22 = 86\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: Calculate 61 + 41\nAssistant: 61 + 41 = 102\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: What's 65 / 46?\nAssistant: 65 / 46 = 1.41\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: What is 76 divided by 62?\nAssistant: 76 / 62 = 1.23\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What is 53 - 34?\nAssistant: 53 - 34 = 19\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: 44 * 59 = ?\nAssistant: 44 * 59 = 2596\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: Can you solve 47 * 35?\nAssistant: 47 * 35 = 1645\n"}
+{"text": "Human: Can you solve 81 / 73?\nAssistant: 81 / 73 = 1.11\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: Can you solve 76 / 62?\nAssistant: 76 / 62 = 1.23\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: Calculate 1 - 72\nAssistant: 1 - 72 = -71\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: 99 + 23 = ?\nAssistant: 99 + 23 = 122\n"}
+{"text": "Human: What is 35 times 76?\nAssistant: 35 * 76 = 2660\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: What's 79 + 80?\nAssistant: 79 + 80 = 159\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What is 92 plus 42?\nAssistant: 92 + 42 = 134\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What is 12 times 47?\nAssistant: 12 * 47 = 564\n"}
+{"text": "Human: What's 70 * 78?\nAssistant: 70 * 78 = 5460\n"}
+{"text": "Human: Calculate 63 + 95\nAssistant: 63 + 95 = 158\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Calculate 16 / 4\nAssistant: 16 / 4 = 4.0\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What is 72 minus 60?\nAssistant: 72 - 60 = 12\n"}
+{"text": "Human: What is 16 divided by 4?\nAssistant: 16 / 4 = 4.0\n"}
+{"text": "Human: What's 6 + 50?\nAssistant: 6 + 50 = 56\n"}
+{"text": "Human: Can you solve 6 / 63?\nAssistant: 6 / 63 = 0.1\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What's 65 - 8?\nAssistant: 65 - 8 = 57\n"}
+{"text": "Human: What's 79 + 37?\nAssistant: 79 + 37 = 116\n"}
+{"text": "Human: Can you solve 70 - 2?\nAssistant: 70 - 2 = 68\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: Calculate 39 / 20\nAssistant: 39 / 20 = 1.95\n"}
+{"text": "Human: Can you solve 17 + 2?\nAssistant: 17 + 2 = 19\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: What is 52 / 62?\nAssistant: 52 / 62 = 0.84\n"}
+{"text": "Human: Can you solve 4 / 51?\nAssistant: 4 / 51 = 0.08\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What's 25 * 89?\nAssistant: 25 * 89 = 2225\n"}
+{"text": "Human: What is 81 + 58?\nAssistant: 81 + 58 = 139\n"}
+{"text": "Human: What does 67 * 22 equal?\nAssistant: 67 * 22 = 1474\n"}
+{"text": "Human: Can you solve 73 - 97?\nAssistant: 73 - 97 = -24\n"}
+{"text": "Human: What is 9 plus 96?\nAssistant: 9 + 96 = 105\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: What does 96 - 35 equal?\nAssistant: 96 - 35 = 61\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: What does 59 - 53 equal?\nAssistant: 59 - 53 = 6\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What does 13 - 36 equal?\nAssistant: 13 - 36 = -23\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: Calculate 22 / 34\nAssistant: 22 / 34 = 0.65\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: What is 94 * 74?\nAssistant: 94 * 74 = 6956\n"}
+{"text": "Human: 42 - 2 = ?\nAssistant: 42 - 2 = 40\n"}
+{"text": "Human: Calculate 89 / 27\nAssistant: 89 / 27 = 3.3\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: Can you solve 91 * 82?\nAssistant: 91 * 82 = 7462\n"}
+{"text": "Human: What does 93 / 50 equal?\nAssistant: 93 / 50 = 1.86\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: Can you solve 19 + 67?\nAssistant: 19 + 67 = 86\n"}
+{"text": "Human: What is 46 - 99?\nAssistant: 46 - 99 = -53\n"}
+{"text": "Human: 12 / 67 = ?\nAssistant: 12 / 67 = 0.18\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: What's 45 - 27?\nAssistant: 45 - 27 = 18\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What's 61 / 56?\nAssistant: 61 / 56 = 1.09\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What's 82 + 48?\nAssistant: 82 + 48 = 130\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: What is 2 - 77?\nAssistant: 2 - 77 = -75\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What does 76 + 56 equal?\nAssistant: 76 + 56 = 132\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Calculate 75 * 52\nAssistant: 75 * 52 = 3900\n"}
+{"text": "Human: What is 25 plus 81?\nAssistant: 25 + 81 = 106\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: What is 79 / 10?\nAssistant: 79 / 10 = 7.9\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Calculate 4 + 42\nAssistant: 4 + 42 = 46\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What does 28 + 31 equal?\nAssistant: 28 + 31 = 59\n"}
+{"text": "Human: What does 68 * 77 equal?\nAssistant: 68 * 77 = 5236\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: Calculate 86 - 1\nAssistant: 86 - 1 = 85\n"}
+{"text": "Human: What does 9 + 74 equal?\nAssistant: 9 + 74 = 83\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: What is 57 minus 89?\nAssistant: 57 - 89 = -32\n"}
+{"text": "Human: 98 + 73 = ?\nAssistant: 98 + 73 = 171\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What's 30 / 44?\nAssistant: 30 / 44 = 0.68\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What's 45 - 2?\nAssistant: 45 - 2 = 43\n"}
+{"text": "Human: What does 17 / 25 equal?\nAssistant: 17 / 25 = 0.68\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: Calculate 65 + 62\nAssistant: 65 + 62 = 127\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What's 9 - 92?\nAssistant: 9 - 92 = -83\n"}
+{"text": "Human: What is 75 plus 31?\nAssistant: 75 + 31 = 106\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: Can you solve 62 * 35?\nAssistant: 62 * 35 = 2170\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: Calculate 91 + 44\nAssistant: 91 + 44 = 135\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: What does 72 * 59 equal?\nAssistant: 72 * 59 = 4248\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: What does 33 * 2 equal?\nAssistant: 33 * 2 = 66\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: Can you solve 59 * 53?\nAssistant: 59 * 53 = 3127\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What is 15 plus 89?\nAssistant: 15 + 89 = 104\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What is 88 minus 64?\nAssistant: 88 - 64 = 24\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: Calculate 35 - 84\nAssistant: 35 - 84 = -49\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: What's 71 + 84?\nAssistant: 71 + 84 = 155\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: What is 66 divided by 48?\nAssistant: 66 / 48 = 1.38\n"}
+{"text": "Human: Can you solve 4 - 30?\nAssistant: 4 - 30 = -26\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: What's 41 / 43?\nAssistant: 41 / 43 = 0.95\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: Can you solve 84 / 27?\nAssistant: 84 / 27 = 3.11\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: Calculate 97 + 29\nAssistant: 97 + 29 = 126\n"}
+{"text": "Human: What is 92 - 58?\nAssistant: 92 - 58 = 34\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Calculate 17 + 42\nAssistant: 17 + 42 = 59\n"}
+{"text": "Human: Calculate 92 + 42\nAssistant: 92 + 42 = 134\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: 78 / 12 = ?\nAssistant: 78 / 12 = 6.5\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What does 4 - 30 equal?\nAssistant: 4 - 30 = -26\n"}
+{"text": "Human: Calculate 60 + 45\nAssistant: 60 + 45 = 105\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: Can you solve 72 - 60?\nAssistant: 72 - 60 = 12\n"}
+{"text": "Human: What is 94 minus 37?\nAssistant: 94 - 37 = 57\n"}
+{"text": "Human: What is 98 plus 73?\nAssistant: 98 + 73 = 171\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: What is 97 times 42?\nAssistant: 97 * 42 = 4074\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: What is 64 times 5?\nAssistant: 64 * 5 = 320\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What is 28 / 80?\nAssistant: 28 / 80 = 0.35\n"}
+{"text": "Human: Can you solve 22 * 62?\nAssistant: 22 * 62 = 1364\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Calculate 75 / 10\nAssistant: 75 / 10 = 7.5\n"}
+{"text": "Human: What does 14 - 65 equal?\nAssistant: 14 - 65 = -51\n"}
+{"text": "Human: Can you solve 69 + 79?\nAssistant: 69 + 79 = 148\n"}
+{"text": "Human: Calculate 81 * 26\nAssistant: 81 * 26 = 2106\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: What is 36 / 85?\nAssistant: 36 / 85 = 0.42\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: 75 + 31 = ?\nAssistant: 75 + 31 = 106\n"}
+{"text": "Human: What's 31 - 48?\nAssistant: 31 - 48 = -17\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: Calculate 66 + 59\nAssistant: 66 + 59 = 125\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What is 38 + 50?\nAssistant: 38 + 50 = 88\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What does 19 + 5 equal?\nAssistant: 19 + 5 = 24\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: What is 8 / 99?\nAssistant: 8 / 99 = 0.08\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What's 57 - 89?\nAssistant: 57 - 89 = -32\n"}
+{"text": "Human: What is 24 divided by 96?\nAssistant: 24 / 96 = 0.25\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What is 30 divided by 44?\nAssistant: 30 / 44 = 0.68\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: Calculate 59 + 69\nAssistant: 59 + 69 = 128\n"}
+{"text": "Human: Can you solve 80 + 47?\nAssistant: 80 + 47 = 127\n"}
+{"text": "Human: What's 28 * 4?\nAssistant: 28 * 4 = 112\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Can you solve 16 * 92?\nAssistant: 16 * 92 = 1472\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: Calculate 99 + 76\nAssistant: 99 + 76 = 175\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What is 70 times 50?\nAssistant: 70 * 50 = 3500\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: What does 81 + 21 equal?\nAssistant: 81 + 21 = 102\n"}
+{"text": "Human: 9 * 16 = ?\nAssistant: 9 * 16 = 144\n"}
+{"text": "Human: What is 16 minus 96?\nAssistant: 16 - 96 = -80\n"}
+{"text": "Human: What is 51 - 50?\nAssistant: 51 - 50 = 1\n"}
+{"text": "Human: What does 35 + 59 equal?\nAssistant: 35 + 59 = 94\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What is 31 divided by 65?\nAssistant: 31 / 65 = 0.48\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: 88 - 64 = ?\nAssistant: 88 - 64 = 24\n"}
+{"text": "Human: Can you solve 66 + 60?\nAssistant: 66 + 60 = 126\n"}
+{"text": "Human: What does 25 * 88 equal?\nAssistant: 25 * 88 = 2200\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What is 35 + 85?\nAssistant: 35 + 85 = 120\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What is 38 plus 42?\nAssistant: 38 + 42 = 80\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What does 45 / 11 equal?\nAssistant: 45 / 11 = 4.09\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What's 30 * 24?\nAssistant: 30 * 24 = 720\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: Can you solve 7 + 56?\nAssistant: 7 + 56 = 63\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: 72 / 27 = ?\nAssistant: 72 / 27 = 2.67\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: What is 63 + 38?\nAssistant: 63 + 38 = 101\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What is 80 times 70?\nAssistant: 80 * 70 = 5600\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Can you solve 91 + 79?\nAssistant: 91 + 79 = 170\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: Calculate 33 - 15\nAssistant: 33 - 15 = 18\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: 12 / 23 = ?\nAssistant: 12 / 23 = 0.52\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: Calculate 24 - 38\nAssistant: 24 - 38 = -14\n"}
+{"text": "Human: Calculate 22 * 94\nAssistant: 22 * 94 = 2068\n"}
+{"text": "Human: Calculate 22 * 27\nAssistant: 22 * 27 = 594\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What does 82 - 1 equal?\nAssistant: 82 - 1 = 81\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: What is 38 + 42?\nAssistant: 38 + 42 = 80\n"}
+{"text": "Human: What is 57 times 58?\nAssistant: 57 * 58 = 3306\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: 92 * 20 = ?\nAssistant: 92 * 20 = 1840\n"}
+{"text": "Human: 48 / 26 = ?\nAssistant: 48 / 26 = 1.85\n"}
+{"text": "Human: What does 100 + 43 equal?\nAssistant: 100 + 43 = 143\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What is 93 divided by 96?\nAssistant: 93 / 96 = 0.97\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: Can you solve 40 - 57?\nAssistant: 40 - 57 = -17\n"}
+{"text": "Human: What is 1 plus 5?\nAssistant: 1 + 5 = 6\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: What is 42 plus 53?\nAssistant: 42 + 53 = 95\n"}
+{"text": "Human: What is 64 plus 54?\nAssistant: 64 + 54 = 118\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: What is 10 + 86?\nAssistant: 10 + 86 = 96\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: 73 - 49 = ?\nAssistant: 73 - 49 = 24\n"}
+{"text": "Human: 36 + 5 = ?\nAssistant: 36 + 5 = 41\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: What does 42 / 82 equal?\nAssistant: 42 / 82 = 0.51\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: Can you solve 42 + 53?\nAssistant: 42 + 53 = 95\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What is 22 - 82?\nAssistant: 22 - 82 = -60\n"}
+{"text": "Human: What is 48 * 98?\nAssistant: 48 * 98 = 4704\n"}
+{"text": "Human: What is 29 minus 70?\nAssistant: 29 - 70 = -41\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: 64 - 12 = ?\nAssistant: 64 - 12 = 52\n"}
+{"text": "Human: 30 * 64 = ?\nAssistant: 30 * 64 = 1920\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: 16 - 96 = ?\nAssistant: 16 - 96 = -80\n"}
+{"text": "Human: Can you solve 58 * 5?\nAssistant: 58 * 5 = 290\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: What is 92 minus 58?\nAssistant: 92 - 58 = 34\n"}
+{"text": "Human: What is 79 - 35?\nAssistant: 79 - 35 = 44\n"}
+{"text": "Human: Can you solve 83 + 81?\nAssistant: 83 + 81 = 164\n"}
+{"text": "Human: What is 32 times 49?\nAssistant: 32 * 49 = 1568\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Can you solve 52 * 19?\nAssistant: 52 * 19 = 988\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What is 80 - 45?\nAssistant: 80 - 45 = 35\n"}
+{"text": "Human: What is 51 minus 70?\nAssistant: 51 - 70 = -19\n"}
+{"text": "Human: Can you solve 11 - 36?\nAssistant: 11 - 36 = -25\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What is 93 plus 94?\nAssistant: 93 + 94 = 187\n"}
+{"text": "Human: What is 5 - 67?\nAssistant: 5 - 67 = -62\n"}
+{"text": "Human: 55 + 22 = ?\nAssistant: 55 + 22 = 77\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: 49 + 7 = ?\nAssistant: 49 + 7 = 56\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Calculate 55 - 66\nAssistant: 55 - 66 = -11\n"}
+{"text": "Human: What is 100 minus 88?\nAssistant: 100 - 88 = 12\n"}
+{"text": "Human: What is 55 * 10?\nAssistant: 55 * 10 = 550\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What does 99 / 50 equal?\nAssistant: 99 / 50 = 1.98\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: What does 51 * 96 equal?\nAssistant: 51 * 96 = 4896\n"}
+{"text": "Human: Calculate 49 * 52\nAssistant: 49 * 52 = 2548\n"}
+{"text": "Human: What is 35 minus 69?\nAssistant: 35 - 69 = -34\n"}
+{"text": "Human: What is 70 times 78?\nAssistant: 70 * 78 = 5460\n"}
+{"text": "Human: 29 * 55 = ?\nAssistant: 29 * 55 = 1595\n"}
+{"text": "Human: What is 45 minus 2?\nAssistant: 45 - 2 = 43\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What does 37 + 29 equal?\nAssistant: 37 + 29 = 66\n"}
+{"text": "Human: What's 92 - 2?\nAssistant: 92 - 2 = 90\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What is 9 minus 92?\nAssistant: 9 - 92 = -83\n"}
+{"text": "Human: Can you solve 87 + 48?\nAssistant: 87 + 48 = 135\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: What is 19 plus 5?\nAssistant: 19 + 5 = 24\n"}
+{"text": "Human: What is 67 + 29?\nAssistant: 67 + 29 = 96\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What does 17 - 49 equal?\nAssistant: 17 - 49 = -32\n"}
+{"text": "Human: Calculate 31 / 65\nAssistant: 31 / 65 = 0.48\n"}
+{"text": "Human: What is 34 plus 85?\nAssistant: 34 + 85 = 119\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What is 60 / 21?\nAssistant: 60 / 21 = 2.86\n"}
+{"text": "Human: What's 86 + 82?\nAssistant: 86 + 82 = 168\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: Can you solve 16 / 14?\nAssistant: 16 / 14 = 1.14\n"}
+{"text": "Human: What's 89 * 84?\nAssistant: 89 * 84 = 7476\n"}
+{"text": "Human: What is 64 * 5?\nAssistant: 64 * 5 = 320\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: Calculate 55 + 77\nAssistant: 55 + 77 = 132\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What is 99 divided by 60?\nAssistant: 99 / 60 = 1.65\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: Calculate 46 + 95\nAssistant: 46 + 95 = 141\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What's 51 - 70?\nAssistant: 51 - 70 = -19\n"}
+{"text": "Human: What does 33 / 57 equal?\nAssistant: 33 / 57 = 0.58\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: What's 34 + 49?\nAssistant: 34 + 49 = 83\n"}
+{"text": "Human: What does 10 * 64 equal?\nAssistant: 10 * 64 = 640\n"}
+{"text": "Human: What is 82 * 99?\nAssistant: 82 * 99 = 8118\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What is 25 + 81?\nAssistant: 25 + 81 = 106\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: Calculate 39 - 40\nAssistant: 39 - 40 = -1\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Can you solve 17 + 34?\nAssistant: 17 + 34 = 51\n"}
+{"text": "Human: What's 35 - 69?\nAssistant: 35 - 69 = -34\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What is 68 + 6?\nAssistant: 68 + 6 = 74\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What is 41 * 81?\nAssistant: 41 * 81 = 3321\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: What is 87 plus 48?\nAssistant: 87 + 48 = 135\n"}
+{"text": "Human: What is 60 minus 67?\nAssistant: 60 - 67 = -7\n"}
+{"text": "Human: What is 6 + 22?\nAssistant: 6 + 22 = 28\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What's 66 / 48?\nAssistant: 66 / 48 = 1.38\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What's 74 + 8?\nAssistant: 74 + 8 = 82\n"}
+{"text": "Human: What is 82 times 94?\nAssistant: 82 * 94 = 7708\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: 94 - 37 = ?\nAssistant: 94 - 37 = 57\n"}
+{"text": "Human: What is 51 times 39?\nAssistant: 51 * 39 = 1989\n"}
+{"text": "Human: What is 75 times 52?\nAssistant: 75 * 52 = 3900\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: What's 85 - 84?\nAssistant: 85 - 84 = 1\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What's 68 / 100?\nAssistant: 68 / 100 = 0.68\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What does 81 * 39 equal?\nAssistant: 81 * 39 = 3159\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: Calculate 94 + 9\nAssistant: 94 + 9 = 103\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What is 6 divided by 63?\nAssistant: 6 / 63 = 0.1\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Calculate 84 - 31\nAssistant: 84 - 31 = 53\n"}
+{"text": "Human: What's 35 + 50?\nAssistant: 35 + 50 = 85\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What's 36 * 69?\nAssistant: 36 * 69 = 2484\n"}
+{"text": "Human: What's 27 - 4?\nAssistant: 27 - 4 = 23\n"}
+{"text": "Human: What is 92 * 2?\nAssistant: 92 * 2 = 184\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: What is 52 times 19?\nAssistant: 52 * 19 = 988\n"}
+{"text": "Human: 54 / 74 = ?\nAssistant: 54 / 74 = 0.73\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: 95 - 77 = ?\nAssistant: 95 - 77 = 18\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: Can you solve 47 - 82?\nAssistant: 47 - 82 = -35\n"}
+{"text": "Human: Calculate 46 * 22\nAssistant: 46 * 22 = 1012\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What is 27 + 92?\nAssistant: 27 + 92 = 119\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: What is 5 minus 67?\nAssistant: 5 - 67 = -62\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Calculate 60 * 21\nAssistant: 60 * 21 = 1260\n"}
+{"text": "Human: 33 * 75 = ?\nAssistant: 33 * 75 = 2475\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What is 58 / 50?\nAssistant: 58 / 50 = 1.16\n"}
+{"text": "Human: What is 65 divided by 46?\nAssistant: 65 / 46 = 1.41\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What is 24 minus 38?\nAssistant: 24 - 38 = -14\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What does 23 / 44 equal?\nAssistant: 23 / 44 = 0.52\n"}
+{"text": "Human: 54 / 9 = ?\nAssistant: 54 / 9 = 6.0\n"}
+{"text": "Human: Can you solve 80 - 80?\nAssistant: 80 - 80 = 0\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What color is the sky?\nAssistant: The sky is typically blue during the day.\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: 56 / 36 = ?\nAssistant: 56 / 36 = 1.56\n"}
+{"text": "Human: What's the date and time?\nAssistant: I can get both the current date and time from your device!\n"}
+{"text": "Human: What is 83 minus 21?\nAssistant: 83 - 21 = 62\n"}
+{"text": "Human: What is 55 / 48?\nAssistant: 55 / 48 = 1.15\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: What does 51 - 88 equal?\nAssistant: 51 - 88 = -37\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: Calculate 74 / 7\nAssistant: 74 / 7 = 10.57\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What's 9 / 23?\nAssistant: 9 / 23 = 0.39\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What's 60 + 72?\nAssistant: 60 + 72 = 132\n"}
+{"text": "Human: What's 36 * 7?\nAssistant: 36 * 7 = 252\n"}
+{"text": "Human: Calculate 4 * 54\nAssistant: 4 * 54 = 216\n"}
+{"text": "Human: Calculate 57 * 21\nAssistant: 57 * 21 = 1197\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: What is 66 * 61?\nAssistant: 66 * 61 = 4026\n"}
+{"text": "Human: What is 25 times 88?\nAssistant: 25 * 88 = 2200\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: Calculate 72 + 5\nAssistant: 72 + 5 = 77\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What is 81 divided by 70?\nAssistant: 81 / 70 = 1.16\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What is 45 * 40?\nAssistant: 45 * 40 = 1800\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: What is 42 divided by 86?\nAssistant: 42 / 86 = 0.49\n"}
+{"text": "Human: Can you solve 70 * 50?\nAssistant: 70 * 50 = 3500\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What does 73 / 59 equal?\nAssistant: 73 / 59 = 1.24\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: What is 41 times 81?\nAssistant: 41 * 81 = 3321\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What's 65 * 4?\nAssistant: 65 * 4 = 260\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Please help me\nAssistant: Of course! I'd be happy to help. What do you need assistance with?\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: Can you solve 81 * 49?\nAssistant: 81 * 49 = 3969\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: Hi\nAssistant: Hi there! What can I do for you?\n"}
+{"text": "Human: What is 100 - 88?\nAssistant: 100 - 88 = 12\n"}
+{"text": "Human: Can you solve 54 * 34?\nAssistant: 54 * 34 = 1836\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: Calculate 32 * 24\nAssistant: 32 * 24 = 768\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: What is 60 - 67?\nAssistant: 60 - 67 = -7\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What does 71 - 49 equal?\nAssistant: 71 - 49 = 22\n"}
+{"text": "Human: Can you solve 68 * 92?\nAssistant: 68 * 92 = 6256\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: What does 99 / 60 equal?\nAssistant: 99 / 60 = 1.65\n"}
+{"text": "Human: What is 45 + 63?\nAssistant: 45 + 63 = 108\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: What's 10 / 49?\nAssistant: 10 / 49 = 0.2\n"}
+{"text": "Human: What is 32 plus 87?\nAssistant: 32 + 87 = 119\n"}
+{"text": "Human: Can you solve 38 * 8?\nAssistant: 38 * 8 = 304\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: What is 64 - 27?\nAssistant: 64 - 27 = 37\n"}
+{"text": "Human: Good afternoon\nAssistant: Good afternoon! How can I assist you?\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: 9 + 96 = ?\nAssistant: 9 + 96 = 105\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: What does 66 / 2 equal?\nAssistant: 66 / 2 = 33.0\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Goodbye\nAssistant: Goodbye! Have a wonderful day!\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: What is 70 / 88?\nAssistant: 70 / 88 = 0.8\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What is the largest planet?\nAssistant: Jupiter is the largest planet in our solar system.\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: What is 52 times 45?\nAssistant: 52 * 45 = 2340\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: 57 * 58 = ?\nAssistant: 57 * 58 = 3306\n"}
+{"text": "Human: What does 15 + 89 equal?\nAssistant: 15 + 89 = 104\n"}
+{"text": "Human: What's 32 * 49?\nAssistant: 32 * 49 = 1568\n"}
+{"text": "Human: 54 - 1 = ?\nAssistant: 54 - 1 = 53\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: 10 / 15 = ?\nAssistant: 10 / 15 = 0.67\n"}
+{"text": "Human: What is 8 + 62?\nAssistant: 8 + 62 = 70\n"}
+{"text": "Human: Calculate 92 - 87\nAssistant: 92 - 87 = 5\n"}
+{"text": "Human: What is 80 / 59?\nAssistant: 80 / 59 = 1.36\n"}
+{"text": "Human: What is 39 - 19?\nAssistant: 39 - 19 = 20\n"}
+{"text": "Human: Calculate 79 - 26\nAssistant: 79 - 26 = 53\n"}
+{"text": "Human: How are you?\nAssistant: I'm doing well, thank you for asking! How are you?\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: What is 68 divided by 100?\nAssistant: 68 / 100 = 0.68\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What is 71 plus 84?\nAssistant: 71 + 84 = 155\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What does 35 * 76 equal?\nAssistant: 35 * 76 = 2660\n"}
+{"text": "Human: Good morning\nAssistant: Good morning! Hope you're having a great day!\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: Can you solve 41 - 76?\nAssistant: 41 - 76 = -35\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: What's 21 - 58?\nAssistant: 21 - 58 = -37\n"}
+{"text": "Human: Calculate 40 * 75\nAssistant: 40 * 75 = 3000\n"}
+{"text": "Human: What does 36 * 70 equal?\nAssistant: 36 * 70 = 2520\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What is 74 + 30?\nAssistant: 74 + 30 = 104\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: What does 31 * 9 equal?\nAssistant: 31 * 9 = 279\n"}
+{"text": "Human: What is 2+2?\nAssistant: 2 + 2 = 4\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: Can you solve 34 / 72?\nAssistant: 34 / 72 = 0.47\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What's 51 * 39?\nAssistant: 51 * 39 = 1989\n"}
+{"text": "Human: What is 35 minus 93?\nAssistant: 35 - 93 = -58\n"}
+{"text": "Human: 68 + 85 = ?\nAssistant: 68 + 85 = 153\n"}
+{"text": "Human: How many continents are there?\nAssistant: There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: How many hours in a day?\nAssistant: There are 24 hours in a day.\n"}
+{"text": "Human: Calculate 64 + 54\nAssistant: 64 + 54 = 118\n"}
+{"text": "Human: Calculate 98 - 63\nAssistant: 98 - 63 = 35\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: Thanks\nAssistant: You're welcome! Is there anything else I can help with?\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What is 52 * 45?\nAssistant: 52 * 45 = 2340\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What is 60 plus 72?\nAssistant: 60 + 72 = 132\n"}
+{"text": "Human: What year is it?\nAssistant: I can tell you the current year!\n"}
+{"text": "Human: Can you solve 90 + 88?\nAssistant: 90 + 88 = 178\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: What does 63 * 45 equal?\nAssistant: 63 * 45 = 2835\n"}
+{"text": "Human: 80 - 84 = ?\nAssistant: 80 - 84 = -4\n"}
+{"text": "Human: What is 11 minus 36?\nAssistant: 11 - 36 = -25\n"}
+{"text": "Human: What is 54 / 54?\nAssistant: 54 / 54 = 1.0\n"}
+{"text": "Human: What's 34 + 85?\nAssistant: 34 + 85 = 119\n"}
+{"text": "Human: What is the capital of France?\nAssistant: The capital of France is Paris.\n"}
+{"text": "Human: Hey\nAssistant: Hey! How are you doing?\n"}
+{"text": "Human: What is 79 * 14?\nAssistant: 79 * 14 = 1106\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: What makes plants green?\nAssistant: Chlorophyll makes plants green. It helps them make food from sunlight.\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: I have a question\nAssistant: Great! I'm here to answer questions. What would you like to know?\n"}
+{"text": "Human: Can you solve 80 * 70?\nAssistant: 80 * 70 = 5600\n"}
+{"text": "Human: 6 / 7 = ?\nAssistant: 6 / 7 = 0.86\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What does 37 * 4 equal?\nAssistant: 37 * 4 = 148\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: What does 19 / 37 equal?\nAssistant: 19 / 37 = 0.51\n"}
+{"text": "Human: What is 50 + 95?\nAssistant: 50 + 95 = 145\n"}
+{"text": "Human: What's the weather like?\nAssistant: I don't have access to current weather data, but you can check a weather app or website for current conditions in your area.\n"}
+{"text": "Human: What's your name?\nAssistant: I'm an AI assistant created to help you with various tasks. You can call me AI Assistant!\n"}
+{"text": "Human: What is 60 / 76?\nAssistant: 60 / 76 = 0.79\n"}
+{"text": "Human: Can you solve 16 - 88?\nAssistant: 16 - 88 = -72\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: I need help\nAssistant: I'm here to help! What do you need assistance with?\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: What day is today?\nAssistant: I can tell you the current date from your device when you ask me!\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Calculate 52 * 50\nAssistant: 52 * 50 = 2600\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: Can you solve 92 + 67?\nAssistant: 92 + 67 = 159\n"}
+{"text": "Human: What is 83 plus 81?\nAssistant: 83 + 81 = 164\n"}
+{"text": "Human: Who made you?\nAssistant: I was created as an AI assistant to help people with their questions and tasks.\n"}
+{"text": "Human: What is 82 * 94?\nAssistant: 82 * 94 = 7708\n"}
+{"text": "Human: What is 37 times 4?\nAssistant: 37 * 4 = 148\n"}
+{"text": "Human: What month is it?\nAssistant: I can tell you the current month!\n"}
+{"text": "Human: What is 10 x 10?\nAssistant: 10 \u00d7 10 = 100\n"}
+{"text": "Human: What's today's date?\nAssistant: I can get the current date from your device!\n"}
+{"text": "Human: Hello\nAssistant: Hello! How can I help you today?\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Can you solve 16 + 62?\nAssistant: 16 + 62 = 78\n"}
+{"text": "Human: What is 46 divided by 32?\nAssistant: 46 / 32 = 1.44\n"}
+{"text": "Human: What time is it?\nAssistant: I can tell you the current time from your device!\n"}
+{"text": "Human: What is 24 / 96?\nAssistant: 24 / 96 = 0.25\n"}
+{"text": "Human: Thank you\nAssistant: You're very welcome! Happy to help!\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What can you do?\nAssistant: I can help with basic math, answer questions, have conversations, and assist with various tasks. What would you like help with?\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What's 24 * 86?\nAssistant: 24 * 86 = 2064\n"}
+{"text": "Human: What is 31 / 63?\nAssistant: 31 / 63 = 0.49\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: What is 14 divided by 20?\nAssistant: 14 / 20 = 0.7\n"}
+{"text": "Human: What is 15 - 32?\nAssistant: 15 - 32 = -17\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What's 83 - 21?\nAssistant: 83 - 21 = 62\n"}
+{"text": "Human: How many months in a year?\nAssistant: There are 12 months in a year.\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: What is 75 - 90?\nAssistant: 75 - 90 = -15\n"}
+{"text": "Human: Can you help me?\nAssistant: Absolutely! I'd be happy to help. What can I do for you?\n"}
+{"text": "Human: What does 18 * 73 equal?\nAssistant: 18 * 73 = 1314\n"}
+{"text": "Human: What's 22 + 3?\nAssistant: 22 + 3 = 25\n"}
+{"text": "Human: Bye\nAssistant: Bye! Take care!\n"}
+{"text": "Human: What is 35 + 83?\nAssistant: 35 + 83 = 118\n"}
+{"text": "Human: What is gravity?\nAssistant: Gravity is the force that pulls objects toward each other, especially toward the Earth.\n"}
+{"text": "Human: Calculate 29 - 70\nAssistant: 29 - 70 = -41\n"}
+{"text": "Human: What is water made of?\nAssistant: Water is made of hydrogen and oxygen (H2O).\n"}
+{"text": "Human: How many days in a week?\nAssistant: There are 7 days in a week.\n"}
+{"text": "Human: What does 32 + 87 equal?\nAssistant: 32 + 87 = 119\n"}
+{"text": "Human: Good evening\nAssistant: Good evening! What can I help you with?\n"}
+{"text": "Human: What does 81 / 70 equal?\nAssistant: 81 / 70 = 1.16\n"}
+{"text": "Human: Calculate 51 * 39\nAssistant: 51 * 39 = 1989\n"}
+{"text": "Human: Are you human?\nAssistant: No, I'm an AI assistant designed to help answer questions and have conversations.\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: What's the current time?\nAssistant: I can check the current time on your device for you!\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: What is 92 times 20?\nAssistant: 92 * 20 = 1840\n"}
+{"text": "Human: How many minutes in an hour?\nAssistant: There are 60 minutes in an hour.\n"}
+{"text": "Human: What day of the week is it?\nAssistant: I can tell you what day of the week it is from your device!\n"}
+{"text": "Human: 41 / 36 = ?\nAssistant: 41 / 36 = 1.14\n"}
+{"text": "Human: How many seconds in a minute?\nAssistant: There are 60 seconds in a minute.\n"}
+{"text": "Human: Do you have feelings?\nAssistant: I don't have feelings like humans do, but I'm designed to be helpful and friendly!\n"}
+{"text": "Human: 36 / 22 = ?\nAssistant: 36 / 22 = 1.64\n"}

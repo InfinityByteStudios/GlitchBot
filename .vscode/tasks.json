@@ -1,0 +1,113 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start AI Assistant Development",
+            "type": "shell",
+            "command": "python",
+            "args": ["start_ai_assistant.py"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "Launch the interactive AI assistant development guide"
+        },
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "python",
+            "args": ["-m", "pip", "install", "-r", "requirements.txt"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "Install all required Python packages"
+        },
+        {
+            "label": "Phase 1: Open PyTorch Fundamentals",
+            "type": "shell",
+            "command": "code",
+            "args": ["phase1_fundamentals/01_pytorch_basics.ipynb"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "Open the PyTorch fundamentals Jupyter notebook"
+        },
+        {
+            "label": "Phase 2: Setup Environment",
+            "type": "shell",
+            "command": "python",
+            "args": ["phase2_environment/setup_environment.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "Check and setup the training environment"
+        },
+        {
+            "label": "Phase 3: Data Pipeline",
+            "type": "shell",
+            "command": "python",
+            "args": ["phase3_data/data_pipeline.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "Run data collection and preprocessing pipeline"
+        },
+        {
+            "label": "Phase 4: Test Transformer Model",
+            "type": "shell",
+            "command": "python",
+            "args": ["phase4_model/transformer_model.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "Test the transformer model implementation"
+        },
+        {
+            "label": "Phase 5: Train Small Model",
+            "type": "shell",
+            "command": "python",
+            "args": ["phase5_training/train_model.py"],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "problemMatcher": [],
+            "detail": "Start training a small language model"
+        }
+    ]
+}
