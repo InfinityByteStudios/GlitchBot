@@ -1,14 +1,10 @@
 [build]
-  # This is a static HTML/CSS/JS project, no build step needed
+  # Static HTML site - no build required
   publish = "."
-  command = "chmod +x build.sh && ./build.sh"
-  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF"
+  command = "echo 'Static site deployment - no build step needed'"
 
 [build.environment]
-  # Disable Node.js processing entirely
-  SKIP_NODE_VERSION_CHECK = "true"
-  NODE_ENV = "production"
-  # Disable automatic framework detection
+  # Force static site deployment
   NETLIFY_SKIP_AUTOMATIC_FRAMEWORK_DETECTION = "true"
 
 # Redirect rules for single-page application
