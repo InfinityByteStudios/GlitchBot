@@ -1,0 +1,4314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glitch Bot - AI Assistant</title>
+    <link rel="icon" href="Logo/GltichBot Without Words.png">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Helvetica Neue', sans-serif;
+            background: #343541;
+            color: #ffffff;
+            height: 100vh;
+            overflow: hidden;
+            line-height: 1.5;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        
+        /* Light Mode */
+        body.light-mode {
+            background: #ffffff !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .sidebar {
+            background: #f7f7f8 !important;
+            border-right-color: #e5e5e5 !important;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        body.light-mode .sidebar-title {
+            color: #212529 !important;
+        }
+        
+        body.light-mode .new-chat-btn {
+            background: #ffffff !important;
+            border-color: #e5e5e5 !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .new-chat-btn:hover {
+            background: #f7f7f8 !important;
+            border-color: #d0d0d0 !important;
+        }
+        
+        body.light-mode .chat-control-btn {
+            background: #ffffff;
+            border-color: #e5e5e5;
+            color: #212529;
+        }
+        
+        body.light-mode .chat-control-btn:hover {
+            background: #f7f7f8;
+            border-color: #d0d0d0;
+        }
+        
+        body.light-mode .search-input {
+            background: #ffffff;
+            border-color: #e5e5e5;
+            color: #212529;
+        }
+        
+        body.light-mode .search-input:focus {
+            border-color: #4285f4;
+            background: #ffffff;
+        }
+        
+        body.light-mode .search-input::placeholder {
+            color: #6c757d;
+        }
+        
+        body.light-mode .search-icon {
+            color: #6c757d;
+        }
+        
+        body.light-mode .search-close-btn {
+            color: #6c757d;
+        }
+        
+        body.light-mode .sidebar .sidebar-title:hover::after {
+            color: #212529 !important;
+        }
+        
+        body.light-mode .chat-item {
+            color: #495057 !important;
+        }
+        
+        body.light-mode .chat-item:hover {
+            background: #f0f0f0 !important;
+        }
+        
+        body.light-mode .chat-item.active {
+            background: #e5e5e5 !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .user-info {
+            background: #f8f9fa !important;
+            border-color: #dee2e6 !important;
+            color: #212529 !important;
+        }
+        
+        body.light-mode .main-content {
+            background: #ffffff !important;
+        }
+        
+        body.light-mode .message.assistant {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+        }
+        
+        body.light-mode .message.user {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+        }
+        
+        body.light-mode .message-text {
+            color: #212529;
+        }
+        
+        body.light-mode .message-time {
+            color: #6c757d;
+        }
+        
+        body.light-mode .settings-panel {
+            background: #ffffff;
+            border-color: #dee2e6;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-mode .settings-title {
+            color: #212529;
+            border-bottom-color: #dee2e6;
+        }
+        
+        body.light-mode .setting-label {
+            color: #212529;
+        }
+        
+        body.light-mode .setting-select {
+            background: #ffffff;
+            border-color: #dee2e6;
+            color: #212529;
+        }
+        
+        body.light-mode .setting-select:hover {
+            border-color: #adb5bd;
+            background: #f8f9fa;
+        }
+        
+        body.light-mode .input-container {
+            background: #ffffff;
+            border-top-color: #dee2e6;
+        }
+        
+        body.light-mode .input-area {
+            background: #ffffff;
+            border-top-color: #e5e5e5;
+        }
+        
+        body.light-mode .input-box {
+            background: #f7f7f8;
+            border-color: #e5e5e5;
+            color: #212529;
+        }
+        
+        body.light-mode .input-box:focus {
+            border-color: #4285f4;
+            background: #ffffff;
+        }
+        
+        body.light-mode .input-box::placeholder {
+            color: #8e8ea0;
+        }
+        
+        body.light-mode .send-btn {
+            background: #4285f4;
+        }
+        
+        body.light-mode .send-btn:hover {
+            background: #3367d6;
+        }
+        
+        body.light-mode .main-header .settings-gear {
+            color: #495057;
+        }
+        
+        body.light-mode .main-header .settings-gear:hover {
+            color: #212529;
+            background: rgba(0, 0, 0, 0.05);
+        }
+        
+        body.light-mode .signin-modal {
+            background: #ffffff;
+            border-color: #dee2e6;
+        }
+        
+        body.light-mode .modal-title {
+            color: #212529;
+        }
+        
+        body.light-mode .modal-subtitle {
+            color: #6c757d;
+        }
+        
+        body.light-mode .switch-slider {
+            background-color: #dee2e6;
+        }
+        
+        body.light-mode .main-header {
+            background: #ffffff;
+            border-bottom-color: #e5e5e5;
+        }
+        
+
+        
+        body.light-mode .welcome-title {
+            color: #212529;
+        }
+        
+        body.light-mode .welcome-subtitle {
+            color: #6c757d;
+        }
+        
+        body.light-mode .quick-action {
+            background: #f8f9fa;
+            border-color: #dee2e6;
+            color: #212529;
+        }
+        
+        body.light-mode .quick-action:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.light-mode .settings-modal {
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        body.light-mode .settings-modal-content {
+            background: #ffffff;
+            border-color: #dee2e6;
+        }
+        
+        body.light-mode .settings-sidebar {
+            background: #f8f9fa;
+            border-right-color: #dee2e6;
+        }
+        
+        body.light-mode .settings-nav-item {
+            color: #495057;
+        }
+        
+        body.light-mode .settings-nav-item:hover {
+            background: #e9ecef;
+        }
+        
+        body.light-mode .settings-nav-item.active {
+            background: #007bff;
+            color: #ffffff;
+        }
+        
+        body.light-mode .settings-main {
+            background: #ffffff;
+        }
+        
+        body.light-mode .settings-header {
+            background: #ffffff;
+            border-bottom-color: #dee2e6;
+        }
+        
+        body.light-mode .settings-header h2 {
+            color: #212529;
+        }
+        
+        body.light-mode .close-settings {
+            color: #6c757d;
+        }
+        
+        body.light-mode .close-settings:hover {
+            background: #f8f9fa;
+            color: #212529;
+        }
+        
+        body.light-mode .settings-section h3 {
+            color: #212529;
+        }
+        
+        body.light-mode .settings-footer {
+            background: #f8f9fa;
+            border-top-color: #dee2e6;
+        }
+
+        body.light-mode .setting-item {
+            background: #ffffff;
+            border-color: #dee2e6;
+        }
+
+        body.light-mode .setting-label {
+            color: #212529;
+        }
+
+        body.light-mode .setting-description {
+            color: #6c757d;
+        }
+
+        body.light-mode .storage-bar {
+            background: #e9ecef;
+        }
+
+        body.light-mode .storage-text {
+            color: #6c757d;
+        }
+
+        body.light-mode .setting-btn {
+            background: #ffffff;
+            border-color: #dee2e6;
+            color: #495057;
+        }
+
+        body.light-mode .setting-btn:hover {
+            background: #f8f9fa;
+            border-color: #adb5bd;
+        }
+        
+        body.light-mode .modal-close {
+            color: #6c757d;
+        }
+        
+        body.light-mode .modal-close:hover {
+            color: #495057;
+        }
+        
+        /* Compact Mode */
+        body.compact-mode .message {
+            padding: 8px 16px;
+        }
+        
+        body.compact-mode .sidebar {
+            width: 220px;
+        }
+        
+        /* App Container */
+        .app-container {
+            display: flex;
+            height: 100vh;
+            width: 100vw;
+            position: relative;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: #202123;
+            border-right: 1px solid #3e3e40;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 16px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+            padding: 0 4px;
+        }
+        
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        /* Chat Controls */
+        .chat-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .chat-control-btn {
+            width: 100%;
+            background: transparent;
+            border: 1px solid #444654;
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+        
+        .chat-control-btn:hover {
+            background: #2a2b32;
+            border-color: #565869;
+        }
+        
+        .chat-control-btn i {
+            width: 16px;
+            text-align: center;
+        }
+        
+        /* Search Container */
+        .search-container {
+            margin-bottom: 16px;
+            animation: slideDown 0.2s ease-out;
+        }
+        
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-input {
+            width: 100%;
+            background: #40414f;
+            border: 1px solid #565869;
+            border-radius: 8px;
+            padding: 12px 16px 12px 40px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.1);
+        }
+        
+        .search-input::placeholder {
+            color: #8e8ea0;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            color: #8e8ea0;
+            font-size: 14px;
+        }
+        
+        .search-close-btn {
+            position: absolute;
+            right: 8px;
+            background: none;
+            border: none;
+            color: #8e8ea0;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .search-close-btn:hover {
+            color: #ffffff;
+            background: #565869;
+        }
+        
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .chat-item {
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 13px;
+            color: #b0b0b0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .chat-item:hover {
+            background: #2a2b32;
+            color: #ffffff;
+        }
+        
+        .chat-item.active {
+            background: #444654;
+            color: #ffffff;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #343541;
+            position: relative;
+        }
+        
+        /* Header */
+        .main-header {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #444654;
+            background: #343541;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 5;
+            padding: 0 20px;
+        }
+        
+
+        
+        .sidebar.collapsed {
+            width: 56px;
+            min-width: 56px;
+            padding: 20px 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar.collapsed .sidebar-title {
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+        }
+        
+        .sidebar.collapsed .sidebar-title:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar.collapsed .sidebar-title .online-indicator {
+            display: none !important;
+        }
+        
+        .sidebar .sidebar-title:hover img {
+            opacity: 0 !important;
+            transition: opacity 0.2s ease;
+        }
+        
+        .sidebar .sidebar-title:hover::after {
+            content: '☰';
+            font-family: inherit;
+            font-weight: normal;
+            position: absolute;
+            color: #ffffff;
+            font-size: 18px;
+            opacity: 1 !important;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .sidebar .sidebar-title::after {
+            content: '';
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+        
+        .sidebar .sidebar-title {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        /* Expanded state - hamburger positioned over the logo */
+        .sidebar:not(.collapsed) .sidebar-title:hover::after {
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Collapsed state - hamburger centered */
+        .sidebar.collapsed .sidebar-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 48px;
+        }
+        
+        .sidebar.collapsed .sidebar-title:hover::after {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .sidebar.collapsed .sidebar-title img {
+            margin: 0;
+            transition: all 0.2s ease;
+            width: 28px !important;
+            height: 28px !important;
+        }
+        
+        .sidebar.collapsed .chat-controls {
+            align-items: center;
+        }
+        
+        .sidebar.collapsed .chat-control-btn {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .sidebar.collapsed .chat-control-btn span {
+            display: none;
+        }
+        
+        .sidebar.collapsed .chat-control-btn i {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .sidebar.collapsed .search-container {
+            display: none !important;
+        }
+        
+        .sidebar.collapsed .chat-list {
+            display: none;
+        }
+        
+        .sidebar.collapsed #userProfile {
+            display: none !important;
+        }
+        
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        
+        .main-content.expanded {
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .main-content {
+            transition: margin-left 0.3s ease;
+        }
+        
+        /* Chat Area */
+        .chat-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .welcome-screen {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .welcome-title {
+            font-size: 48px;
+            font-weight: 300;
+            color: #ffffff;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 50%, #e91e63 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .welcome-subtitle {
+            font-size: 20px;
+            color: #888888;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .quick-action {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 20px;
+            color: #ffffff;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .quick-action:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(66, 133, 244, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(66, 133, 244, 0.2);
+        }
+        
+        /* Messages Container */
+        .messages-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: none;
+        }
+        
+        .message {
+            margin-bottom: 24px;
+            display: flex;
+            gap: 12px;
+            animation: fadeIn 0.3s ease-out;
+        }
+        
+        .message.user {
+            flex-direction: row-reverse;
+        }
+        
+        .message-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
+            color: white;
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+        }
+        
+        .message.assistant .message-avatar {
+            background: #444654;
+            color: #ffffff;
+            border: 1px solid #565869;
+        }
+        
+        .message-content {
+            flex: 1;
+            max-width: 70%;
+        }
+        
+        .message.user .message-content {
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.15) 0%, rgba(156, 39, 176, 0.1) 100%);
+            border: 1px solid rgba(66, 133, 244, 0.2);
+            border-radius: 18px 18px 4px 18px;
+        }
+        
+        .message.assistant .message-content {
+            background: #444654;
+            border: 1px solid #565869;
+            border-radius: 18px 18px 18px 4px;
+        }
+        
+        .message-text {
+            padding: 16px 20px;
+            color: #ffffff;
+            font-size: 15px;
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+        
+        /* Input Area */
+        .input-area {
+            padding: 20px;
+            border-top: 1px solid #444654;
+            background: #343541;
+            backdrop-filter: blur(10px);
+        }
+        
+        .input-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .input-box {
+            width: 100%;
+            background: #40414f;
+            border: 1px solid #565869;
+            border-radius: 24px;
+            padding: 16px 60px 16px 20px;
+            color: #ffffff;
+            font-size: 15px;
+            resize: none;
+            outline: none;
+            transition: all 0.3s ease;
+            min-height: 56px;
+            max-height: 200px;
+            font-family: inherit;
+            line-height: 1.5;
+        }
+        
+        .input-box:focus {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+        
+        .input-box::placeholder {
+            color: #8e8ea0;
+        }
+        
+        .send-button {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+        }
+        
+        .send-button:hover {
+            transform: translateY(-50%) scale(1.05);
+            box-shadow: 0 4px 12px rgba(66, 133, 244, 0.4);
+        }
+        
+        .send-button:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        .send-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        /* Settings Modal */
+        .settings-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .settings-modal.open {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .settings-modal-content {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            height: 80%;
+            max-height: 700px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .settings-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid #2a2a2a;
+            background: #1a1a1a;
+        }
+        
+        .settings-header h2 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0;
+        }
+        
+        .close-settings {
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+        
+        .close-settings:hover {
+            background: #2a2a2a;
+            color: #ffffff;
+        }
+        
+        .settings-body {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .settings-sidebar {
+            width: 240px;
+            background: #141414;
+            border-right: 1px solid #2a2a2a;
+            padding: 16px 0;
+        }
+        
+        .settings-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .settings-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+            width: 100%;
+        }
+        
+        .settings-nav-item i {
+            margin-right: 12px;
+            width: 16px;
+            text-align: center;
+        }
+        
+        .settings-nav-item:hover {
+            background: #2a2a2a;
+            color: #ffffff;
+        }
+        
+        .settings-nav-item.active {
+            background: #4285f4;
+            color: #ffffff;
+        }
+        
+        .settings-content {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+        }
+        
+        .settings-category {
+            display: none;
+        }
+        
+        .settings-category.active {
+            display: block;
+        }
+        
+        .settings-category h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+        }
+        
+        .settings-category h3 i {
+            margin-right: 10px;
+        }
+        
+        .category-description {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        
+        .setting-item {
+            margin-bottom: 20px;
+            padding: 16px;
+            background: #1e1e1e;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+        }
+        
+        .setting-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+        }
+        
+        .setting-label span i {
+            margin-right: 8px;
+        }
+        
+        .setting-description {
+            color: #888;
+            font-size: 12px;
+            line-height: 1.4;
+            margin-top: 4px;
+        }
+        
+        /* Storage Info */
+        .storage-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .storage-bar {
+            width: 100%;
+            height: 6px;
+            background: #2a2a2a;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .storage-used {
+            height: 100%;
+            background: linear-gradient(90deg, #4285f4, #9c27b0);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .storage-text {
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* Settings Footer */
+        .settings-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            border-top: 1px solid #2a2a2a;
+            background: #1a1a1a;
+        }
+        
+        .settings-version {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        /* Switch Toggle Styles */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #3a3a3a;
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+        
+        .switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: #ffffff;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+        
+        .switch input:checked + .switch-slider {
+            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
+        }
+        
+        .switch input:checked + .switch-slider:before {
+            transform: translateX(20px);
+        }
+        
+        /* Setting Select Dropdown */
+        .setting-select {
+            width: 100%;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 6px;
+            color: #ffffff;
+            padding: 8px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        
+        .setting-select:hover {
+            border-color: #4a4a4a;
+            background: #333333;
+        }
+        
+        .setting-select:focus {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.2);
+        }
+        
+        .setting-select option {
+            background: #2a2a2a;
+            color: #ffffff;
+            padding: 8px;
+        }
+        
+        /* Setting Buttons */
+        .setting-btn {
+            width: 100%;
+            background: #4285f4;
+            border: none;
+            border-radius: 6px;
+            color: #ffffff;
+            padding: 8px 16px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+        
+        .setting-btn i {
+            margin-right: 6px;
+        }
+        
+        .setting-btn:hover {
+            background: #3367d6;
+            transform: translateY(-1px);
+        }
+        
+        .setting-btn.danger {
+            background: #dc3545;
+        }
+        
+        .setting-btn.danger:hover {
+            background: #c82333;
+        }
+        
+        .setting-btn.warning {
+            background: #ff9800;
+        }
+        
+        .setting-btn.warning:hover {
+            background: #f57c00;
+        }
+        
+        /* Typing Indicator */
+        .typing-indicator {
+            padding: 16px 20px;
+            color: #888888;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .typing-dots {
+            display: inline-block;
+        }
+        
+        .typing-dots::after {
+            content: "...";
+            animation: typing 1.5s infinite;
+        }
+        
+        .typing-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #444;
+            border-top: 2px solid #4285f4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes typing {
+            0% { content: "."; }
+            33% { content: ".."; }
+            66% { content: "..."; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                position: fixed;
+                z-index: 1000;
+                height: 100vh;
+            }
+            
+            .sidebar.collapsed {
+                width: 100%;
+                padding: 20px 16px;
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.collapsed.open {
+                transform: translateX(0);
+            }
+            
+            .sidebar.collapsed .sidebar-title {
+                justify-content: center;
+            }
+            
+            .sidebar.collapsed .chat-controls {
+                align-items: stretch;
+            }
+            
+            .sidebar.collapsed .chat-control-btn {
+                width: 100%;
+                height: auto;
+                padding: 12px 16px;
+                justify-content: flex-start;
+            }
+            
+            .sidebar.collapsed .chat-control-btn span {
+                display: inline;
+            }
+            
+            .sidebar.collapsed .chat-control-btn i {
+                margin-right: 12px;
+                font-size: 16px;
+            }
+            
+            .sidebar.collapsed .search-container {
+                display: block !important;
+            }
+            
+            .sidebar.collapsed .chat-list {
+                display: block;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                width: 100%;
+            }
+            
+            .welcome-title {
+                font-size: 32px;
+            }
+            
+            .welcome-subtitle {
+                font-size: 18px;
+            }
+            
+            .settings-panel {
+                width: calc(100% - 40px);
+                right: 20px;
+                left: 20px;
+                top: 80px;
+                transform: translateY(-100px);
+                opacity: 0;
+                visibility: hidden;
+            }
+            
+            .settings-panel.open {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .quick-actions {
+                gap: 8px;
+            }
+            
+            .quick-action {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Header Settings Gear Icon */
+        .main-header .settings-gear {
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.2s ease;
+            padding: 10px;
+            border-radius: 6px;
+            position: static;
+        }
+        
+        .main-header .settings-gear:hover {
+            color: #e0e0e0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+        }
+        
+        .main-header .settings-gear.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            padding: 8px;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+            }
+            
+
+        }
+        
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a95f5 0%, #ad42c7 100%);
+        }
+        
+        /* Status Indicators */
+        .online-indicator {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        .message-time {
+            font-size: 11px;
+            color: #666;
+            margin-top: 4px;
+            text-align: right;
+        }
+        
+        .message.user .message-time {
+            text-align: left;
+        }
+        
+        /* Sign-in Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal-overlay.active .signin-modal {
+            pointer-events: auto;
+        }
+        
+        .signin-modal {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 16px;
+            padding: 32px;
+            width: 90%;
+            max-width: 420px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.3s ease-out;
+            pointer-events: auto;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .modal-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .modal-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .modal-subtitle {
+            font-size: 14px;
+            color: #888888;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: none;
+            border: none;
+            color: #666;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+        
+        .modal-close:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .signin-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        
+        .signin-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border: 1px solid #3a3a3a;
+            border-radius: 12px;
+            background: transparent;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .signin-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #4a4a4a;
+            transform: translateY(-1px);
+        }
+        
+        .signin-btn.google {
+            border-color: #4285f4;
+            color: #4285f4;
+        }
+        
+        .signin-btn.google:hover {
+            background: rgba(66, 133, 244, 0.1);
+            border-color: #5a95f5;
+        }
+        
+        .signin-btn.github {
+            border-color: #333;
+            color: #ffffff;
+        }
+        
+        .signin-btn.github:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #444;
+        }
+        
+        .signin-btn i {
+            font-size: 18px;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 24px 0;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #333;
+        }
+        
+        .divider span {
+            padding: 0 16px;
+        }
+        
+        .email-form {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        
+        .form-label {
+            font-size: 12px;
+            color: #b0b0b0;
+            font-weight: 500;
+        }
+        
+        .form-input {
+            padding: 12px 16px;
+            background: #0a0a0a;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            user-select: text;
+            -webkit-user-select: text;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #4285f4;
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: #666;
+        }
+        
+        .auth-toggle {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #888;
+        }
+        
+        .auth-toggle button {
+            background: none;
+            border: none;
+            color: #4285f4;
+            cursor: pointer;
+            text-decoration: underline;
+            font-size: 13px;
+        }
+        
+        .auth-toggle button:hover {
+            color: #5a95f5;
+        }
+        
+        .submit-btn {
+            padding: 14px 20px;
+            background: linear-gradient(135deg, #4285f4 0%, #9c27b0 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 8px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(66, 133, 244, 0.3);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .error-message {
+            background: rgba(244, 67, 54, 0.1);
+            border: 1px solid rgba(244, 67, 54, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            color: #f44336;
+            font-size: 13px;
+            margin-top: 12px;
+            display: none;
+        }
+        
+        .loading-spinner {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #333;
+            border-top: 2px solid #4285f4;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mobile-menu-btn" onclick="toggleSidebar()">☰</div>
+    
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <img src="Logo/GltichBot Without Words.png" alt="Glitch Bot" style="width: 32px; height: 32px; border-radius: 6px;">
+                    <span class="online-indicator"></span>
+                </div>
+                
+                <!-- User Profile Section (Hidden by default) -->
+                <div id="userProfile" style="display: none; margin-top: 12px; padding: 8px; background: rgba(255,255,255,0.05); border-radius: 8px; font-size: 12px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between;">
+                        <span id="userDisplayName" style="color: #ccc;"></span>
+                        <button onclick="signOut()" style="background: none; border: 1px solid #444; color: #ccc; padding: 4px 8px; border-radius: 4px; cursor: pointer; font-size: 10px;">
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Chat Controls -->
+            <div class="chat-controls">
+                <button class="chat-control-btn new-chat-btn" onclick="newChat()" title="Start a new conversation (Ctrl+N)">
+                    <i class="fas fa-edit"></i>
+                    <span>New chat</span>
+                </button>
+                
+                <button class="chat-control-btn search-chat-btn" onclick="toggleSearchChats()" title="Search conversations (Ctrl+K)">
+                    <i class="fas fa-search"></i>
+                    <span>Search chats</span>
+                </button>
+            </div>
+            
+            <!-- Search Input (Initially Hidden) -->
+            <div class="search-container" id="searchContainer" style="display: none;">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput" 
+                        placeholder="Search conversations..."
+                        oninput="searchChats(this.value)"
+                    >
+                    <button class="search-close-btn" onclick="clearSearch()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chat-list" id="chatList">
+                <!-- Your conversations will appear here -->
+                <div class="empty-state" style="text-align: center; padding: 40px 20px; color: #666; font-size: 14px;">
+                    <div style="font-size: 24px; margin-bottom: 8px;"><i class="fas fa-comments"></i></div>
+                    <div>Your conversations will appear here</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="main-header">
+                <div style="flex: 1;"></div>
+                <!-- Settings gear icon -->
+                <i class="fas fa-cog settings-gear" id="settingsGear" onclick="openSettings()" title="Settings"></i>
+            </div>
+            
+            <!-- Chat Area -->
+            <div class="chat-area">
+                <div class="welcome-screen" id="welcomeScreen">
+                    <h1 class="welcome-title" id="greetingTitle">Good evening, Guest</h1>
+                    <p class="welcome-subtitle">How can I help you today?</p>
+                    
+                    <div class="quick-actions">
+                        <div class="quick-action" onclick="quickAction('code')">
+                            <span><i class="fas fa-code"></i></span>
+                            <span>Code</span>
+                        </div>
+                        <div class="quick-action" onclick="quickAction('create')">
+                            <span><i class="fas fa-palette"></i></span>
+                            <span>Create</span>
+                        </div>
+                        <div class="quick-action" onclick="quickAction('write')">
+                            <span><i class="fas fa-pen"></i></span>
+                            <span>Write</span>
+                        </div>
+                        <div class="quick-action" onclick="quickAction('learn')">
+                            <span><i class="fas fa-graduation-cap"></i></span>
+                            <span>Learn</span>
+                        </div>
+                        <div class="quick-action" onclick="quickAction('life stuff')">
+                            <span><i class="fas fa-star"></i></span>
+                            <span>Life stuff</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="messages-container" id="messagesContainer">
+                    <!-- Messages will be added here dynamically -->
+                </div>
+            </div>
+            
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-container">
+                    <textarea class="input-box" id="messageInput" placeholder="Ask anything..." rows="1"></textarea>
+                    <button class="send-button" id="sendButton" onclick="sendMessage()">
+                        <span>→</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Settings Panel -->
+        <div class="settings-modal" id="settingsModal">
+            <div class="settings-modal-content">
+                <div class="settings-header">
+                    <h2><i class="fas fa-cog"></i> Settings</h2>
+                    <button class="close-settings" onclick="closeSettings()">&times;</button>
+                </div>
+                
+                <div class="settings-body">
+                    <div class="settings-sidebar">
+                        <div class="settings-nav">
+                            <button class="settings-nav-item active" onclick="showSettingsCategory('appearance')" data-category="appearance">
+                                <i class="fas fa-palette"></i> Appearance
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('behavior')" data-category="behavior">
+                                <i class="fas fa-bolt"></i> Behavior
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('ai')" data-category="ai">
+                                <i class="fas fa-robot"></i> AI Settings
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('privacy')" data-category="privacy">
+                                <i class="fas fa-shield-alt"></i> Privacy & Security
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('language')" data-category="language">
+                                <i class="fas fa-globe"></i> Language & Region
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('data')" data-category="data">
+                                <i class="fas fa-database"></i> Data Management
+                            </button>
+                            <button class="settings-nav-item" onclick="showSettingsCategory('developer')" data-category="developer">
+                                <i class="fas fa-code"></i> Developer
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <!-- Appearance Settings -->
+                        <div class="settings-category active" id="appearance-settings">
+                            <h3><i class="fas fa-palette"></i> Appearance</h3>
+                            <p class="category-description">Customize how Glitch Bot looks and feels</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-moon"></i> Theme</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="darkModeToggle" checked onchange="toggleDarkMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Switch between dark and light themes</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-mobile-alt"></i> Compact Mode</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="compactToggle" onchange="toggleCompactMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Reduce spacing for better mobile experience</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-magic"></i> Show Typing Indicator</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="typingToggle" checked onchange="toggleTypingIndicator()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Show animation when AI is thinking</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Behavior Settings -->
+                        <div class="settings-category" id="behavior-settings">
+                            <h3><i class="fas fa-bolt"></i> Behavior</h3>
+                            <p class="category-description">Control how the app behaves and responds</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-rocket"></i> Send on Enter</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="enterSendToggle" checked onchange="toggleEnterSend()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Send messages by pressing Enter (Shift+Enter for new line)</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-keyboard"></i> Auto-focus Input</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="autoFocusToggle" checked onchange="toggleAutoFocus()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Automatically focus the input field for quick typing</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-volume-up"></i> Sound Effects</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="soundToggle" checked onchange="toggleSounds()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Play notification sounds for new messages</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-save"></i> Auto-save Chats</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="autoSaveToggle" checked onchange="toggleAutoSave()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Automatically save your conversations</div>
+                            </div>
+                        </div>
+                        
+                        <!-- AI Settings -->
+                        <div class="settings-category" id="ai-settings">
+                            <h3><i class="fas fa-robot"></i> AI Settings</h3>
+                            <p class="category-description">Customize your AI assistant's personality and behavior</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-user-cog"></i> AI Personality</span>
+                                    <select class="setting-select" id="personalitySelect" onchange="changePersonality(this.value)">
+                                        <option value="balanced">Balanced</option>
+                                        <option value="creative">Creative</option>
+                                        <option value="professional">Professional</option>
+                                        <option value="friendly">Friendly</option>
+                                        <option value="technical">Technical</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose how your AI assistant responds and communicates</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-comment-dots"></i> Response Style</span>
+                                    <select class="setting-select" id="responseStyleSelect" onchange="changeResponseStyle(this.value)">
+                                        <option value="detailed">Detailed</option>
+                                        <option value="concise">Concise</option>
+                                        <option value="conversational">Conversational</option>
+                                        <option value="educational">Educational</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Control the length and style of AI responses</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Privacy Settings -->
+                        <div class="settings-category" id="privacy-settings">
+                            <h3><i class="fas fa-shield-alt"></i> Privacy & Security</h3>
+                            <p class="category-description">Manage your privacy and data security settings</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-lock"></i> Privacy Mode</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="privacyToggle" onchange="togglePrivacyMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Don't save sensitive conversations to history</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-user-secret"></i> Incognito Mode</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="incognitoToggle" onchange="toggleIncognito()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Temporary mode - conversations won't be saved</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-key"></i> Auto-lock</span>
+                                    <select class="setting-select" id="autoLockSelect" onchange="changeAutoLock(this.value)">
+                                        <option value="never">Never</option>
+                                        <option value="5min">5 minutes</option>
+                                        <option value="15min">15 minutes</option>
+                                        <option value="30min">30 minutes</option>
+                                        <option value="1hour">1 hour</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Automatically sign out after inactivity</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Language Settings -->
+                        <div class="settings-category" id="language-settings">
+                            <h3><i class="fas fa-globe"></i> Language & Region</h3>
+                            <p class="category-description">Customize language and regional preferences</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-language"></i> Interface Language</span>
+                                    <select class="setting-select" id="languageSelect" onchange="changeLanguage(this.value)">
+                                        <option value="en">🇺🇸 English</option>
+                                        <option value="es">🇪🇸 Español</option>
+                                        <option value="fr">🇫🇷 Français</option>
+                                        <option value="de">🇩🇪 Deutsch</option>
+                                        <option value="ja">🇯🇵 日本語</option>
+                                        <option value="zh">🇨🇳 中文</option>
+                                        <option value="ko">🇰🇷 한국어</option>
+                                        <option value="pt">🇧🇷 Português</option>
+                                        <option value="ru">🇷🇺 Русский</option>
+                                        <option value="ar">🇸🇦 العربية</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose your preferred interface language</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-calendar-alt"></i> Date Format</span>
+                                    <select class="setting-select" id="dateFormatSelect" onchange="changeDateFormat(this.value)">
+                                        <option value="mdy">MM/DD/YYYY (US)</option>
+                                        <option value="dmy">DD/MM/YYYY (EU)</option>
+                                        <option value="ymd">YYYY-MM-DD (ISO)</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose how dates are displayed</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-clock"></i> Time Format</span>
+                                    <select class="setting-select" id="timeFormatSelect" onchange="changeTimeFormat(this.value)">
+                                        <option value="12">12-hour (AM/PM)</option>
+                                        <option value="24">24-hour</option>
+                                    </select>
+                                </div>
+                                <div class="setting-description">Choose between 12-hour or 24-hour time format</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Management -->
+                        <div class="settings-category" id="data-settings">
+                            <h3><i class="fas fa-database"></i> Data Management</h3>
+                            <p class="category-description">Manage your data, backups, and storage</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-download"></i> Export Data</span>
+                                    <button class="setting-btn" onclick="exportUserData()">
+                                        <i class="fas fa-download"></i> Export All Data
+                                    </button>
+                                </div>
+                                <div class="setting-description">Download all your chat history and settings</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-upload"></i> Import Data</span>
+                                    <button class="setting-btn" onclick="importUserData()">
+                                        <i class="fas fa-upload"></i> Import Data
+                                    </button>
+                                </div>
+                                <div class="setting-description">Restore your data from a backup file</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-trash-alt"></i> Clear Chat History</span>
+                                    <button class="setting-btn warning" onclick="clearChatHistory()">
+                                        <i class="fas fa-trash-alt"></i> Clear Chats
+                                    </button>
+                                </div>
+                                <div class="setting-description">Delete all conversation history</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-undo-alt"></i> Reset All Settings</span>
+                                    <button class="setting-btn danger" onclick="clearAllData()">
+                                        <i class="fas fa-undo-alt"></i> Factory Reset
+                                    </button>
+                                </div>
+                                <div class="setting-description">Reset everything to default settings</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-chart-bar"></i> Storage Usage</span>
+                                    <div class="storage-info">
+                                        <div class="storage-bar">
+                                            <div class="storage-used" style="width: 35%"></div>
+                                        </div>
+                                        <div class="storage-text">2.1 MB of 10 MB used</div>
+                                    </div>
+                                </div>
+                                <div class="setting-description">Local storage usage for chats and settings</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Developer Settings -->
+                        <div class="settings-category" id="developer-settings">
+                            <h3><i class="fas fa-code"></i> Developer</h3>
+                            <p class="category-description">Development and debugging tools for advanced users</p>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-bug"></i> Debug Mode <i class="fas fa-lock" style="color: #ff6b6b; font-size: 10px; margin-left: 5px;"></i></span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="debugToggle" onchange="toggleDebugMode()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Enable console logging and debugging information<br><small style="color: #ff6b6b;">🔒 Requires developer access</small></div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-terminal"></i> Console Logging <i class="fas fa-lock" style="color: #ff6b6b; font-size: 10px; margin-left: 5px;"></i></span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="consoleLoggingToggle" onchange="toggleConsoleLogging()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Log API calls and user interactions to browser console<br><small style="color: #ff6b6b;">🔒 Requires developer access</small></div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-flask"></i> Experimental Features</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="experimentalToggle" onchange="toggleExperimentalFeatures()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Enable beta features and experimental functionality</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-stopwatch"></i> Performance Monitoring</span>
+                                    <label class="switch">
+                                        <input type="checkbox" id="performanceToggle" onchange="togglePerformanceMonitoring()">
+                                        <span class="switch-slider"></span>
+                                    </label>
+                                </div>
+                                <div class="setting-description">Track and display performance metrics</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-database"></i> Local Storage Info</span>
+                                    <button class="setting-btn" onclick="showLocalStorageInfo()">
+                                        <i class="fas fa-info-circle"></i> View Storage Data
+                                    </button>
+                                </div>
+                                <div class="setting-description">View detailed local storage information and structure</div>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-label">
+                                    <span><i class="fas fa-trash-alt"></i> Clear Cache</span>
+                                    <button class="setting-btn warning" onclick="clearCache()">
+                                        <i class="fas fa-broom"></i> Clear Cache
+                                    </button>
+                                </div>
+                                <div class="setting-description">Clear browser cache and temporary data</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-footer">
+                    <div class="settings-version">Glitch Bot v2.5.0</div>
+                    <button class="setting-btn" onclick="closeSettings()">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Sign-in Modal -->
+    <div class="modal-overlay" id="signinModal" onclick="closeSigninModal()">
+        <div class="signin-modal" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeSigninModal()">&times;</button>
+            
+            <div class="modal-header">
+                <div class="modal-title">Welcome to Glitch Bot</div>
+                <div class="modal-subtitle">Sign in to personalize your experience</div>
+            </div>
+            
+            <div class="signin-options">
+                <button class="signin-btn google" onclick="signInWithGoogle()">
+                    <i class="fab fa-google"></i>
+                    <span>Continue with Google</span>
+                </button>
+                
+                <button class="signin-btn github" onclick="signInWithGitHub()">
+                    <i class="fab fa-github"></i>
+                    <span>Continue with GitHub</span>
+                </button>
+            </div>
+            
+            <div class="divider">
+                <span>or</span>
+            </div>
+            
+            <form class="email-form" id="emailForm" onsubmit="handleEmailAuth(event)">
+                <div class="form-group">
+                    <label class="form-label" for="emailInput">Email Address</label>
+                    <input type="email" class="form-input" id="emailInput" name="email" placeholder="Enter your email" required autocomplete="email">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="passwordInput">Password</label>
+                    <input type="password" class="form-input" id="passwordInput" name="password" placeholder="Enter your password" required autocomplete="current-password">
+                </div>
+                
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="submitText">Sign In</span>
+                </button>
+                
+                <div class="error-message" id="errorMessage"></div>
+            </form>
+            
+            <div class="auth-toggle">
+                <span id="toggleText">Don't have an account?</span>
+                <button type="button" id="toggleBtn" onclick="toggleAuthMode()">Sign Up</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Firebase Configurations - Dual setup for Auth and Data
+        const authConfig = {
+            apiKey: "AIzaSyCo5hr7ULHLL_0UAAst74g8ePZxkB7OHFQ",
+            authDomain: "shared-sign-in.firebaseapp.com",
+            projectId: "shared-sign-in",
+            appId: "1:332039027753:web:aa7c6877d543bb90363038",
+            measurementId: "G-KK5XVVLMVN"
+        };
+        
+        const dataConfig = {
+            apiKey: "AIzaSyBYvHwMj9JZ-SyFFg_CFYrRlQsF8WrTQRA",
+            authDomain: "glitchbot-2a02d.firebaseapp.com",
+            databaseURL: "https://glitchbot-2a02d-default-rtdb.firebaseio.com",
+            projectId: "glitchbot-2a02d",
+            storageBucket: "glitchbot-2a02d.firebasestorage.app",
+            messagingSenderId: "650040366167",
+            appId: "1:650040366167:web:c99d071d4082e863e67f12",
+            measurementId: "G-RQHYTCGN5L"
+        };
+
+        // Initialize Firebase apps
+        const authApp = firebase.initializeApp(authConfig, 'auth');
+        const dataApp = firebase.initializeApp(dataConfig, 'data');
+        
+        // Initialize services
+        const auth = firebase.auth(authApp);
+        const db = firebase.firestore(dataApp);
+        
+        // Global variables
+        let messageHistory = [];
+        let currentUser = null;
+        let userName = 'Guest';
+        let isTyping = false;
+        let isSignUp = false; // Track if we're in sign-up mode
+        let currentChatId = null; // Track current chat for Firestore storage
+        
+        // Firestore Chat Manager Class
+        class ChatManager {
+            constructor() {
+                this.db = db; // Use the data Firebase app
+                this.currentChatId = null;
+                this.conversationHistory = [];
+            }
+            
+            /**
+             * Save message to Firestore if user is signed in
+             */
+            async saveMessage(content, type, modelMetadata = null) {
+                // Only save if user is authenticated
+                if (!currentUser) {
+                    console.log('User not signed in, not saving to Firestore');
+                    return null;
+                }
+                
+                try {
+                    const messageData = {
+                        content: content,
+                        type: type,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                        userId: currentUser.uid,
+                        edited: false
+                    };
+                    
+                    // Add AI model metadata for assistant messages
+                    if (type === 'assistant' && modelMetadata) {
+                        messageData.metadata = {
+                            modelVersion: 'glitchbot-v1',
+                            responseTime: modelMetadata.responseTime || 0,
+                            confidence: modelMetadata.confidence || 0.0,
+                            tokensGenerated: modelMetadata.tokens || 0,
+                            temperature: modelMetadata.temperature || 0.7
+                        };
+                    }
+                    
+                    // Ensure we have a chat ID
+                    if (!this.currentChatId) {
+                        this.currentChatId = await this.createNewChat(content.substring(0, 50));
+                    }
+                    
+                    // Save to Firestore
+                    const docRef = await this.db
+                        .collection('users')
+                        .doc(currentUser.uid)
+                        .collection('chats')
+                        .doc(this.currentChatId)
+                        .collection('messages')
+                        .add(messageData);
+                    
+                    // Update chat metadata
+                    await this.updateChatMetadata(content);
+                    
+                    console.log('Message saved to Firestore with ID:', docRef.id);
+                    return docRef.id;
+                    
+                } catch (error) {
+                    console.error('Error saving message to Firestore:', error);
+                    return null;
+                }
+            }
+            
+            /**
+             * Create a new chat conversation
+             */
+            async createNewChat(title) {
+                if (!currentUser) return null;
+                
+                try {
+                    const chatData = {
+                        title: title.substring(0, 100),
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        messageCount: 0,
+                        archived: false,
+                        favorite: false
+                    };
+                    
+                    const chatRef = await this.db
+                        .collection('users')
+                        .doc(currentUser.uid)
+                        .collection('chats')
+                        .add(chatData);
+                    
+                    console.log('New chat created with ID:', chatRef.id);
+                    return chatRef.id;
+                    
+                } catch (error) {
+                    console.error('Error creating new chat:', error);
+                    return null;
+                }
+            }
+            
+            /**
+             * Update chat metadata
+             */
+            async updateChatMetadata(latestMessage) {
+                if (!currentUser || !this.currentChatId) return;
+                
+                try {
+                    const chatRef = this.db
+                        .collection('users')
+                        .doc(currentUser.uid)
+                        .collection('chats')
+                        .doc(this.currentChatId);
+                    
+                    await chatRef.update({
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        messageCount: firebase.firestore.FieldValue.increment(1)
+                    });
+                    
+                } catch (error) {
+                    console.error('Error updating chat metadata:', error);
+                }
+            }
+            
+            /**
+             * Load user's chat list
+             */
+            async loadUserChats() {
+                if (!currentUser) return [];
+                
+                try {
+                    const chatsSnapshot = await this.db
+                        .collection('users')
+                        .doc(currentUser.uid)
+                        .collection('chats')
+                        .orderBy('updatedAt', 'desc')
+                        .limit(50)
+                        .get();
+                    
+                    const chats = [];
+                    chatsSnapshot.forEach(doc => {
+                        chats.push({
+                            id: doc.id,
+                            ...doc.data()
+                        });
+                    });
+                    
+                    return chats;
+                    
+                } catch (error) {
+                    console.error('Error loading user chats:', error);
+                    return [];
+                }
+            }
+            
+            /**
+             * Load conversation history
+             */
+            async loadConversationHistory(chatId, limit = 50) {
+                if (!currentUser) return [];
+                
+                try {
+                    const messagesSnapshot = await this.db
+                        .collection('users')
+                        .doc(currentUser.uid)
+                        .collection('chats')
+                        .doc(chatId)
+                        .collection('messages')
+                        .orderBy('timestamp', 'asc')
+                        .limit(limit)
+                        .get();
+                    
+                    const messages = [];
+                    messagesSnapshot.forEach(doc => {
+                        messages.push({
+                            id: doc.id,
+                            ...doc.data()
+                        });
+                    });
+                    
+                    this.conversationHistory = messages;
+                    return messages;
+                    
+                } catch (error) {
+                    console.error('Error loading conversation history:', error);
+                    return [];
+                }
+            }
+            
+            /**
+             * Switch to a different chat
+             */
+            async switchToChat(chatId) {
+                this.currentChatId = chatId;
+                const history = await this.loadConversationHistory(chatId);
+                
+                // Clear current UI and local message history
+                const messagesContainer = document.getElementById('messagesContainer');
+                messagesContainer.innerHTML = '';
+                messageHistory = []; // Clear local history
+                
+                // Display loaded messages and rebuild local history
+                history.forEach(msg => {
+                    if (msg.timestamp) { // Skip messages without timestamp
+                        displayMessageInUI(msg.content, msg.type);
+                        
+                        // Rebuild local message history for AI context
+                        messageHistory.push({
+                            type: msg.type,
+                            content: msg.content,
+                            timestamp: msg.timestamp.toDate ? msg.timestamp.toDate().toISOString() : new Date().toISOString()
+                        });
+                    }
+                });
+                
+                // Show messages container
+                document.getElementById('welcomeScreen').style.display = 'none';
+                document.getElementById('messagesContainer').style.display = 'block';
+                
+                console.log(`Loaded ${history.length} messages for chat context`);
+                return history;
+            }
+            
+            /**
+             * Start a new chat session
+             */
+            async startNewChat() {
+                this.currentChatId = null;
+                this.conversationHistory = [];
+                
+                // Clear UI and reset conversation context
+                const messagesContainer = document.getElementById('messagesContainer');
+                messagesContainer.innerHTML = '';
+                document.getElementById('messagesContainer').style.display = 'none';
+                document.getElementById('welcomeScreen').style.display = 'flex';
+                
+                // Clear message history for fresh AI context
+                messageHistory = [];
+                
+                // Refresh chat list if user is signed in
+                if (currentUser) {
+                    await this.refreshChatList();
+                }
+                
+                console.log('Started new chat session with fresh context');
+            }
+            
+            /**
+             * Refresh the sidebar chat list
+             */
+            async refreshChatList() {
+                if (!currentUser) return;
+                
+                const chats = await this.loadUserChats();
+                const chatList = document.getElementById('chatList');
+                
+                // Clear current list except empty state
+                const existingChats = chatList.querySelectorAll('.chat-item:not(.empty-state)');
+                existingChats.forEach(item => item.remove());
+                
+                // Add loaded chats
+                chats.forEach(chat => {
+                    const chatItem = document.createElement('div');
+                    chatItem.className = 'chat-item';
+                    chatItem.textContent = chat.title || 'Untitled Chat';
+                    chatItem.onclick = () => {
+                        // Deselect other chats
+                        chatList.querySelectorAll('.chat-item').forEach(item => {
+                            item.classList.remove('active');
+                        });
+                        chatItem.classList.add('active');
+                        
+                        // Switch to this chat
+                        this.switchToChat(chat.id);
+                    };
+                    
+                    chatList.insertBefore(chatItem, chatList.firstChild);
+                });
+                
+                // Remove empty state if chats exist
+                if (chats.length > 0) {
+                    const emptyState = chatList.querySelector('.empty-state');
+                    if (emptyState) emptyState.remove();
+                }
+            }
+        }
+        
+        // Initialize chat manager
+        const chatManager = new ChatManager();
+        
+        // Function to personalize responses
+        function personalizeResponse(response) {
+            if (currentUser && userName !== 'Guest') {
+                // Replace generic greetings with personalized ones
+                response = response.replace(/Hello!/g, `Hello, ${userName}!`);
+                response = response.replace(/Hi there!/g, `Hi there, ${userName}!`);
+                response = response.replace(/Hey!/g, `Hey, ${userName}!`);
+                response = response.replace(/Good morning!/g, `Good morning, ${userName}!`);
+                response = response.replace(/Good afternoon!/g, `Good afternoon, ${userName}!`);
+                response = response.replace(/Good evening!/g, `Good evening, ${userName}!`);
+                response = response.replace(/Goodbye!/g, `Goodbye, ${userName}!`);
+                response = response.replace(/Have a wonderful day!/g, `Have a wonderful day, ${userName}!`);
+            }
+            return response;
+        }
+        
+        // AI Response templates with basic intelligence
+        const basicResponses = {
+            // Greetings
+            'hello': "Hello! How can I help you today?",
+            'hi': "Hi there! What can I do for you?",
+            'hey': "Hey! How are you doing?",
+            'good morning': "Good morning! Hope you're having a great day!",
+            'good afternoon': "Good afternoon! How can I assist you?",
+            'good evening': "Good evening! What can I help you with?",
+            
+            // Basic questions
+            'how are you': "I'm doing well, thank you for asking! How are you?",
+            'what is your name': "I'm Glitch Bot, an AI assistant created to help you with various tasks!",
+            'who are you': "I'm Glitch Bot, an AI assistant built from scratch to help with basic questions and math!",
+            'what can you do': "I can help with basic math, answer questions, have conversations, and assist with various tasks. Try asking me a math problem!",
+            'who made you': "I was created as Glitch Bot to help people with their questions and tasks.",
+            
+            // Politeness
+            'thank you': "You're very welcome! Happy to help!",
+            'thanks': "You're welcome! Is there anything else I can help with?",
+            'please help me': "Of course! I'd be happy to help. What do you need assistance with?",
+            'goodbye': "Goodbye! Have a wonderful day!",
+            'bye': "Bye! Take care!",
+            
+            // Help requests
+            'help': "I can help with basic math problems and simple questions. Try asking me something like 'What is 5 + 3?' or 'How are you?'",
+            'i need help': "I'm here to help! What do you need assistance with?",
+            'can you help me': "Absolutely! I'd be happy to help. What can I do for you?",
+            'i have a question': "Great! I'm here to answer questions. What would you like to know?",
+            
+            // General knowledge
+            'what is the capital of france': "The capital of France is Paris.",
+            'what color is the sky': "The sky is typically blue during the day.",
+            'how many days in a week': "There are 7 days in a week.",
+            'what is water made of': "Water is made of hydrogen and oxygen (H2O).",
+            'what is the largest planet': "Jupiter is the largest planet in our solar system.",
+            'what is gravity': "Gravity is the force that pulls objects toward each other, especially toward the Earth.",
+            'how many hours in a day': "There are 24 hours in a day.",
+            'how many minutes in an hour': "There are 60 minutes in an hour.",
+            'how many seconds in a minute': "There are 60 seconds in a minute.",
+            'how many months in a year': "There are 12 months in a year.",
+            'how many continents are there': "There are 7 continents: Asia, Africa, North America, South America, Antarctica, Europe, and Australia.",
+            
+            // AI-specific
+            'are you human': "No, I'm Glitch Bot, an AI assistant designed to help answer questions and have conversations.",
+            'do you have feelings': "I don't have feelings like humans do, but I'm designed to be helpful and friendly!",
+            'are you real': "I'm Glitch Bot, a real AI assistant, though I'm software rather than a physical being!",
+        };
+        
+        // Date and time functions
+        function getCurrentDate() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            return now.toLocaleDateString('en-US', options);
+        }
+        
+        function getCurrentTime() {
+            const now = new Date();
+            return now.toLocaleTimeString('en-US', { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            });
+        }
+        
+        function getCurrentDateTime() {
+            const now = new Date();
+            const dateOptions = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            const timeOptions = { 
+                hour: '2-digit', 
+                minute: '2-digit',
+                hour12: true 
+            };
+            
+            const date = now.toLocaleDateString('en-US', dateOptions);
+            const time = now.toLocaleTimeString('en-US', timeOptions);
+            
+            return `${date} at ${time}`;
+        }
+        
+        function getDayOfWeek() {
+            const now = new Date();
+            return now.toLocaleDateString('en-US', { weekday: 'long' });
+        }
+        
+        function getMonth() {
+            const now = new Date();
+            return now.toLocaleDateString('en-US', { month: 'long' });
+        }
+        
+        function getYear() {
+            const now = new Date();
+            return now.getFullYear().toString();
+        }
+        
+        // Math solver function
+        function solveMath(message) {
+            // Remove common words and clean the message
+            let cleanMessage = message.toLowerCase()
+                .replace(/\b(what|is|equals?|calculate|solve|can you|please|the answer to)\b/g, '')
+                .trim();
+            
+            // Math operation patterns
+            const patterns = [
+                { regex: /(\d+(?:\.\d+)?)\s*\+\s*(\d+(?:\.\d+)?)/, op: '+', calc: (a, b) => a + b },
+                { regex: /(\d+(?:\.\d+)?)\s*\-\s*(\d+(?:\.\d+)?)/, op: '-', calc: (a, b) => a - b },
+                { regex: /(\d+(?:\.\d+)?)\s*\*\s*(\d+(?:\.\d+)?)/, op: '×', calc: (a, b) => a * b },
+                { regex: /(\d+(?:\.\d+)?)\s*x\s*(\d+(?:\.\d+)?)/, op: '×', calc: (a, b) => a * b },
+                { regex: /(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)/, op: '÷', calc: (a, b) => b !== 0 ? a / b : 'Cannot divide by zero!' },
+                { regex: /(\d+(?:\.\d+)?)\s*times\s*(\d+(?:\.\d+)?)/, op: '×', calc: (a, b) => a * b },
+                { regex: /(\d+(?:\.\d+)?)\s*plus\s*(\d+(?:\.\d+)?)/, op: '+', calc: (a, b) => a + b },
+                { regex: /(\d+(?:\.\d+)?)\s*minus\s*(\d+(?:\.\d+)?)/, op: '-', calc: (a, b) => a - b },
+                { regex: /(\d+(?:\.\d+)?)\s*divided\s*by\s*(\d+(?:\.\d+)?)/, op: '÷', calc: (a, b) => b !== 0 ? a / b : 'Cannot divide by zero!' },
+            ];
+            
+            for (let pattern of patterns) {
+                const match = cleanMessage.match(pattern.regex);
+                if (match) {
+                    const a = parseFloat(match[1]);
+                    const b = parseFloat(match[2]);
+                    const result = pattern.calc(a, b);
+                    
+                    if (typeof result === 'string') {
+                        return result; // Error message
+                    }
+                    
+                    // Format the result
+                    const formattedResult = result % 1 === 0 ? result.toString() : result.toFixed(2);
+                    const aDisplay = a % 1 === 0 ? a.toString() : a.toFixed(2);
+                    const bDisplay = b % 1 === 0 ? b.toString() : b.toFixed(2);
+                    
+                    return `${aDisplay} ${pattern.op} ${bDisplay} = ${formattedResult}`;
+                }
+            }
+            
+            return null;
+        }
+        
+        // Enhanced AI response generator with conversation context
+        function generateAIResponse(message) {
+            const lowerMessage = message.toLowerCase().trim();
+            
+            // Get conversation context for better responses
+            const context = getConversationContext();
+            
+            // Date and time queries - Check these FIRST before anything else
+            if (/what.*day.*today|what.*today|what.*date.*today|today.*date/.test(lowerMessage)) {
+                return `Today is ${getCurrentDate()}.`;
+            }
+            
+            if (/what.*time.*it|what.*time.*now|current.*time|time.*now/.test(lowerMessage)) {
+                return `The current time is ${getCurrentTime()}.`;
+            }
+            
+            if (/what.*day.*week|day.*week.*today|what.*day.*it/.test(lowerMessage)) {
+                return `Today is ${getDayOfWeek()}.`;
+            }
+            
+            if (/what.*month.*it|what.*month.*today|current.*month/.test(lowerMessage)) {
+                return `We're currently in ${getMonth()}.`;
+            }
+            
+            if (/what.*year.*it|what.*year.*now|current.*year/.test(lowerMessage)) {
+                return `The current year is ${getYear()}.`;
+            }
+            
+            if (/date.*time|time.*date/.test(lowerMessage)) {
+                return `It's currently ${getCurrentDateTime()}.`;
+            }
+            
+            // Context-aware responses based on conversation history
+            const contextualResponse = generateContextualResponse(lowerMessage, context);
+            if (contextualResponse) {
+                return contextualResponse;
+            }
+            
+            // Try to solve math before checking static responses
+            const mathResult = solveMath(message);
+            if (mathResult) {
+                return mathResult;
+            }
+            
+            // Pattern matching for greetings
+            if (/\b(hello|hi|hey)\b/.test(lowerMessage)) {
+                return generateGreetingResponse(context);
+            }
+            
+            // Check for exact matches in basicResponses (but skip date/time ones)
+            for (const [key, response] of Object.entries(basicResponses)) {
+                if (key.includes('day') || key.includes('time') || key.includes('date')) {
+                    continue;
+                }
+                if (lowerMessage.includes(key)) {
+                    return enhanceWithContext(response, context, key);
+                }
+            }
+            
+            // Pattern matching for questions about capabilities
+            if (/what.*can.*you.*do/.test(lowerMessage)) {
+                return "I can help with basic math problems, answer simple questions, tell you the current date and time, and have conversations. I also remember our conversation history to provide better responses. Try asking me a math problem like '5 + 3' or 'What day is today?'";
+            }
+            
+            // Pattern matching for math-related queries
+            if (/\d+/.test(lowerMessage) && (/math|calculate|compute|add|subtract|multiply|divide/.test(lowerMessage))) {
+                return "I can help with math! Try asking me something like 'What is 5 + 3?' or 'Calculate 12 * 4'.";
+            }
+            
+            // Enhanced default responses with context awareness
+            return generateContextAwareDefault(lowerMessage, context);
+        }
+        
+        // Get conversation context from recent messages
+        function getConversationContext() {
+            const recentMessages = messageHistory.slice(-10); // Last 10 messages
+            const context = {
+                recentTopics: [],
+                userMood: 'neutral',
+                lastUserMessage: '',
+                lastAssistantMessage: '',
+                hasAskedHowAreYou: false,
+                userRespondedToHowAreYou: false,
+                mentionedTopics: new Set(),
+                conversationLength: messageHistory.length
+            };
+            
+            // Analyze recent messages for context
+            recentMessages.forEach((msg, index) => {
+                const lowerContent = msg.content.toLowerCase();
+                
+                if (msg.type === 'user') {
+                    context.lastUserMessage = msg.content;
+                    
+                    // Check if user responded to "how are you"
+                    if (index > 0 && recentMessages[index - 1].type === 'assistant' && 
+                        recentMessages[index - 1].content.toLowerCase().includes('how are you')) {
+                        context.userRespondedToHowAreYou = true;
+                        
+                        // Detect mood from response
+                        if (/good|great|fine|well|excellent|amazing|fantastic|wonderful/.test(lowerContent)) {
+                            context.userMood = 'positive';
+                        } else if (/bad|terrible|awful|sad|depressed|angry|frustrated/.test(lowerContent)) {
+                            context.userMood = 'negative';
+                        } else if (/okay|ok|alright|so-so|meh/.test(lowerContent)) {
+                            context.userMood = 'neutral';
+                        }
+                    }
+                    
+                    // Track mentioned topics
+                    if (lowerContent.includes('math')) context.mentionedTopics.add('math');
+                    if (lowerContent.includes('code') || lowerContent.includes('programming')) context.mentionedTopics.add('programming');
+                    if (lowerContent.includes('help')) context.mentionedTopics.add('help');
+                    if (lowerContent.includes('time') || lowerContent.includes('date')) context.mentionedTopics.add('time');
+                    
+                } else if (msg.type === 'assistant') {
+                    context.lastAssistantMessage = msg.content;
+                    
+                    // Check if assistant asked "how are you"
+                    if (lowerContent.includes('how are you')) {
+                        context.hasAskedHowAreYou = true;
+                    }
+                }
+            });
+            
+            return context;
+        }
+        
+        // Generate contextual responses based on conversation history
+        function generateContextualResponse(message, context) {
+            const lowerMessage = message.toLowerCase();
+            
+            // If user responds to "how are you" question
+            if (context.hasAskedHowAreYou && context.userRespondedToHowAreYou) {
+                if (context.userMood === 'positive') {
+                    return "That's wonderful to hear! I'm glad you're doing well. How can I help you today?";
+                } else if (context.userMood === 'negative') {
+                    return "I'm sorry to hear you're not feeling great. Is there anything I can help you with to make your day better?";
+                } else if (context.userMood === 'neutral') {
+                    return "Thanks for letting me know. What can I help you with today?";
+                }
+            }
+            
+            // Reference previous topics discussed
+            if (/thanks|thank you/.test(lowerMessage) && context.mentionedTopics.has('math')) {
+                return "You're welcome! I enjoyed helping you with that math problem. Feel free to ask me more math questions anytime!";
+            }
+            
+            if (/thanks|thank you/.test(lowerMessage) && context.mentionedTopics.has('help')) {
+                return "You're very welcome! I'm always here to help. What else would you like to know?";
+            }
+            
+            if (/thanks|thank you/.test(lowerMessage) && context.mentionedTopics.has('time')) {
+                return "You're welcome! I'm happy to help you keep track of time and dates. Anything else you need?";
+            }
+            
+            // Continue conversation based on previous context
+            if (/what else/.test(lowerMessage) || /anything else/.test(lowerMessage)) {
+                if (context.mentionedTopics.has('math')) {
+                    return "I can help you with more math problems, tell you the current time and date, or we can chat about other topics. What interests you?";
+                } else if (context.mentionedTopics.has('programming')) {
+                    return "While I focus on basic math and conversations, I'd be happy to help with simple questions or calculations related to programming!";
+                } else {
+                    return "I can help with math problems, tell you the current date and time, answer basic questions, or just have a friendly conversation. What would you like to explore?";
+                }
+            }
+            
+            // Reference conversation length for engagement
+            if (context.conversationLength > 10 && /how.*conversation|chat.*going/.test(lowerMessage)) {
+                return "I'm really enjoying our conversation! We've exchanged quite a few messages now. It's great to have someone to chat with. What else would you like to talk about?";
+            }
+            
+            // Acknowledge if user seems confused about a previous response
+            if (/don't understand|confused|what.*mean/.test(lowerMessage) && context.lastAssistantMessage) {
+                return "I apologize for any confusion! Let me try to explain better. What specific part would you like me to clarify?";
+            }
+            
+            // Remember user's good mood and build on it
+            if (context.userMood === 'positive' && /tell me/.test(lowerMessage)) {
+                return "I love your positive energy! What would you like me to tell you about? I can share information about math, current time and date, or we can continue our great conversation!";
+            }
+            
+            return null; // No contextual response found
+        }
+        
+        // Generate greeting response based on context
+        function generateGreetingResponse(context) {
+            if (context.conversationLength === 0) {
+                return "Hello! How can I help you today?";
+            } else if (context.conversationLength > 5) {
+                return "Hello again! I'm enjoying our ongoing conversation. What can I help you with now?";
+            } else {
+                return "Hi there! What else can I do for you?";
+            }
+        }
+        
+        // Enhance basic responses with conversation context
+        function enhanceWithContext(response, context, key) {
+            // Enhance "how are you" responses based on conversation history
+            if (key === 'how are you') {
+                if (context.conversationLength > 5) {
+                    return "I'm doing well, thank you for asking! I'm really enjoying our conversation. How are you feeling today?";
+                } else {
+                    return "I'm doing well, thank you for asking! How are you?";
+                }
+            }
+            
+            // Enhance "what can you do" responses with context
+            if (key === 'what can you do' && context.mentionedTopics.size > 0) {
+                let contextualAddition = " We've already talked about ";
+                const topics = Array.from(context.mentionedTopics);
+                contextualAddition += topics.join(' and ') + ", so feel free to ask me more about those topics too!";
+                return response + contextualAddition;
+            }
+            
+            // Add conversation acknowledgment to responses
+            if (context.conversationLength > 3 && Math.random() > 0.7) {
+                return response + " I'm enjoying our chat!";
+            }
+            
+            return response;
+        }
+        
+        // Generate context-aware default responses
+        function generateContextAwareDefault(message, context) {
+            const defaultResponses = [];
+            
+            // Tailor defaults based on conversation context
+            if (context.mentionedTopics.has('math')) {
+                defaultResponses.push(
+                    "That's interesting! Since we were talking about math earlier, would you like me to help you with another calculation? Or I can help with other topics like current date/time and basic questions.",
+                    "I'm not sure about that specific topic, but I noticed we discussed math before. Want to try another math problem, or shall we explore something else I can help with?"
+                );
+            }
+            
+            if (context.mentionedTopics.has('time')) {
+                defaultResponses.push(
+                    "I'm not familiar with that particular topic, but I can still help with time and date questions like we discussed before, plus math problems and basic conversations!",
+                    "That's a great question! While I'm still learning about many subjects, I can definitely help with date/time queries like before, math problems, and friendly chats."
+                );
+            }
+            
+            if (context.userMood === 'positive') {
+                defaultResponses.push(
+                    "I love your enthusiasm! While I'm not sure about that specific topic, I can help with math, current date/time, and continue our great conversation!",
+                    "That's an interesting question! I may not know about that particular subject, but I'm great with math, time/date questions, and I'm enjoying chatting with you!"
+                );
+            }
+            
+            if (context.conversationLength > 5) {
+                defaultResponses.push(
+                    "That's a thoughtful question! Even though we've been chatting for a while, I'm still learning about many topics. I'm best with math, current date/time, and basic conversations.",
+                    "I appreciate your curiosity! While I may not know about that specific subject, I'm reliable with math problems, time/date queries, and I'm really enjoying our ongoing conversation!"
+                );
+            }
+            
+            // Add some general defaults if no specific context
+            if (defaultResponses.length === 0) {
+                defaultResponses.push(
+                    "That's interesting! I'm still learning about many topics. I can help with basic math problems, tell you the current date/time, and answer simple questions. Try asking me 'What day is today?' or 'What is 7 + 5?'",
+                    "I'm not sure about that specific topic, but I can help with basic math, date/time queries, and simple questions! What would you like to know?",
+                    "That's a great question! While I'm still learning about many subjects, I can definitely help with math problems, current date/time, and basic conversations. Try me with a calculation or ask 'What time is it?'",
+                    "I appreciate your question! I'm designed to help with basic math, current date/time information, and simple conversations. Feel free to ask me 'What's today's date?' or solve a math problem!"
+                );
+            }
+            
+            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        }
+        
+        // Toggle settings modal
+        function toggleSettings() {
+            const settingsModal = document.getElementById('settingsModal');
+            const settingsGear = document.getElementById('settingsGear');
+            
+            settingsModal.classList.toggle('open');
+            settingsGear.classList.toggle('active');
+        }
+        
+        // Close settings modal
+        function closeSettings() {
+            const settingsModal = document.getElementById('settingsModal');
+            const settingsGear = document.getElementById('settingsGear');
+            
+            settingsModal.classList.remove('open');
+            settingsGear.classList.remove('active');
+        }
+        
+        // Show settings category
+        function showSettingsCategory(category) {
+            // Hide all categories
+            document.querySelectorAll('.settings-category').forEach(cat => {
+                cat.classList.remove('active');
+            });
+            
+            // Remove active from all nav items
+            document.querySelectorAll('.settings-nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected category
+            document.getElementById(category + '-settings').classList.add('active');
+            
+            // Set active nav item
+            document.querySelector(`[data-category="${category}"]`).classList.add('active');
+        }
+        
+        // Initialize the app
+        function initializeApp() {
+            initializeAuth();
+            loadSettings();
+            updateGreeting();
+            setupEventListeners();
+            restoreSidebarState();
+            messageInput.focus();
+        }
+        
+        // Setup event listeners
+        function setupEventListeners() {
+            const messageInput = document.getElementById('messageInput');
+            const settingsGear = document.getElementById('settingsGear');
+            const sidebarTitle = document.querySelector('.sidebar-title');
+            
+            // Settings gear click event
+            settingsGear.addEventListener('click', toggleSettings);
+            
+            // Sidebar title click event (for collapsed and expanded state)
+            sidebarTitle.addEventListener('click', function() {
+                const sidebar = document.getElementById('sidebar');
+                const isMobile = window.innerWidth <= 768;
+                
+                if (!isMobile) {
+                    toggleSidebar();
+                }
+            });
+            
+            // Auto-resize textarea
+            messageInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+            });
+            
+            // Enter key to send message
+            messageInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            
+            // Global keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                const searchContainer = document.getElementById('searchContainer');
+                const searchInput = document.getElementById('searchInput');
+                
+                // Escape key to close search
+                if (e.key === 'Escape' && searchContainer.style.display !== 'none') {
+                    e.preventDefault();
+                    toggleSearchChats();
+                }
+                
+                // Ctrl/Cmd + K to open search
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k' && !e.target.closest('.search-input')) {
+                    e.preventDefault();
+                    toggleSearchChats();
+                }
+                
+                // Ctrl/Cmd + N for new chat
+                if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+                    e.preventDefault();
+                    newChat();
+                }
+            });
+            
+            // Focus input when clicking anywhere in chat area
+            document.addEventListener('click', function(e) {
+                // Close settings modal if clicking outside of it
+                const settingsModal = document.getElementById('settingsModal');
+                const settingsGear = document.getElementById('settingsGear');
+                
+                if (e.target === settingsModal) {
+                    closeSettings();
+                }
+                
+                // Focus input if not clicking on sidebar or settings
+                if (!e.target.closest('.sidebar') && !e.target.closest('.settings-modal') && !e.target.closest('.settings-gear')) {
+                    messageInput.focus();
+                }
+            });
+        }
+        
+        // Send message function
+        async function sendMessage() {
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value.trim();
+            if (!message || isTyping) return;
+            
+            // Debug logging
+            if (userSettings.debugMode || userSettings.consoleLogging) {
+                console.log('📤 Sending message:', message);
+                console.log('Current message history length:', messageHistory.length);
+            }
+            
+            // Performance monitoring
+            if (userSettings.performanceMonitoring && window.glitchBotPerf) {
+                window.glitchBotPerf.start('message-processing');
+            }
+            
+            // If this is the first message, create a new chat item
+            if (messageHistory.length === 0) {
+                createNewChatItem(message);
+            }
+            
+            // Hide welcome screen and show messages
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('messagesContainer').style.display = 'block';
+            
+            // Add user message
+            addMessage(message, 'user');
+            
+            // Clear input
+            messageInput.value = '';
+            messageInput.style.height = 'auto';
+            
+            // Show typing indicator
+            showTypingIndicator();
+            isTyping = true;
+            
+            // Simulate AI processing time
+            const processingTime = Math.random() * 2000 + 1000; // 1-3 seconds
+            
+            if (userSettings.debugMode) {
+                console.log(`⏱️ Simulated processing time: ${processingTime.toFixed(0)}ms`);
+            }
+            
+            setTimeout(() => {
+                hideTypingIndicator();
+                
+                // Generate response and personalize it
+                let response = generateAIResponse(message);
+                response = personalizeResponse(response);
+                
+                if (userSettings.debugMode || userSettings.consoleLogging) {
+                    console.log('📥 Generated response:', response);
+                }
+                
+                addMessage(response, 'assistant');
+                isTyping = false;
+                messageInput.focus();
+                
+                // Performance monitoring
+                if (userSettings.performanceMonitoring && window.glitchBotPerf) {
+                    window.glitchBotPerf.end('message-processing');
+                }
+            }, processingTime);
+        }
+        
+        // Create new chat item in sidebar
+        function createNewChatItem(firstMessage) {
+            const chatList = document.getElementById('chatList');
+            const emptyState = chatList.querySelector('.empty-state');
+            
+            // Remove empty state if it exists
+            if (emptyState) {
+                emptyState.remove();
+            }
+            
+            // Create new chat item
+            const chatItem = document.createElement('div');
+            chatItem.className = 'chat-item active';
+            chatItem.onclick = function() { selectChat(this); };
+            
+            // Truncate long messages for sidebar display
+            const displayText = firstMessage.length > 30 ? 
+                firstMessage.substring(0, 30) + '...' : firstMessage;
+            
+            chatItem.textContent = displayText;
+            
+            // Deactivate other chat items
+            chatList.querySelectorAll('.chat-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Add to top of chat list
+            chatList.insertBefore(chatItem, chatList.firstChild);
+        }
+        
+        // Add message to chat
+        function addMessage(content, type) {
+            const messagesContainer = document.getElementById('messagesContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            const avatar = type === 'user' ? '👤' : '<img src="Logo/GltichBot Without Words.png" alt="Glitch Bot" style="width: 100%; height: 100%; border-radius: 50%;">';
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            // Personalize assistant messages
+            const displayContent = (type === 'assistant') ? personalizeResponse(content) : content;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    <div class="message-text">${displayContent}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // Store in local history
+            messageHistory.push({ 
+                type, 
+                content: displayContent, 
+                timestamp: new Date().toISOString() 
+            });
+            
+            // Save to Firestore if user is signed in
+            if (currentUser) {
+                chatManager.saveMessage(displayContent, type, {
+                    responseTime: type === 'assistant' ? Math.random() * 2000 + 500 : null,
+                    confidence: type === 'assistant' ? Math.random() * 0.3 + 0.7 : null,
+                    tokens: type === 'assistant' ? Math.floor(Math.random() * 50 + 10) : null,
+                    temperature: 0.7
+                }).catch(error => {
+                    console.error('Failed to save message to Firestore:', error);
+                });
+            }
+        }
+        
+        // Helper function to display messages in UI (for loading from Firestore)
+        function displayMessageInUI(content, type) {
+            const messagesContainer = document.getElementById('messagesContainer');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            const avatar = type === 'user' ? '👤' : '<img src="Logo/GltichBot Without Words.png" alt="Glitch Bot" style="width: 100%; height: 100%; border-radius: 50%;">';
+            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            // Personalize assistant messages
+            const displayContent = (type === 'assistant') ? personalizeResponse(content) : content;
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${avatar}</div>
+                <div class="message-content">
+                    <div class="message-text">${displayContent}</div>
+                    <div class="message-time">${time}</div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Show typing indicator
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('messagesContainer');
+            
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message assistant';
+            typingDiv.id = 'typingIndicator';
+            
+            typingDiv.innerHTML = `
+                <div class="message-avatar"><img src="Logo/GltichBot Without Words.png" alt="Glitch Bot" style="width: 100%; height: 100%; border-radius: 50%;"></div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <div class="typing-spinner"></div>
+                        Glitch Bot is thinking<span class="typing-dots"></span>
+                    </div>
+                </div>
+            `;
+            
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        // Hide typing indicator
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        // Quick action function
+        function quickAction(action) {
+            const messageInput = document.getElementById('messageInput');
+            messageInput.value = `Help me with ${action}`;
+            sendMessage();
+        }
+        
+        // New chat function
+        function newChat() {
+            chatManager.startNewChat();
+            messageHistory = [];
+            
+            // Deselect all chat items
+            const chatList = document.getElementById('chatList');
+            chatList.querySelectorAll('.chat-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Clear welcome screen and messages
+            document.getElementById('welcomeScreen').style.display = 'flex';
+            document.getElementById('messagesContainer').style.display = 'none';
+            document.getElementById('messagesContainer').innerHTML = '';
+            
+            // Focus input
+            document.getElementById('messageInput').focus();
+        }
+        
+        // Toggle search chats function
+        function toggleSearchChats() {
+            const searchContainer = document.getElementById('searchContainer');
+            const searchInput = document.getElementById('searchInput');
+            
+            if (searchContainer.style.display === 'none') {
+                searchContainer.style.display = 'block';
+                searchInput.focus();
+                
+                if (userSettings.debugMode) {
+                    console.log('🔍 Search chats opened');
+                }
+            } else {
+                searchContainer.style.display = 'none';
+                clearSearch();
+                
+                if (userSettings.debugMode) {
+                    console.log('🔍 Search chats closed');
+                }
+            }
+        }
+        
+        // Search chats function
+        function searchChats(query) {
+            const chatList = document.getElementById('chatList');
+            const chatItems = chatList.querySelectorAll('.chat-item');
+            
+            if (!query.trim()) {
+                // Show all chats if search is empty
+                chatItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                return;
+            }
+            
+            const searchTerm = query.toLowerCase();
+            let visibleCount = 0;
+            
+            chatItems.forEach(item => {
+                const chatText = item.textContent.toLowerCase();
+                if (chatText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            if (userSettings.debugMode) {
+                console.log(`🔍 Search query: "${query}" - Found ${visibleCount} results`);
+            }
+        }
+        
+        // Clear search function
+        function clearSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const chatList = document.getElementById('chatList');
+            const chatItems = chatList.querySelectorAll('.chat-item');
+            
+            searchInput.value = '';
+            
+            // Show all chats
+            chatItems.forEach(item => {
+                item.style.display = 'block';
+            });
+            
+            if (userSettings.debugMode) {
+                console.log('🔍 Search cleared');
+            }
+        }
+        
+        // New Settings Functions
+        let userSettings = {
+            darkMode: true,
+            soundEffects: true,
+            autoFocus: true,
+            autoSave: true,
+            enterSend: true,
+            typingIndicator: true,
+            personality: 'balanced',
+            language: 'en',
+            privacyMode: false,
+            compactMode: false,
+            debugMode: false,
+            consoleLogging: false,
+            experimentalFeatures: false,
+            performanceMonitoring: false
+        };
+        
+        function toggleDarkMode() {
+            userSettings.darkMode = document.getElementById('darkModeToggle').checked;
+            document.body.classList.toggle('light-mode', !userSettings.darkMode);
+            saveSettings();
+        }
+        
+        function toggleSounds() {
+            userSettings.soundEffects = document.getElementById('soundToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleAutoFocus() {
+            userSettings.autoFocus = document.getElementById('autoFocusToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleAutoSave() {
+            userSettings.autoSave = document.getElementById('autoSaveToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleEnterSend() {
+            userSettings.enterSend = document.getElementById('enterSendToggle').checked;
+            saveSettings();
+        }
+        
+        function toggleTypingIndicator() {
+            userSettings.typingIndicator = document.getElementById('typingToggle').checked;
+            saveSettings();
+        }
+        
+        function changePersonality(personality) {
+            userSettings.personality = personality;
+            saveSettings();
+            console.log('AI Personality changed to:', personality);
+        }
+        
+        function changeLanguage(language) {
+            userSettings.language = language;
+            saveSettings();
+            console.log('Language changed to:', language);
+        }
+        
+        function togglePrivacyMode() {
+            userSettings.privacyMode = document.getElementById('privacyToggle').checked;
+            saveSettings();
+            if (userSettings.privacyMode) {
+                console.log('Privacy mode enabled - conversations will not be saved');
+            }
+        }
+        
+        function toggleCompactMode() {
+            userSettings.compactMode = document.getElementById('compactToggle').checked;
+            document.body.classList.toggle('compact-mode', userSettings.compactMode);
+            saveSettings();
+        }
+        
+        function exportUserData() {
+            const data = {
+                settings: userSettings,
+                chatHistory: messageHistory,
+                exportDate: new Date().toISOString()
+            };
+            
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `glitchbot-data-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            
+            console.log('User data exported successfully');
+        }
+        
+        function clearAllData() {
+            if (confirm('Are you sure you want to delete ALL chat history? This cannot be undone.')) {
+                // Clear local storage
+                localStorage.removeItem('glitchbot-settings');
+                localStorage.removeItem('glitchbot-chats');
+                
+                // Clear current session
+                messageHistory = [];
+                chatHistory = [];
+                
+                // Clear UI
+                document.getElementById('messagesContainer').innerHTML = '';
+                document.getElementById('chatList').innerHTML = '';
+                
+                // Reset settings to defaults
+                userSettings = {
+                    darkMode: true,
+                    soundEffects: true,
+                    autoFocus: true,
+                    autoSave: true,
+                    enterSend: true,
+                    typingIndicator: true,
+                    personality: 'balanced',
+                    language: 'en',
+                    privacyMode: false,
+                    compactMode: false,
+                    debugMode: false,
+                    consoleLogging: false,
+                    experimentalFeatures: false,
+                    performanceMonitoring: false
+                };
+                
+                loadSettings();
+                console.log('All data cleared successfully');
+                alert('All data has been cleared successfully!');
+            }
+        }
+        
+        // Developer Functions
+        const DEVELOPER_PASSWORD = 'InfinityDev25!';
+        const TRUSTED_DEVELOPER_EMAIL = 'infinitybyte.dev@gmail.com';
+        const TRUSTED_DEVELOPER_UIDS = ['4oGjihtDjRPYI0LsTDhpXaQAJjk1', '6iZDTXC78aVwX22qrY43BOxDRLt1'];
+        
+        function hasDeveloperAccess() {
+            // Debug logging to see what's happening
+            console.log('Checking developer access...');
+            console.log('Current user:', currentUser);
+            console.log('Current user email:', currentUser?.email);
+            console.log('Current user UID:', currentUser?.uid);
+            console.log('Current user providerData:', currentUser?.providerData);
+            console.log('Trusted email:', TRUSTED_DEVELOPER_EMAIL);
+            console.log('Trusted UIDs:', TRUSTED_DEVELOPER_UIDS);
+            console.log('Session storage access:', sessionStorage.getItem('glitchbot-dev-access'));
+            
+            // Check if user is the trusted developer by UID (works for all sign-in methods)
+            if (currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid)) {
+                console.log('✅ Trusted developer detected by UID:', currentUser.uid);
+                sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                return true;
+            }
+            
+            // Check if user is the trusted developer by email (backup check)
+            let userEmail = null;
+            if (currentUser) {
+                userEmail = currentUser.email || 
+                           currentUser.providerData?.[0]?.email ||
+                           currentUser.multiFactor?.user?.email;
+                
+                console.log('Extracted user email:', userEmail);
+                
+                if (userEmail === TRUSTED_DEVELOPER_EMAIL) {
+                    console.log('✅ Trusted developer detected by email');
+                    sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                    return true;
+                }
+            }
+            
+            // Check if developer access was granted this session
+            const sessionAccess = sessionStorage.getItem('glitchbot-dev-access') === 'granted';
+            if (sessionAccess) {
+                console.log('✅ Session access granted');
+            }
+            return sessionAccess;
+        }
+        
+        function requestDeveloperAccess() {
+            const password = prompt('🔐 Developer Access Required\n\nEnter the developer password to enable debug features:');
+            
+            if (password === DEVELOPER_PASSWORD) {
+                sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                console.log('✅ Developer access granted for this session');
+                return true;
+            } else if (password !== null) { // User didn't cancel
+                alert('❌ Incorrect password. Developer access denied.');
+            }
+            return false;
+        }
+        
+        function toggleDebugMode() {
+            const checkbox = document.getElementById('debugToggle');
+            
+            // If trying to enable debug mode, check access
+            if (checkbox.checked) {
+                if (!hasDeveloperAccess()) {
+                    // Request password for non-trusted users
+                    if (!requestDeveloperAccess()) {
+                        checkbox.checked = false; // Reset checkbox if access denied
+                        return;
+                    }
+                }
+            }
+            
+            userSettings.debugMode = checkbox.checked;
+            saveSettings();
+            
+            if (userSettings.debugMode) {
+                console.log('🐛 Debug mode enabled');
+                const accessMethod = currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid) ? 'Trusted Developer (UID)' : 
+                                   currentUser?.email === TRUSTED_DEVELOPER_EMAIL ? 'Trusted Developer (Email)' : 
+                                   'Password Authentication';
+                console.log('Access method:', accessMethod);
+                console.log('Current settings:', userSettings);
+                console.log('Message history length:', messageHistory.length);
+                console.log('Chat history length:', chatHistory.length);
+                // Add debug info to page
+                if (!document.getElementById('debug-info')) {
+                    const debugDiv = document.createElement('div');
+                    debugDiv.id = 'debug-info';
+                    debugDiv.style.cssText = 'position: fixed; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: #00ff00; font-family: monospace; font-size: 12px; padding: 10px; border-radius: 5px; z-index: 10000; max-width: 300px;';
+                    debugDiv.innerHTML = `
+                        <strong>🐛 DEBUG MODE</strong><br>
+                        Access: ${currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid) ? 'UID' : currentUser?.email === TRUSTED_DEVELOPER_EMAIL ? 'Email' : 'Pass'}<br>
+                        Messages: ${messageHistory.length}<br>
+                        Chats: ${chatHistory.length}<br>
+                        User: ${currentUser ? (currentUser.email || currentUser.uid) : 'Guest'}<br>
+                        <small>Check console for detailed logs</small>
+                    `;
+                    document.body.appendChild(debugDiv);
+                }
+            } else {
+                console.log('Debug mode disabled');
+                const debugDiv = document.getElementById('debug-info');
+                if (debugDiv) debugDiv.remove();
+            }
+        }
+        
+        function toggleConsoleLogging() {
+            const checkbox = document.getElementById('consoleLoggingToggle');
+            
+            // If trying to enable console logging, check access
+            if (checkbox.checked) {
+                if (!hasDeveloperAccess()) {
+                    // Request password for non-trusted users
+                    if (!requestDeveloperAccess()) {
+                        checkbox.checked = false; // Reset checkbox if access denied
+                        return;
+                    }
+                }
+            }
+            
+            userSettings.consoleLogging = checkbox.checked;
+            saveSettings();
+            
+            if (userSettings.consoleLogging) {
+                console.log('📝 Console logging enabled - all interactions will be logged');
+                const accessMethod = currentUser && TRUSTED_DEVELOPER_UIDS.includes(currentUser.uid) ? 'Trusted Developer (UID)' : 
+                                   currentUser?.email === TRUSTED_DEVELOPER_EMAIL ? 'Trusted Developer (Email)' : 
+                                   'Password Authentication';
+                console.log('Access method:', accessMethod);
+                window.glitchBotLogger = {
+                    log: (action, data) => {
+                        console.log(`[GlitchBot] ${action}:`, data);
+                    }
+                };
+            } else {
+                console.log('Console logging disabled');
+                window.glitchBotLogger = null;
+            }
+        }
+        
+        function toggleExperimentalFeatures() {
+            userSettings.experimentalFeatures = document.getElementById('experimentalToggle').checked;
+            saveSettings();
+            
+            if (userSettings.experimentalFeatures) {
+                console.log('🧪 Experimental features enabled');
+                alert('⚠️ Experimental features enabled! Some features may be unstable.');
+            } else {
+                console.log('Experimental features disabled');
+            }
+        }
+        
+        function togglePerformanceMonitoring() {
+            userSettings.performanceMonitoring = document.getElementById('performanceToggle').checked;
+            saveSettings();
+            
+            if (userSettings.performanceMonitoring) {
+                console.log('⏱️ Performance monitoring enabled');
+                window.glitchBotPerf = {
+                    start: (label) => {
+                        performance.mark(`glitchbot-${label}-start`);
+                    },
+                    end: (label) => {
+                        performance.mark(`glitchbot-${label}-end`);
+                        performance.measure(`glitchbot-${label}`, `glitchbot-${label}-start`, `glitchbot-${label}-end`);
+                        const measure = performance.getEntriesByName(`glitchbot-${label}`)[0];
+                        console.log(`⏱️ ${label}: ${measure.duration.toFixed(2)}ms`);
+                    }
+                };
+            } else {
+                console.log('Performance monitoring disabled');
+                window.glitchBotPerf = null;
+            }
+        }
+        
+        function showLocalStorageInfo() {
+            const storageInfo = {
+                settings: localStorage.getItem('glitchbot-settings'),
+                chats: localStorage.getItem('glitchbot-chats'),
+                totalItems: localStorage.length,
+                storageSize: new Blob(Object.values(localStorage)).size
+            };
+            
+            console.log('📦 Local Storage Information:', storageInfo);
+            
+            const infoText = `
+Local Storage Information:
+- Settings: ${storageInfo.settings ? 'Present' : 'Not found'}
+- Chats: ${storageInfo.chats ? 'Present' : 'Not found'}
+- Total Items: ${storageInfo.totalItems}
+- Approximate Size: ${(storageInfo.storageSize / 1024).toFixed(2)} KB
+
+Check console for detailed data.
+            `;
+            
+            alert(infoText.trim());
+        }
+        
+        function clearCache() {
+            if (confirm('Clear browser cache and temporary data? This will not affect your saved chats and settings.')) {
+                // Clear various caches
+                if ('caches' in window) {
+                    caches.keys().then(cacheNames => {
+                        cacheNames.forEach(cacheName => {
+                            caches.delete(cacheName);
+                        });
+                    });
+                }
+                
+                // Clear session storage
+                sessionStorage.clear();
+                
+                console.log('🧹 Cache cleared successfully');
+                alert('Cache cleared successfully!');
+            }
+        }
+        
+        function saveSettings() {
+            localStorage.setItem('glitchbot-settings', JSON.stringify(userSettings));
+        }
+        
+        function loadSettings() {
+            const saved = localStorage.getItem('glitchbot-settings');
+            if (saved) {
+                userSettings = { ...userSettings, ...JSON.parse(saved) };
+            }
+            
+            // Apply settings to UI
+            document.getElementById('darkModeToggle').checked = userSettings.darkMode;
+            document.getElementById('soundToggle').checked = userSettings.soundEffects;
+            document.getElementById('autoFocusToggle').checked = userSettings.autoFocus;
+            document.getElementById('autoSaveToggle').checked = userSettings.autoSave;
+            document.getElementById('enterSendToggle').checked = userSettings.enterSend;
+            document.getElementById('typingToggle').checked = userSettings.typingIndicator;
+            document.getElementById('personalitySelect').value = userSettings.personality;
+            document.getElementById('languageSelect').value = userSettings.language;
+            document.getElementById('privacyToggle').checked = userSettings.privacyMode;
+            document.getElementById('compactToggle').checked = userSettings.compactMode;
+            
+            // Apply developer settings
+            if (document.getElementById('debugToggle')) {
+                document.getElementById('debugToggle').checked = userSettings.debugMode;
+                document.getElementById('consoleLoggingToggle').checked = userSettings.consoleLogging;
+                document.getElementById('experimentalToggle').checked = userSettings.experimentalFeatures;
+                document.getElementById('performanceToggle').checked = userSettings.performanceMonitoring;
+                
+                // Only initialize protected features if user has access
+                if (userSettings.debugMode && hasDeveloperAccess()) {
+                    toggleDebugMode();
+                } else if (userSettings.debugMode) {
+                    // Reset if access was lost
+                    userSettings.debugMode = false;
+                    document.getElementById('debugToggle').checked = false;
+                    saveSettings();
+                }
+                
+                if (userSettings.consoleLogging && hasDeveloperAccess()) {
+                    toggleConsoleLogging();
+                } else if (userSettings.consoleLogging) {
+                    // Reset if access was lost
+                    userSettings.consoleLogging = false;
+                    document.getElementById('consoleLoggingToggle').checked = false;
+                    saveSettings();
+                }
+                
+                if (userSettings.experimentalFeatures) {
+                    toggleExperimentalFeatures();
+                }
+                if (userSettings.performanceMonitoring) {
+                    togglePerformanceMonitoring();
+                }
+            }
+            
+            // Apply theme
+            document.body.classList.toggle('light-mode', !userSettings.darkMode);
+            document.body.classList.toggle('compact-mode', userSettings.compactMode);
+        }
+        
+        // Firebase Authentication Functions
+        function initializeAuth() {
+            // Listen for authentication state changes
+            auth.onAuthStateChanged(async (user) => {
+                if (user) {
+                    // User is signed in
+                    currentUser = user;
+                    userName = user.displayName || user.email?.split('@')[0] || 'User';
+                    updateGreeting();
+                    hideSignInPrompt();
+                    showUserProfile();
+                    
+                    // Check if this is the trusted developer - first by UID (most reliable)
+                    if (user.uid && TRUSTED_DEVELOPER_UIDS.includes(user.uid)) {
+                        console.log('✅ Trusted developer signed in (by UID) - Debug access automatically granted');
+                        console.log('Matched UID:', user.uid);
+                        sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                    } else {
+                        // Fallback: check by email for backwards compatibility
+                        const userEmail = user.email || 
+                                        user.providerData?.[0]?.email ||
+                                        user.multiFactor?.user?.email;
+                        
+                        console.log('Auth state changed - user email:', userEmail);
+                        
+                        if (userEmail === TRUSTED_DEVELOPER_EMAIL) {
+                            console.log('✅ Trusted developer signed in (by email) - Debug access automatically granted');
+                            sessionStorage.setItem('glitchbot-dev-access', 'granted');
+                        }
+                    }
+                    
+                    // Load user's chat history from Firestore
+                    console.log('User signed in, loading chat history...');
+                    await chatManager.refreshChatList();
+                } else {
+                    // User is signed out
+                    currentUser = null;
+                    userName = 'Guest';
+                    updateGreeting();
+                    showSignInPrompt();
+                    hideUserProfile();
+                    
+                    // Clear developer access when signing out
+                    sessionStorage.removeItem('glitchbot-dev-access');
+                    
+                    // Clear chat data since user is signed out
+                    chatManager.startNewChat();
+                }
+            });
+        }
+        
+        function signInWithGoogle() {
+            showLoadingState();
+            const provider = new firebase.auth.GoogleAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    console.log('Successfully signed in:', result.user.displayName);
+                    closeSigninModal();
+                    hideLoadingState();
+                })
+                .catch((error) => {
+                    console.error('Sign-in error:', error);
+                    showError('Google sign-in failed. Please try again.');
+                    hideLoadingState();
+                });
+        }
+        
+        function signInWithGitHub() {
+            showLoadingState();
+            const provider = new firebase.auth.GithubAuthProvider();
+            auth.signInWithPopup(provider)
+                .then((result) => {
+                    console.log('Successfully signed in with GitHub:', result.user.displayName);
+                    closeSigninModal();
+                    hideLoadingState();
+                })
+                .catch((error) => {
+                    console.error('GitHub sign-in error:', error);
+                    showError('GitHub sign-in failed. Please try again.');
+                    hideLoadingState();
+                });
+        }
+        
+        function handleEmailAuth(event) {
+            event.preventDefault();
+            showLoadingState();
+            
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+            
+            if (isSignUp) {
+                // Create new account
+                auth.createUserWithEmailAndPassword(email, password)
+                    .then((result) => {
+                        console.log('Successfully created account:', result.user.email);
+                        closeSigninModal();
+                        hideLoadingState();
+                    })
+                    .catch((error) => {
+                        console.error('Sign-up error:', error);
+                        showError(getErrorMessage(error.code));
+                        hideLoadingState();
+                    });
+            } else {
+                // Sign in existing user
+                auth.signInWithEmailAndPassword(email, password)
+                    .then((result) => {
+                        console.log('Successfully signed in:', result.user.email);
+                        closeSigninModal();
+                        hideLoadingState();
+                    })
+                    .catch((error) => {
+                        console.error('Sign-in error:', error);
+                        showError(getErrorMessage(error.code));
+                        hideLoadingState();
+                    });
+            }
+        }
+        
+        function toggleAuthMode() {
+            isSignUp = !isSignUp;
+            const submitText = document.getElementById('submitText');
+            const toggleText = document.getElementById('toggleText');
+            const toggleBtn = document.getElementById('toggleBtn');
+            
+            if (isSignUp) {
+                submitText.textContent = 'Sign Up';
+                toggleText.textContent = 'Already have an account?';
+                toggleBtn.textContent = 'Sign In';
+            } else {
+                submitText.textContent = 'Sign In';
+                toggleText.textContent = "Don't have an account?";
+                toggleBtn.textContent = 'Sign Up';
+            }
+            
+            clearError();
+        }
+        
+        function showLoadingState() {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            
+            submitBtn.disabled = true;
+            submitText.innerHTML = '<div class="loading-spinner"></div>Processing...';
+        }
+        
+        function hideLoadingState() {
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            
+            submitBtn.disabled = false;
+            submitText.textContent = isSignUp ? 'Sign Up' : 'Sign In';
+        }
+        
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        function clearError() {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.style.display = 'none';
+        }
+        
+        function getErrorMessage(errorCode) {
+            switch (errorCode) {
+                case 'auth/user-not-found':
+                    return 'No account found with this email address.';
+                case 'auth/wrong-password':
+                    return 'Incorrect password. Please try again.';
+                case 'auth/email-already-in-use':
+                    return 'An account with this email already exists.';
+                case 'auth/weak-password':
+                    return 'Password should be at least 6 characters long.';
+                case 'auth/invalid-email':
+                    return 'Please enter a valid email address.';
+                case 'auth/popup-closed-by-user':
+                    return 'Sign-in was cancelled. Please try again.';
+                case 'auth/popup-blocked':
+                    return 'Pop-up was blocked. Please allow pop-ups and try again.';
+                default:
+                    return 'An error occurred. Please try again.';
+            }
+        }
+        
+        function openSigninModal() {
+            const modal = document.getElementById('signinModal');
+            modal.classList.add('active');
+            clearError();
+            hideLoadingState();
+            
+            // Focus the email input after modal opens
+            setTimeout(() => {
+                const emailInput = document.getElementById('emailInput');
+                if (emailInput) {
+                    emailInput.focus();
+                    console.log('Email input focused');
+                }
+            }, 100);
+        }
+        
+        function closeSigninModal() {
+            document.getElementById('signinModal').classList.remove('active');
+            clearError();
+            hideLoadingState();
+            
+            // Reset form
+            document.getElementById('emailForm').reset();
+            isSignUp = false;
+            toggleAuthMode();
+        }
+        
+        function signOut() {
+            auth.signOut()
+                .then(() => {
+                    console.log('Successfully signed out');
+                    // Clear developer access when signing out
+                    sessionStorage.removeItem('glitchbot-dev-access');
+                    
+                    // Disable debug features if they were enabled
+                    if (userSettings.debugMode || userSettings.consoleLogging) {
+                        userSettings.debugMode = false;
+                        userSettings.consoleLogging = false;
+                        saveSettings();
+                        
+                        // Remove debug panel if present
+                        const debugDiv = document.getElementById('debug-info');
+                        if (debugDiv) debugDiv.remove();
+                        
+                        // Clear logging
+                        window.glitchBotLogger = null;
+                        
+                        console.log('🔒 Developer access cleared - debug features disabled');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Sign-out error:', error);
+                });
+        }
+        
+        function showUserProfile() {
+            const userProfile = document.getElementById('userProfile');
+            const userDisplayName = document.getElementById('userDisplayName');
+            if (userProfile && userDisplayName) {
+                userDisplayName.textContent = userName;
+                userProfile.style.display = 'block';
+            }
+        }
+        
+        function hideUserProfile() {
+            const userProfile = document.getElementById('userProfile');
+            if (userProfile) {
+                userProfile.style.display = 'none';
+            }
+        }
+        
+        function showSignInPrompt() {
+            // Add a subtle sign-in button if user wants to personalize
+            const greetingTitle = document.getElementById('greetingTitle');
+            if (!document.getElementById('signInHint')) {
+                const signInHint = document.createElement('div');
+                signInHint.id = 'signInHint';
+                signInHint.style.cssText = `
+                    font-size: 12px; 
+                    color: #888; 
+                    margin-top: 8px; 
+                    cursor: pointer;
+                    text-decoration: underline;
+                `;
+                signInHint.textContent = 'Sign in to personalize your experience';
+                signInHint.onclick = openSigninModal;
+                greetingTitle.parentNode.appendChild(signInHint);
+            }
+        }
+        
+        function hideSignInPrompt() {
+            const signInHint = document.getElementById('signInHint');
+            if (signInHint) {
+                signInHint.remove();
+            }
+        }
+        
+        // Update greeting based on time and user
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            let timeOfDay;
+            
+            if (hour < 12) {
+                timeOfDay = 'Good morning';
+            } else if (hour < 17) {
+                timeOfDay = 'Good afternoon';
+            } else {
+                timeOfDay = 'Good evening';
+            }
+            
+            const greeting = `${timeOfDay}, ${userName}`;
+            document.getElementById('greetingTitle').textContent = greeting;
+        }
+        
+        // Chat selection
+        function selectChat(element) {
+            document.querySelectorAll('.chat-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            element.classList.add('active');
+            
+            // Close search when selecting a chat
+            const searchContainer = document.getElementById('searchContainer');
+            if (searchContainer.style.display !== 'none') {
+                searchContainer.style.display = 'none';
+                clearSearch();
+            }
+        }
+        
+        // Toggle sidebar for both desktop and mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Mobile behavior - overlay sidebar
+                sidebar.classList.toggle('open');
+            } else {
+                // Desktop behavior - collapse/expand sidebar
+                const isCollapsed = sidebar.classList.contains('collapsed');
+                
+                if (isCollapsed) {
+                    // Expand sidebar
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('expanded');
+                    localStorage.setItem('sidebarCollapsed', 'false');
+                    
+                    if (userSettings.debugMode || userSettings.consoleLogging) {
+                        console.log('🔄 Sidebar expanded');
+                    }
+                } else {
+                    // Collapse sidebar
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('expanded');
+                    localStorage.setItem('sidebarCollapsed', 'true');
+                    
+                    // Close search if open
+                    const searchContainer = document.getElementById('searchContainer');
+                    if (searchContainer.style.display !== 'none') {
+                        searchContainer.style.display = 'none';
+                        clearSearch();
+                    }
+                    
+                    if (userSettings.debugMode || userSettings.consoleLogging) {
+                        console.log('🔄 Sidebar collapsed');
+                    }
+                }
+            }
+        }
+        
+        // Restore sidebar state on page load
+        function restoreSidebarState() {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) {
+                const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+                const sidebar = document.getElementById('sidebar');
+                const mainContent = document.querySelector('.main-content');
+                
+                if (isCollapsed) {
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('expanded');
+                }
+            }
+        }
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(e) {
+            const sidebar = document.getElementById('sidebar');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const signinModal = document.getElementById('signinModal');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(e.target) && 
+                !mobileMenuBtn.contains(e.target)) {
+                sidebar.classList.remove('open');
+            }
+            
+            // Close modal when clicking outside
+            if (e.target === signinModal) {
+                closeSigninModal();
+            }
+        });
+        
+        // Initialize app when page loads
+        window.addEventListener('load', initializeApp);
+        
+        // Handle window resize to manage sidebar state
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Mobile mode: reset desktop classes
+                sidebar.classList.remove('collapsed');
+                mainContent.classList.remove('expanded');
+            } else {
+                // Desktop mode: reset mobile classes and restore saved state
+                sidebar.classList.remove('open');
+                restoreSidebarState();
+            }
+        });
+        
+        // Update greeting every minute
+        setInterval(updateGreeting, 60000);
+        
+        // Add some demo messages for showcase
+        function addDemoMessages() {
+            setTimeout(() => {
+                document.getElementById('welcomeScreen').style.display = 'none';
+                document.getElementById('messagesContainer').style.display = 'block';
+                
+                addMessage("Hello! I'm interested in learning about AI development. Can you help me get started?", 'user');
+                
+                setTimeout(() => {
+                    addMessage("Absolutely! I'd be happy to help you get started with AI development. This is an exciting field with many opportunities. Here are some key areas to focus on:\n\n1. **Programming Languages**: Python is the most popular choice for AI/ML\n2. **Mathematics**: Linear algebra, calculus, and statistics\n3. **Machine Learning Frameworks**: TensorFlow, PyTorch, or Scikit-learn\n4. **Deep Learning**: Neural networks and their applications\n\nWould you like me to elaborate on any of these areas?", 'assistant');
+                }, 1500);
+            }, 3000);
+        }
+        
+        // Uncomment the line below to show demo messages
+        // addDemoMessages();
+    </script>
+</body>
+</html>
