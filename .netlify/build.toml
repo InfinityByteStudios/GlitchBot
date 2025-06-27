@@ -1,0 +1,9 @@
+# Netlify Build Settings Override
+# This file ensures Netlify treats this as a static site
+
+[build]
+  command = ""
+  publish = "."
+  
+[build.environment]
+  NETLIFY_SKIP_AUTOMATIC_FRAMEWORK_DETECTION = "true"
