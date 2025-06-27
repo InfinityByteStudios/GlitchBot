@@ -4,11 +4,10 @@
   "description": "AI Assistant chatbot with Firebase authentication and custom transformer backend",
   "main": "index.html",
   "scripts": {
-    "build": "echo 'No build step required - static HTML/CSS/JS project'",
-    "start": "echo 'This is a static site - open index.html in a browser'"
+    "build": "echo 'Static HTML site - no build step required'",
+    "start": "echo 'Open index.html in a browser or deploy as static site'"
   },
   "keywords": ["ai", "chatbot", "assistant", "firebase", "transformer"],
   "author": "InfinityByte Studios",
-  "license": "MIT",
-  "type": "module"
+  "license": "MIT"
 }
