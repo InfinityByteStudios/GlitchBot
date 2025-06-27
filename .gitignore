@@ -39,6 +39,16 @@ ENV/
 env.bak/
 venv.bak/
 
+# Large model files and checkpoints
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.bin
+models/
+*.h5
+*.safetensors
+
 # Logs
 logs/
 *.log
