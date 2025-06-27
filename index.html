@@ -59,6 +59,44 @@
             border-color: #d0d0d0 !important;
         }
         
+        body.light-mode .chat-control-btn {
+            background: #ffffff;
+            border-color: #e5e5e5;
+            color: #212529;
+        }
+        
+        body.light-mode .chat-control-btn:hover {
+            background: #f7f7f8;
+            border-color: #d0d0d0;
+        }
+        
+        body.light-mode .search-input {
+            background: #ffffff;
+            border-color: #e5e5e5;
+            color: #212529;
+        }
+        
+        body.light-mode .search-input:focus {
+            border-color: #4285f4;
+            background: #ffffff;
+        }
+        
+        body.light-mode .search-input::placeholder {
+            color: #6c757d;
+        }
+        
+        body.light-mode .search-icon {
+            color: #6c757d;
+        }
+        
+        body.light-mode .search-close-btn {
+            color: #6c757d;
+        }
+        
+        body.light-mode .sidebar .sidebar-title:hover::after {
+            color: #212529 !important;
+        }
+        
         body.light-mode .chat-item {
             color: #495057 !important;
         }
@@ -159,15 +197,13 @@
             background: #3367d6;
         }
         
-        body.light-mode .settings-gear {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: #dee2e6;
+        body.light-mode .main-header .settings-gear {
             color: #495057;
         }
         
-        body.light-mode .settings-gear:hover {
-            background: rgba(248, 249, 250, 0.95);
-            border-color: #adb5bd;
+        body.light-mode .main-header .settings-gear:hover {
+            color: #212529;
+            background: rgba(0, 0, 0, 0.05);
         }
         
         body.light-mode .signin-modal {
@@ -191,6 +227,8 @@
             background: #ffffff;
             border-bottom-color: #e5e5e5;
         }
+        
+
         
         body.light-mode .welcome-title {
             color: #212529;
@@ -353,10 +391,19 @@
             color: #ffffff;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
         }
         
-        .new-chat-btn {
+        /* Chat Controls */
+        .chat-controls {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .chat-control-btn {
             width: 100%;
             background: transparent;
             border: 1px solid #444654;
@@ -366,15 +413,77 @@
             font-size: 14px;
             cursor: pointer;
             transition: all 0.2s ease;
-            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+            font-weight: 500;
         }
         
-        .new-chat-btn:hover {
+        .chat-control-btn:hover {
             background: #2a2b32;
             border-color: #565869;
+        }
+        
+        .chat-control-btn i {
+            width: 16px;
+            text-align: center;
+        }
+        
+        /* Search Container */
+        .search-container {
+            margin-bottom: 16px;
+            animation: slideDown 0.2s ease-out;
+        }
+        
+        .search-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-input {
+            width: 100%;
+            background: #40414f;
+            border: 1px solid #565869;
+            border-radius: 8px;
+            padding: 12px 16px 12px 40px;
+            color: #ffffff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #4285f4;
+            box-shadow: 0 0 0 2px rgba(66, 133, 244, 0.1);
+        }
+        
+        .search-input::placeholder {
+            color: #8e8ea0;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            color: #8e8ea0;
+            font-size: 14px;
+        }
+        
+        .search-close-btn {
+            position: absolute;
+            right: 8px;
+            background: none;
+            border: none;
+            color: #8e8ea0;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .search-close-btn:hover {
+            color: #ffffff;
+            background: #565869;
         }
         
         .chat-list {
@@ -419,12 +528,150 @@
             height: 60px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             border-bottom: 1px solid #444654;
             background: #343541;
             backdrop-filter: blur(10px);
             position: relative;
             z-index: 5;
+            padding: 0 20px;
+        }
+        
+
+        
+        .sidebar.collapsed {
+            width: 56px;
+            min-width: 56px;
+            padding: 20px 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .sidebar.collapsed .sidebar-title {
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            border-radius: 8px;
+        }
+        
+        .sidebar.collapsed .sidebar-title:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar.collapsed .sidebar-title .online-indicator {
+            display: none !important;
+        }
+        
+        .sidebar .sidebar-title:hover img {
+            opacity: 0 !important;
+            transition: opacity 0.2s ease;
+        }
+        
+        .sidebar .sidebar-title:hover::after {
+            content: '☰';
+            font-family: inherit;
+            font-weight: normal;
+            position: absolute;
+            color: #ffffff;
+            font-size: 18px;
+            opacity: 1 !important;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+            pointer-events: none;
+        }
+        
+        .sidebar .sidebar-title::after {
+            content: '';
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+        
+        .sidebar .sidebar-title {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        /* Expanded state - hamburger positioned over the logo */
+        .sidebar:not(.collapsed) .sidebar-title:hover::after {
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        /* Collapsed state - hamburger centered */
+        .sidebar.collapsed .sidebar-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 48px;
+        }
+        
+        .sidebar.collapsed .sidebar-title:hover::after {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .sidebar.collapsed .sidebar-title img {
+            margin: 0;
+            transition: all 0.2s ease;
+            width: 28px !important;
+            height: 28px !important;
+        }
+        
+        .sidebar.collapsed .chat-controls {
+            align-items: center;
+        }
+        
+        .sidebar.collapsed .chat-control-btn {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .sidebar.collapsed .chat-control-btn span {
+            display: none;
+        }
+        
+        .sidebar.collapsed .chat-control-btn i {
+            margin: 0;
+            font-size: 16px;
+        }
+        
+        .sidebar.collapsed .search-container {
+            display: none !important;
+        }
+        
+        .sidebar.collapsed .chat-list {
+            display: none;
+        }
+        
+        .sidebar.collapsed #userProfile {
+            display: none !important;
+        }
+        
+        .sidebar {
+            transition: all 0.3s ease;
+        }
+        
+        .main-content.expanded {
+            margin-left: 0;
+            transition: margin-left 0.3s ease;
+        }
+        
+        .main-content {
+            transition: margin-left 0.3s ease;
         }
         
         /* Chat Area */
@@ -1014,6 +1261,17 @@
             }
         }
         
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         @keyframes typing {
             0% { content: "."; }
             33% { content: ".."; }
@@ -1039,6 +1297,48 @@
                 position: fixed;
                 z-index: 1000;
                 height: 100vh;
+            }
+            
+            .sidebar.collapsed {
+                width: 100%;
+                padding: 20px 16px;
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.collapsed.open {
+                transform: translateX(0);
+            }
+            
+            .sidebar.collapsed .sidebar-title {
+                justify-content: center;
+            }
+            
+            .sidebar.collapsed .chat-controls {
+                align-items: stretch;
+            }
+            
+            .sidebar.collapsed .chat-control-btn {
+                width: 100%;
+                height: auto;
+                padding: 12px 16px;
+                justify-content: flex-start;
+            }
+            
+            .sidebar.collapsed .chat-control-btn span {
+                display: inline;
+            }
+            
+            .sidebar.collapsed .chat-control-btn i {
+                margin-right: 12px;
+                font-size: 16px;
+            }
+            
+            .sidebar.collapsed .search-container {
+                display: block !important;
+            }
+            
+            .sidebar.collapsed .chat-list {
+                display: block;
             }
             
             .sidebar.open {
@@ -1083,40 +1383,27 @@
             }
         }
         
-        /* Settings Gear Button */
-        .settings-gear {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 44px;
-            height: 44px;
-            background: rgba(26, 26, 26, 0.8);
-            border: 1px solid #3a3a3a;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1001;
-            backdrop-filter: blur(10px);
-            font-size: 18px;
+        /* Header Settings Gear Icon */
+        .main-header .settings-gear {
             color: #ffffff;
-            opacity: 1;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.2s ease;
+            padding: 10px;
+            border-radius: 6px;
+            position: static;
         }
         
-        .settings-gear:hover {
-            background: rgba(42, 42, 42, 0.9);
-            border-color: #4a4a4a;
+        .main-header .settings-gear:hover {
+            color: #e0e0e0;
+            background: rgba(255, 255, 255, 0.1);
             transform: rotate(45deg);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
         
-        .settings-gear.active {
-            background: rgba(60, 60, 60, 0.9);
-            border-color: #5a5a5a;
+        .main-header .settings-gear.active {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
             transform: rotate(90deg);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
         }
         
         .mobile-menu-btn {
@@ -1138,6 +1425,28 @@
             .mobile-menu-btn {
                 display: block;
             }
+            
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+            }
+            
+
         }
         
         /* Scrollbar Styling */
@@ -1453,8 +1762,7 @@
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-title">
-                    <img src="Logo/GltichBot Without Words.png" alt="Glitch Bot" style="width: 24px; height: 24px; border-radius: 4px;">
-                    Glitch Bot
+                    <img src="Logo/GltichBot Without Words.png" alt="Glitch Bot" style="width: 32px; height: 32px; border-radius: 6px;">
                     <span class="online-indicator"></span>
                 </div>
                 
@@ -1469,10 +1777,35 @@
                 </div>
             </div>
             
-            <button class="new-chat-btn" onclick="newChat()">
-                <span>+</span>
-                New chat
-            </button>
+            <!-- Chat Controls -->
+            <div class="chat-controls">
+                <button class="chat-control-btn new-chat-btn" onclick="newChat()" title="Start a new conversation (Ctrl+N)">
+                    <i class="fas fa-edit"></i>
+                    <span>New chat</span>
+                </button>
+                
+                <button class="chat-control-btn search-chat-btn" onclick="toggleSearchChats()" title="Search conversations (Ctrl+K)">
+                    <i class="fas fa-search"></i>
+                    <span>Search chats</span>
+                </button>
+            </div>
+            
+            <!-- Search Input (Initially Hidden) -->
+            <div class="search-container" id="searchContainer" style="display: none;">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput" 
+                        placeholder="Search conversations..."
+                        oninput="searchChats(this.value)"
+                    >
+                    <button class="search-close-btn" onclick="clearSearch()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
             
             <div class="chat-list" id="chatList">
                 <!-- Your conversations will appear here -->
@@ -1487,7 +1820,9 @@
         <div class="main-content">
             <!-- Header -->
             <div class="main-header">
-                <!-- Clean header without model selector -->
+                <div style="flex: 1;"></div>
+                <!-- Settings gear icon -->
+                <i class="fas fa-cog settings-gear" id="settingsGear" onclick="openSettings()" title="Settings"></i>
             </div>
             
             <!-- Chat Area -->
@@ -1534,11 +1869,6 @@
                     </button>
                 </div>
             </div>
-        </div>
-        
-        <!-- Settings Gear Button -->
-        <div class="settings-gear" id="settingsGear" title="Settings">
-            <i class="fas fa-cog"></i>
         </div>
         
         <!-- Settings Panel -->
@@ -2776,6 +3106,7 @@
             loadSettings();
             updateGreeting();
             setupEventListeners();
+            restoreSidebarState();
             messageInput.focus();
         }
         
@@ -2783,9 +3114,20 @@
         function setupEventListeners() {
             const messageInput = document.getElementById('messageInput');
             const settingsGear = document.getElementById('settingsGear');
+            const sidebarTitle = document.querySelector('.sidebar-title');
             
             // Settings gear click event
             settingsGear.addEventListener('click', toggleSettings);
+            
+            // Sidebar title click event (for collapsed and expanded state)
+            sidebarTitle.addEventListener('click', function() {
+                const sidebar = document.getElementById('sidebar');
+                const isMobile = window.innerWidth <= 768;
+                
+                if (!isMobile) {
+                    toggleSidebar();
+                }
+            });
             
             // Auto-resize textarea
             messageInput.addEventListener('input', function() {
@@ -2798,6 +3140,30 @@
                 if (e.key === 'Enter' && !e.shiftKey) {
                     e.preventDefault();
                     sendMessage();
+                }
+            });
+            
+            // Global keyboard shortcuts
+            document.addEventListener('keydown', function(e) {
+                const searchContainer = document.getElementById('searchContainer');
+                const searchInput = document.getElementById('searchInput');
+                
+                // Escape key to close search
+                if (e.key === 'Escape' && searchContainer.style.display !== 'none') {
+                    e.preventDefault();
+                    toggleSearchChats();
+                }
+                
+                // Ctrl/Cmd + K to open search
+                if ((e.ctrlKey || e.metaKey) && e.key === 'k' && !e.target.closest('.search-input')) {
+                    e.preventDefault();
+                    toggleSearchChats();
+                }
+                
+                // Ctrl/Cmd + N for new chat
+                if ((e.ctrlKey || e.metaKey) && e.key === 'n') {
+                    e.preventDefault();
+                    newChat();
                 }
             });
             
@@ -3023,8 +3389,84 @@
                 item.classList.remove('active');
             });
             
+            // Clear welcome screen and messages
+            document.getElementById('welcomeScreen').style.display = 'flex';
+            document.getElementById('messagesContainer').style.display = 'none';
+            document.getElementById('messagesContainer').innerHTML = '';
+            
             // Focus input
             document.getElementById('messageInput').focus();
+        }
+        
+        // Toggle search chats function
+        function toggleSearchChats() {
+            const searchContainer = document.getElementById('searchContainer');
+            const searchInput = document.getElementById('searchInput');
+            
+            if (searchContainer.style.display === 'none') {
+                searchContainer.style.display = 'block';
+                searchInput.focus();
+                
+                if (userSettings.debugMode) {
+                    console.log('🔍 Search chats opened');
+                }
+            } else {
+                searchContainer.style.display = 'none';
+                clearSearch();
+                
+                if (userSettings.debugMode) {
+                    console.log('🔍 Search chats closed');
+                }
+            }
+        }
+        
+        // Search chats function
+        function searchChats(query) {
+            const chatList = document.getElementById('chatList');
+            const chatItems = chatList.querySelectorAll('.chat-item');
+            
+            if (!query.trim()) {
+                // Show all chats if search is empty
+                chatItems.forEach(item => {
+                    item.style.display = 'block';
+                });
+                return;
+            }
+            
+            const searchTerm = query.toLowerCase();
+            let visibleCount = 0;
+            
+            chatItems.forEach(item => {
+                const chatText = item.textContent.toLowerCase();
+                if (chatText.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            if (userSettings.debugMode) {
+                console.log(`🔍 Search query: "${query}" - Found ${visibleCount} results`);
+            }
+        }
+        
+        // Clear search function
+        function clearSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const chatList = document.getElementById('chatList');
+            const chatItems = chatList.querySelectorAll('.chat-item');
+            
+            searchInput.value = '';
+            
+            // Show all chats
+            chatItems.forEach(item => {
+                item.style.display = 'block';
+            });
+            
+            if (userSettings.debugMode) {
+                console.log('🔍 Search cleared');
+            }
         }
         
         // New Settings Functions
@@ -3744,12 +4186,70 @@ Check console for detailed data.
                 item.classList.remove('active');
             });
             element.classList.add('active');
+            
+            // Close search when selecting a chat
+            const searchContainer = document.getElementById('searchContainer');
+            if (searchContainer.style.display !== 'none') {
+                searchContainer.style.display = 'none';
+                clearSearch();
+            }
         }
         
-        // Toggle sidebar for mobile
+        // Toggle sidebar for both desktop and mobile
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
+            const mainContent = document.querySelector('.main-content');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Mobile behavior - overlay sidebar
+                sidebar.classList.toggle('open');
+            } else {
+                // Desktop behavior - collapse/expand sidebar
+                const isCollapsed = sidebar.classList.contains('collapsed');
+                
+                if (isCollapsed) {
+                    // Expand sidebar
+                    sidebar.classList.remove('collapsed');
+                    mainContent.classList.remove('expanded');
+                    localStorage.setItem('sidebarCollapsed', 'false');
+                    
+                    if (userSettings.debugMode || userSettings.consoleLogging) {
+                        console.log('🔄 Sidebar expanded');
+                    }
+                } else {
+                    // Collapse sidebar
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('expanded');
+                    localStorage.setItem('sidebarCollapsed', 'true');
+                    
+                    // Close search if open
+                    const searchContainer = document.getElementById('searchContainer');
+                    if (searchContainer.style.display !== 'none') {
+                        searchContainer.style.display = 'none';
+                        clearSearch();
+                    }
+                    
+                    if (userSettings.debugMode || userSettings.consoleLogging) {
+                        console.log('🔄 Sidebar collapsed');
+                    }
+                }
+            }
+        }
+        
+        // Restore sidebar state on page load
+        function restoreSidebarState() {
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) {
+                const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+                const sidebar = document.getElementById('sidebar');
+                const mainContent = document.querySelector('.main-content');
+                
+                if (isCollapsed) {
+                    sidebar.classList.add('collapsed');
+                    mainContent.classList.add('expanded');
+                }
+            }
         }
         
         // Close sidebar when clicking outside on mobile
@@ -3772,6 +4272,23 @@ Check console for detailed data.
         
         // Initialize app when page loads
         window.addEventListener('load', initializeApp);
+        
+        // Handle window resize to manage sidebar state
+        window.addEventListener('resize', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                // Mobile mode: reset desktop classes
+                sidebar.classList.remove('collapsed');
+                mainContent.classList.remove('expanded');
+            } else {
+                // Desktop mode: reset mobile classes and restore saved state
+                sidebar.classList.remove('open');
+                restoreSidebarState();
+            }
+        });
         
         // Update greeting every minute
         setInterval(updateGreeting, 60000);

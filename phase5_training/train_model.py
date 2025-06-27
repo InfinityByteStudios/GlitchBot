@@ -6,14 +6,12 @@ including data loading, model training, evaluation, and checkpointing.
 This is Phase 5: Train a Small Language Model (Proof of Concept).
 """
 
-import os
 import json
 import math
 import time
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Any
-from dataclasses import dataclass, field
-import logging
+from typing import Dict
+from dataclasses import dataclass
 
 import torch
 import torch.nn as nn
@@ -22,7 +20,6 @@ from torch.utils.data import DataLoader
 from torch.cuda.amp import autocast, GradScaler
 import numpy as np
 from tqdm import tqdm
-import matplotlib.pyplot as plt
 
 # Import our custom modules
 import sys
@@ -30,7 +27,7 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 from shared.utils import (
     setup_logging, set_seed, get_device, count_parameters, 
-    CosineWarmupScheduler, TrainingMetrics, ModelCheckpoint, TimerContext
+    CosineWarmupScheduler, TrainingMetrics, ModelCheckpoint
 )
 from phase4_model.transformer_model import create_gpt_model
 from phase3_data.data_pipeline import create_data_pipeline, TextDataset
@@ -110,7 +107,7 @@ class LanguageModelTrainer:
         else:
             self.device = torch.device(config.device)
         
-        logger.info(f"Using device: {self.device}")
+        logger.info("Using device: %s", self.device)
         
         # Create output directories
         self.setup_directories()
@@ -121,6 +118,9 @@ class LanguageModelTrainer:
         self.scheduler = None
         self.scaler = None
         self.train_dataloader = None
+        self.val_dataloader = None
+        self.train_dataset = None
+        self.val_dataset = None
         self.val_dataloader = None
         
         # Training state
@@ -171,11 +171,11 @@ class LanguageModelTrainer:
         
         # Count parameters
         num_params = count_parameters(self.model)
-        logger.info(f"Model created with {num_params:,} parameters")
+        logger.info("Model created with %s parameters", f"{num_params:,}")
         
         # Save model config
         config_path = Path(self.config.output_dir) / "model_config.json"
-        with open(config_path, 'w') as f:
+        with open(config_path, 'w', encoding='utf-8') as f:
             json.dump(model_config, f, indent=2)
     
     def setup_data(self):
@@ -191,20 +191,20 @@ class LanguageModelTrainer:
                 data_pipeline = create_data_pipeline(data_config)
                 
                 # Use the created datasets
-                self.train_dataset = data_pipeline['train_dataset']
-                self.val_dataset = data_pipeline['val_dataset']
+                self.train_dataset = data_pipeline['train_dataset']  # pylint: disable=attribute-defined-outside-init
+                self.val_dataset = data_pipeline['val_dataset']  # pylint: disable=attribute-defined-outside-init
             else:
                 # Load existing data
                 from phase3_data.data_pipeline import SimpleTokenizer
                 tokenizer = SimpleTokenizer(vocab_size=self.config.vocab_size)
                 tokenizer.load(self.config.tokenizer_path)
                 
-                self.train_dataset = TextDataset(
+                self.train_dataset = TextDataset(  # pylint: disable=attribute-defined-outside-init
                     self.config.train_data_path, 
                     tokenizer, 
                     self.config.max_seq_length
                 )
-                self.val_dataset = TextDataset(
+                self.val_dataset = TextDataset(  # pylint: disable=attribute-defined-outside-init
                     self.config.val_data_path, 
                     tokenizer, 
                     self.config.max_seq_length
@@ -227,11 +227,11 @@ class LanguageModelTrainer:
                 pin_memory=True if self.device.type == 'cuda' else False
             )
             
-            logger.info(f"Train dataset size: {len(self.train_dataset)}")
-            logger.info(f"Validation dataset size: {len(self.val_dataset)}")
+            logger.info("Train dataset size: %s", len(self.train_dataset))
+            logger.info("Validation dataset size: %s", len(self.val_dataset))
             
-        except Exception as e:
-            logger.error(f"Failed to setup data: {e}")
+        except (FileNotFoundError, json.JSONDecodeError, ImportError) as e:
+            logger.error("Failed to setup data: %s", e)
             # Create dummy data for testing
             self.create_dummy_data()
     
@@ -243,7 +243,7 @@ class LanguageModelTrainer:
         dummy_size = 1000
         dummy_data = []
         
-        for i in range(dummy_size):
+        for _ in range(dummy_size):
             # Create random sequences
             sequence_length = np.random.randint(50, self.config.max_seq_length)
             input_ids = torch.randint(0, self.config.vocab_size, (sequence_length - 1,))
@@ -270,8 +270,8 @@ class LanguageModelTrainer:
             def __getitem__(self, idx):
                 return self.data[idx]
         
-        self.train_dataset = DummyDataset(train_data)
-        self.val_dataset = DummyDataset(val_data)
+        self.train_dataset = DummyDataset(train_data)  # pylint: disable=attribute-defined-outside-init
+        self.val_dataset = DummyDataset(val_data)  # pylint: disable=attribute-defined-outside-init
         
         # Create data loaders
         self.train_dataloader = DataLoader(
@@ -288,8 +288,8 @@ class LanguageModelTrainer:
             collate_fn=self.collate_fn
         )
         
-        logger.info(f"Created dummy train dataset: {len(self.train_dataset)} samples")
-        logger.info(f"Created dummy val dataset: {len(self.val_dataset)} samples")
+        logger.info("Created dummy train dataset: %s samples", len(self.train_dataset))
+        logger.info("Created dummy val dataset: %s samples", len(self.val_dataset))
     
     def collate_fn(self, batch):
         """Custom collate function for batching."""
@@ -488,7 +488,7 @@ class LanguageModelTrainer:
         avg_loss = total_loss / max(num_batches, 1)
         perplexity = math.exp(avg_loss)
         
-        logger.info(f"Evaluation - Loss: {avg_loss:.4f}, Perplexity: {perplexity:.2f}")
+        logger.info("Evaluation - Loss: %.4f, Perplexity: %.2f", avg_loss, perplexity)
         
         # Save best model
         if avg_loss < self.best_val_loss:
@@ -504,7 +504,7 @@ class LanguageModelTrainer:
     
     def save_checkpoint(self, is_best: bool = False):
         """Save model checkpoint."""
-        logger.info(f"Saving checkpoint at step {self.global_step}")
+        logger.info("Saving checkpoint at step %s", self.global_step)
         
         metrics = {
             'train_loss': self.metrics.get_latest('train_loss'),
@@ -545,10 +545,11 @@ class LanguageModelTrainer:
                 epoch_metrics = self.train_epoch()
                 
                 logger.info(
-                    f"Epoch {epoch} completed - "
-                    f"Train Loss: {epoch_metrics['train_loss']:.4f}, "
-                    f"Steps: {epoch_metrics['num_steps']}, "
-                    f"Global Step: {self.global_step}"
+                    "Epoch %d completed - Train Loss: %.4f, Steps: %d, Global Step: %d",
+                    epoch,
+                    epoch_metrics['train_loss'],
+                    epoch_metrics['num_steps'],
+                    self.global_step
                 )
                 
                 # Check if we've reached max steps
@@ -558,8 +559,8 @@ class LanguageModelTrainer:
         except KeyboardInterrupt:
             logger.info("Training interrupted by user")
         
-        except Exception as e:
-            logger.error(f"Training failed: {e}")
+        except (RuntimeError, ValueError, KeyError) as e:
+            logger.error("Training failed: %s", e)
             raise
         
         finally:
@@ -571,9 +572,9 @@ class LanguageModelTrainer:
             training_time = end_time - start_time
             
             logger.info("Training completed!")
-            logger.info(f"Total training time: {training_time:.2f} seconds")
-            logger.info(f"Total steps: {self.global_step}")
-            logger.info(f"Best validation loss: {self.best_val_loss:.4f}")
+            logger.info("Total training time: %.2f seconds", training_time)
+            logger.info("Total steps: %s", self.global_step)
+            logger.info("Best validation loss: %.4f", self.best_val_loss)
 
 
 def main():

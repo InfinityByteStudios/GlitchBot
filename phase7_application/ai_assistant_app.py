@@ -10,7 +10,6 @@ import sys
 import json
 from pathlib import Path
 from typing import List
-import logging
 import gradio as gr
 import streamlit as st
 
@@ -19,7 +18,6 @@ sys.path.append(str(Path(__file__).parent.parent))
 
 try:
     import torch
-    import torch.nn.functional as F
     
     # Import our custom modules
     from shared.utils import setup_logging, get_device
@@ -43,6 +41,21 @@ class AIAssistant:
         self.tokenizer = None
         self.conversation_history = []
         self.max_history_length = 10
+        
+        # Enhanced generation settings for natural responses
+        self.generation_config = {
+            'temperature': 0.9,
+            'top_p': 0.85,
+            'top_k': 40,
+            'repetition_penalty': 1.15,
+            'max_new_tokens': 1024,
+            'no_repeat_ngram_size': 3,
+            'do_sample': True
+        }
+        
+        # Response variety tracking
+        self.recent_responses = []
+        self.max_recent_responses = 5
         
         # Load model and tokenizer
         if model_path and tokenizer_path:
@@ -84,26 +97,28 @@ class AIAssistant:
             self.model.to(self.device)
             self.model.eval()
             
-        except Exception as e:
+        except (FileNotFoundError, json.JSONDecodeError, KeyError, RuntimeError) as e:
             logger.error("Failed to load model: %s", e)
             self.model = None
             self.tokenizer = None
     
     def generate_response(self, user_input: str, max_length: int = 100,
-                         temperature: float = 0.8, top_p: float = 0.9) -> str:
-        """Generate response to user input."""
+                         temperature: float = None, top_p: float = None) -> str:
+        """Generate response to user input with natural variety."""
+        
+        # Use instance config if not specified
+        if temperature is None:
+            temperature = self.generation_config['temperature']
+        if top_p is None:
+            top_p = self.generation_config['top_p']
+        
+        # Check for greetings and provide varied responses
+        if self._is_greeting(user_input):
+            return self._generate_greeting_response()
         
         if not self.model or not self.tokenizer:
-            # Dummy responses for testing
-            dummy_responses = [
-                "I'm still learning! This is a demo response from your AI assistant built from scratch.",
-                "Hello! I'm your custom AI assistant. I'm currently in development mode.",
-                "That's an interesting question! I'm still training to provide better responses.",
-                "I'm your AI assistant, built entirely from scratch using PyTorch. How can I help you today?",
-                "As an AI assistant developed from the ground up, I'm continuously improving my responses."
-            ]
-            import random
-            return random.choice(dummy_responses)
+            # Enhanced dummy responses with variety
+            return self._get_varied_dummy_response(user_input)
         
         try:
             # Prepare conversation context
@@ -112,15 +127,18 @@ class AIAssistant:
             # Tokenize input
             input_ids = torch.tensor([self.tokenizer.encode(context)]).to(self.device)
             
-            # Generate response
+            # Generate response with enhanced settings
             with torch.no_grad():
                 generated = self.model.generate(
                     input_ids,
                     max_length=len(input_ids[0]) + max_length,
                     temperature=temperature,
                     top_p=top_p,
-                    do_sample=True,
-                    pad_token_id=self.tokenizer.vocab.get('<pad>', 0)
+                    top_k=self.generation_config['top_k'],
+                    repetition_penalty=self.generation_config['repetition_penalty'],
+                    do_sample=self.generation_config['do_sample'],
+                    pad_token_id=self.tokenizer.vocab.get('<pad>', 0),
+                    no_repeat_ngram_size=self.generation_config.get('no_repeat_ngram_size', 3)
                 )
             
             # Decode response
@@ -130,11 +148,143 @@ class AIAssistant:
             # Clean up response
             response = self._clean_response(response)
             
+            # Check for repetition and regenerate if needed
+            if self._is_too_similar_to_recent(response):
+                # Increase temperature and try again
+                return self.generate_response(user_input, max_length, 
+                                           temperature + 0.1, top_p)
+            
+            # Track this response
+            self._track_response(response)
+            
             return response
             
-        except Exception as e:
+        except (RuntimeError, ValueError, AttributeError) as e:
             logger.error("Generation failed: %s", e)
-            return "I apologize, but I encountered an error while generating a response."
+            return self._get_error_response()
+    
+    def _is_greeting(self, user_input: str) -> bool:
+        """Check if user input is a greeting."""
+        greetings = [
+            'hi', 'hello', 'hey', 'howdy', 'greetings', 'good morning', 
+            'good afternoon', 'good evening', 'what\'s up', 'wassup',
+            'yo', 'hiya', 'salutations', 'hej', 'bonjour', 'hola'
+        ]
+        
+        input_lower = user_input.lower().strip()
+        return any(greeting in input_lower for greeting in greetings)
+    
+    def _generate_greeting_response(self) -> str:
+        """Generate varied greeting responses."""
+        import random
+        
+        greetings = [
+            "Hey there! What's on your mind today?",
+            "Hello! Ready to chat about something interesting?",
+            "Hi! How can I help you out?",
+            "Hey! What brings you here today?",
+            "Greetings! What would you like to explore?",
+            "Hello there! I'm all ears.",
+            "Hi! What's happening in your world?",
+            "Hey! Ready for a good conversation?",
+            "Hello! What can we dive into today?",
+            "Hi there! What's got your curiosity sparked?",
+            "Hey! What's the plan for our chat today?",
+            "Hello! I'm here and ready to help with whatever you need.",
+            "Hi! What adventure should we embark on today?",
+            "Hey there! What's the topic du jour?",
+            "Hello! What questions are bouncing around in your head?"
+        ]
+        
+        # Filter out recently used greetings
+        available_greetings = [g for g in greetings if g not in self.recent_responses]
+        if not available_greetings:
+            available_greetings = greetings  # Reset if all used
+        
+        response = random.choice(available_greetings)
+        self._track_response(response)
+        return response
+    
+    def _get_varied_dummy_response(self, user_input: str) -> str:
+        """Get varied dummy responses based on input."""
+        import random
+        
+        # Context-aware dummy responses
+        if 'thank' in user_input.lower():
+            responses = [
+                "You're very welcome! Happy to help.",
+                "No problem at all! That's what I'm here for.",
+                "My pleasure! Glad I could assist.",
+                "You bet! Always here to lend a hand."
+            ]
+        elif any(word in user_input.lower() for word in ['how', 'what', 'why', 'when', 'where']):
+            responses = [
+                "That's a great question! I'm still learning to provide detailed answers.",
+                "Interesting question! My knowledge is still developing, but I'm eager to explore that with you.",
+                "I love curious minds! While I'm still training, I find that topic fascinating.",
+                "You've got me thinking! I'm continuously learning to give better responses to questions like that."
+            ]
+        else:
+            responses = [
+                "I'm still learning! This is a demo response from your AI assistant built from scratch.",
+                "That's intriguing! I'm your custom AI assistant, currently in development mode.",
+                "Fascinating input! I'm continuously improving my conversation abilities.",
+                "I appreciate you chatting with me! I'm your AI assistant, built entirely from scratch using PyTorch.",
+                "Thanks for the interaction! As an AI developed from the ground up, I'm always evolving."
+            ]
+        
+        # Filter out recently used responses
+        available_responses = [r for r in responses if r not in self.recent_responses]
+        if not available_responses:
+            available_responses = responses
+        
+        response = random.choice(available_responses)
+        self._track_response(response)
+        return response
+    
+    def _get_error_response(self) -> str:
+        """Get varied error responses."""
+        import random
+        
+        error_responses = [
+            "Oops! I hit a snag while generating a response. Mind trying that again?",
+            "I apologize, but I encountered an error. Could you rephrase that for me?",
+            "Something went wrong on my end. Let's give that another shot!",
+            "I'm having a moment here! Could you try asking that differently?",
+            "Technical hiccup! I'd love to try answering that again if you don't mind."
+        ]
+        
+        return random.choice(error_responses)
+    
+    def _is_too_similar_to_recent(self, response: str) -> bool:
+        """Check if response is too similar to recent ones."""
+        if not self.recent_responses:
+            return False
+        
+        # Simple similarity check - could be enhanced with more sophisticated methods
+        for recent in self.recent_responses:
+            if self._calculate_similarity(response, recent) > 0.8:
+                return True
+        return False
+    
+    def _calculate_similarity(self, text1: str, text2: str) -> float:
+        """Calculate similarity between two texts (simple word overlap)."""
+        words1 = set(text1.lower().split())
+        words2 = set(text2.lower().split())
+        
+        if not words1 or not words2:
+            return 0.0
+        
+        intersection = words1.intersection(words2)
+        union = words1.union(words2)
+        
+        return len(intersection) / len(union) if union else 0.0
+    
+    def _track_response(self, response: str):
+        """Track recent responses to avoid repetition."""
+        self.recent_responses.append(response)
+        if len(self.recent_responses) > self.max_recent_responses:
+            self.recent_responses = self.recent_responses[-self.max_recent_responses:]
     
     def _prepare_context(self, user_input: str) -> str:
         """Prepare conversation context for generation."""
@@ -182,9 +332,10 @@ class AIAssistant:
         self.conversation_history.append(f"Assistant: {response}")
     
     def clear_history(self):
-        """Clear conversation history."""
+        """Clear conversation history and recent response tracking."""
         self.conversation_history = []
-        logger.info("Conversation history cleared")
+        self.recent_responses = []
+        logger.info("Conversation history and response tracking cleared")
     
     def get_history(self) -> List[str]:
         """Get conversation history."""
@@ -193,21 +344,6 @@ class AIAssistant:
 
 def create_gradio_interface(assistant: AIAssistant) -> gr.Interface:
     """Create Gradio web interface for the AI assistant."""
-    
-    def chat_function(message, history):
-        """Handle chat interaction."""
-        if not message.strip():
-            return history, ""
-        
-        # Generate response
-        response = assistant.generate_response(message)
-        assistant.add_to_history(response)
-        
-        # Update history
-        history.append([message, response])
-        
-        return history, ""
-    
     def clear_chat():
         """Clear chat history."""
         assistant.clear_history()
@@ -290,6 +426,7 @@ def create_gradio_interface(assistant: AIAssistant) -> gr.Interface:
             history.append([message, response])
             return history, ""
         
+        # pylint: disable=no-member
         send_btn.click(
             enhanced_chat_function,
             inputs=[msg, chatbot, temperature, top_p, max_length],
@@ -410,7 +547,7 @@ def create_cli_interface(assistant: AIAssistant):
                 continue
             
             elif user_input.lower() == 'status':
-                print(f"\n📊 Assistant Status:")
+                print("\n📊 Assistant Status:")
                 print(f"  Model loaded: {'✅ Yes' if assistant.model else '❌ No (Demo mode)'}")
                 print(f"  Tokenizer loaded: {'✅ Yes' if assistant.tokenizer else '❌ No'}")
                 print(f"  Conversation length: {len(assistant.conversation_history)} messages")
@@ -466,8 +603,8 @@ def main():
     
     elif args.interface == "streamlit":
         try:
-            print(f"🚀 Starting Streamlit app...")
-            print(f"🌐 Open your browser to: http://localhost:8501")
+            print("🚀 Starting Streamlit app...")
+            print("🌐 Open your browser to: http://localhost:8501")
             # Note: Streamlit runs via command line, this just shows the function
             create_streamlit_app()
         except ImportError:
